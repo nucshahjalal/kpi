@@ -21,27 +21,35 @@
 
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
-                            <span class="nxl-micon"><i class="fa-solid fa-gas-pump engine-spin"></i></span>
+                            <span class="nxl-micon">
+                                <i class="">
+                                    <img src="{{asset('backend/assets/icon/icon11.jpg')}}" width="18px" height="50%" class="img-fluid">
+                                </i>
+                            </span>
                             <span class="nxl-mtext">Inquiry</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
                         <ul class="nxl-submenu">
-                            <li class="nxl-item"><a class="nxl-link" href="{{route('inquiry.create')}}">Add Inquiry</a></li>
+                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry.create')}}">Add Inquiry</a></li>
                         </ul>
                     </li>
 
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
-                            <span class="nxl-micon"><i class="fa-solid fa-cog engine-spin2"></i></span>
+                            <span class="nxl-micon">
+                                <i class="">
+                                    <img src="{{asset('backend/assets/icon/icon12.jpg')}}" width="18px" height="50%" class="img-fluid">
+                                </i>
+                            </span>
                             <span class="nxl-mtext">Inquiry List</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
                         <ul class="nxl-submenu">
-                            <li class="nxl-item"><a class="nxl-link" href="">HOT</a></li>
+                            <li style="margin-left: 10px;" class="nxl-item"><a class="nxl-link" href="">HOT</a></li>
                         </ul>
                         <ul class="nxl-submenu">
-                            <li class="nxl-item"><a class="nxl-link" href="">COLD</a></li>
+                            <li style="margin-left: 10px;" class="nxl-item"><a class="nxl-link" href="">COLD</a></li>
                         </ul>
                         <ul class="nxl-submenu">
-                            <li class="nxl-item"><a class="nxl-link" href="">WARM</a></li>
+                            <li style="margin-left: 10px;" class="nxl-item"><a class="nxl-link" href="">WARM</a></li>
                         </ul>
                     </li>
                     
@@ -56,24 +64,4 @@
         </div>
     </nav>
 
-    <style>
-
-         .engine-spin {
-            font-size: 20px;
-            color: rgb(14, 143, 143);
-            display: inline-block;
-            animation: moveTractor 3s linear infinite;
-            }
-         .engine-spin2 {
-            font-size: 20px;
-            color: rgb(80, 48, 209);
-            display: inline-block;
-            animation: moveTractor 3s linear infinite;
-            }
- 
-        /* .nxl-micon i {
-            color: green; /* bright orange, for example */
-            font-size: 2rem;
-        } */
-    </style>
-
+    

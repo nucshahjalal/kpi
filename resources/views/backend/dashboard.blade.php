@@ -55,165 +55,163 @@
                 </div>
             </div>
 
-            <div class="row">
-            <!-- Card 1 -->
-                <div class="col-xxl-3 col-md-3">
-                    <div style="background: linear-gradient(to right, #0dbc5c, #8cc9a8);" class="card stretch stretch-full text-white">
-                        <div class="card-body">
-                            <div class="d-flex align-items-start justify-content-between mb-4">
-                                <div class="d-flex gap-4 align-items-center">
-                                    <div class="avatar-text avatar-lg bg-white text-success">
-                                        <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
-                                             {{-- <i class="fa-solid fa-ship tractor-spin"></i> --}}
-                                             <i style="background-color: rgb(18, 50, 87);">
-                                                <img src="{{asset('backend/assets/icon/icon1.jpg')}}" width="25px" height="50%" class="img-fluid">
-                                             </i>
-                                             {{-- <i style="background-color: rgb(18, 50, 87);padding:3px;" class="icon-rainbow icon-hover-color fa-solid fa-screwdriver-wrench "></i> --}}
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <div class="fs-4 fw-bold text-white"><span class="counter">10</span></div>
-                                        <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Inquiry</h3>
-                                    </div>
+    <div class="row">
+        <!-- Card 1 -->
+            <div class="col-xxl-3 col-md-3">
+                <div style="background: linear-gradient(to right, #0dbc5c, #b7c3bc);" class="card stretch stretch-full text-white">
+                    <div class="card-body">
+                        <div class="d-flex align-items-start justify-content-between mb-4">
+                            <div class="d-flex gap-4 align-items-center">
+                                <div class="avatar-text avatar-lg bg-white text-success">
+                                    <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
+                                        <i style="">
+                                            <img src="{{asset('backend/assets/icon/icon1.jpg')}}" width="30px" height="50%" class="img-fluid">
+                                        </i>
+                                    </a>
                                 </div>
-                                <a href="javascript:void(0);" class="text-white">
-                                    <i class="feather-more-vertical"></i>
-                                </a>
-                            </div>
-                            <div class="pt-4">
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <a href="javascript:void(0);" style="font-size: 11px;" class="fs-12 fw-medium text-white text-truncate-1-line">Inquiry Process</a>
-                                    <div class="w-100 text-end">
-                                        <span class="fs-11 text-white">10%</span>
-                                    </div>
-                                </div>
-                                <div class="progress mt-2 ht-3" style="height: 5px;">
-                                    <div class="progress-bar bg-white" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div>
+                                    <div class="fs-4 fw-bold text-white"><span class="counter">10</span></div>
+                                    <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Inquiry</h3>
                                 </div>
                             </div>
+                            <a href="javascript:void(0);" class="text-white">
+                                <i class="feather-more-vertical"></i>
+                            </a>
                         </div>
-                    </div>
-                </div>
-
-            <!-- Card 2 -->
-                <div class="col-xxl-3 col-md-3">
-                    <div style="background: linear-gradient(to right, #b35558, #e70817);" class="card stretch stretch-full  text-white">
-                        <div class="card-body">
-                            <div class="d-flex align-items-start justify-content-between mb-4">
-                                <div class="d-flex gap-4 align-items-center">
-                                    <div class="avatar-text avatar-lg bg-gray-200">
-                                        <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
-                                            <i style="background-color: rgb(18, 50, 87);">
-                                                <img src="{{asset('backend/assets/icon/icon2.jpg')}}" width="25px" height="100%" class="img-fluid">
-                                             </i>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <div class="fs-4 fw-bold text-white"><span class="counter">5</span></div>
-                                        <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Hot</h3>
-                                    </div>
-                                </div>
-                                <a href="javascript:void(0);" class="text-white"><i class="feather-more-vertical"></i></a>
-                            </div>
-                            <div class="pt-4">
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <a href="javascript:void(0);" style="font-size: 12px;" class="text-white fs-12 fw-medium text-truncate-1-line">Hot Process</a>
-                                    <div class="w-100 text-end">
-                                        <span class="fs-11 text-white">5%</span>
-                                    </div>
-                                </div>
-                                <div class="progress mt-2 ht-3">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="pt-4">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <a href="javascript:void(0);" style="font-size: 11px;" class="fs-12 fw-medium text-white text-truncate-1-line">Inquiry Process</a>
+                                <div class="w-100 text-end">
+                                    <span class="fs-11 text-white">10%</span>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-            <!-- Card 3 -->
-                <div class="col-xxl-3 col-md-3">
-                    <div style="background: linear-gradient(to right, #967d4e, #FFA500);" class="card stretch stretch-full  text-white">
-                        <div class="card-body">
-                            <div class="d-flex align-items-start justify-content-between mb-4">
-                                <div class="d-flex gap-4 align-items-center">
-                                    <div class="avatar-text avatar-lg bg-gray-200">
-                                        <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
-                                            <i style="background-color: rgb(18, 50, 87);" class="icon-rainbow icon-hover3-color icon-rainbow ">
-                                                <img src="{{asset('backend/assets/icon/icon3.jpg')}}" width="25px" height="50%"  class="img-fluid">
-                                            </i>
-                                        </a>
-                                        
-                                    </div>
-                                    <div>
-                                        <div class="fs-4 fw-bold text-white"><span class="counter">10</span></div>
-                                        <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Warm</h3>
-                                    </div>
-                                </div>
-                                <a href="javascript:void(0);" class="text-white"><i class="feather-more-vertical"></i></a>
-                            </div>
-                            <div class="pt-4">
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <a href="javascript:void(0);" class="fs-12 fw-medium text-white text-truncate-1-line">Warm Process</a>
-                                    <div class="w-100 text-end">
-                                        <span class="fs-11 text-white">10%</span>
-                                    </div>
-                                </div>
-                                <div class="progress mt-2 ht-3">
-                                    <div class="progress-bar bg-info text-white" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            <!-- Card 4 -->
-                <div class="col-xxl-3 col-md-3">
-                    <div style="background: linear-gradient(to right, #0fbdb2, #85cec9);" class="card stretch stretch-full bg-info text-white">
-                        <div class="card-body">
-                            <div class="d-flex align-items-start justify-content-between mb-4">
-                                <div class="d-flex gap-4 align-items-center">
-                                    <div class="avatar-text avatar-lg bg-gray-200">
-                                        <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
-                                             <i style="background-color: rgb(18, 50, 87);" class="icon-rainbow icon-hover3-color icon-rainbow ">
-                                                <img src="{{asset('backend/assets/icon/icon10.jpg')}}" width="25px" height="50%"  class="img-fluid">
-                                            </i>
-                                            {{-- <i style="background-color: rgb(207, 149, 62);padding:3px;" class="icon-rainbow icon-hover4-color icon-rainbow fa-solid fa-gas-pump engine-spin44"></i> --}}
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <div class="fs-4 fw-bold text-white"><span class="counter">5</span></div>
-                                        <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Cool</h3>
-                                    </div>
-                                </div>
-                                <a href="javascript:void(0);" class="text-white"><i class="feather-more-vertical"></i></a>
-                            </div>
-                            <div class="pt-4">
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <a href="javascript:void(0);" class="fs-12 fw-medium text-white text-truncate-1-line">Cool Process</a>
-                                    <div class="w-100 text-end">
-                                        <span class="fs-11 text-white">5%</span>
-                                    </div>
-                                </div>
-                                <div class="progress mt-2 ht-3">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                            <div class="progress mt-2 ht-3" style="height: 5px;">
+                                <div class="progress-bar bg-white" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+        <!-- Card 2 -->
+            <div class="col-xxl-3 col-md-3">
+                <div style="background: linear-gradient(to right, #d2252b, #da9598);" class="card stretch stretch-full  text-white">
+                    <div class="card-body">
+                        <div class="d-flex align-items-start justify-content-between mb-4">
+                            <div class="d-flex gap-4 align-items-center">
+                                <div class="avatar-text avatar-lg bg-white text-success">
+                                    <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
+                                        <i style="">
+                                        <img src="{{asset('backend/assets/icon/icon2.jpg')}}" width="30px" height="100%" class="img-fluid">
+                                        </i>
+                                    </a>
+                                </div>
+                                <div>
+                                    <div class="fs-4 fw-bold text-white"><span class="counter">5</span></div>
+                                    <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Hot</h3>
+                                </div>
+                            </div>
+                            <a href="javascript:void(0);" class="text-white"><i class="feather-more-vertical"></i></a>
+                        </div>
+                        <div class="pt-4">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <a href="javascript:void(0);" style="font-size: 12px;" class="text-white fs-12 fw-medium text-truncate-1-line">Hot Process</a>
+                                <div class="w-100 text-end">
+                                    <span class="fs-11 text-white">5%</span>
+                                </div>
+                            </div>
+                            <div class="progress mt-2 ht-3">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <div class="row">
-        <div class="col-xxl-6 col-md-6">
-            <div style="background: linear-gradient(to right, rgb(107, 115, 118), rgb(62, 101, 146));" class="card stretch stretch-full text-white">
+        <!-- Card 3 -->
+            <div class="col-xxl-3 col-md-3">
+                <div style="background: linear-gradient(to right, #df960d, #c1b295);" class="card stretch stretch-full  text-white">
+                    <div class="card-body">
+                        <div class="d-flex align-items-start justify-content-between mb-4">
+                            <div class="d-flex gap-4 align-items-center">
+                              <div class="avatar-text avatar-lg bg-white text-success">
+                                    <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
+                                        <i style="" class="">
+                                            <img src="{{asset('backend/assets/icon/icon6.jpg')}}" width="30px" height="50%"  class="img-fluid">
+                                        </i>
+                                    </a>
+                                    
+                                </div>
+                                <div>
+                                    <div class="fs-4 fw-bold text-white"><span class="counter">10</span></div>
+                                    <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Warm</h3>
+                                </div>
+                            </div>
+                            <a href="javascript:void(0);" class="text-white"><i class="feather-more-vertical"></i></a>
+                        </div>
+                        <div class="pt-4">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <a href="javascript:void(0);" class="fs-12 fw-medium text-white text-truncate-1-line">Warm Process</a>
+                                <div class="w-100 text-end">
+                                    <span class="fs-11 text-white">10%</span>
+                                </div>
+                            </div>
+                            <div class="progress mt-2 ht-3">
+                                <div class="progress-bar bg-info text-white" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+        <div class="col-xxl-3 col-md-3">
+            <div style="background: linear-gradient(to right, #0fbdb2, #a1c9c6);" class="card stretch stretch-full bg-info text-white">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
-                            <div class="avatar-text avatar-lg bg-gray-200">
+                            <div class="avatar-text avatar-lg bg-white text-success">
                                 <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
-                                     <i style="background-color: rgb(18, 50, 87);" class="icon-rainbow icon-hover3-color icon-rainbow ">
-                                        <img src="{{asset('backend/assets/icon/icon9.jpg')}}" width="25px" height="50%"  class="img-fluid">
+                                        <i style="" class="">
+                                        <img src="{{asset('backend/assets/icon/icon10.jpg')}}" width="30px" height="50%"  class="img-fluid">
+                                    </i>
+                                    {{-- <i style="background-color: rgb(207, 149, 62);padding:3px;" class="icon-rainbow icon-hover4-color icon-rainbow fa-solid fa-gas-pump engine-spin44"></i> --}}
+                                </a>
+                            </div>
+                            <div>
+                                <div class="fs-4 fw-bold text-white"><span class="counter">5</span></div>
+                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Cool</h3>
+                            </div>
+                        </div>
+                        <a href="javascript:void(0);" class="text-white"><i class="feather-more-vertical"></i></a>
+                    </div>
+                    <div class="pt-4">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <a href="javascript:void(0);" class="fs-12 fw-medium text-white text-truncate-1-line">Cool Process</a>
+                            <div class="w-100 text-end">
+                                <span class="fs-11 text-white">5%</span>
+                            </div>
+                        </div>
+                        <div class="progress mt-2 ht-3">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xxl-6 col-md-6">
+            <div style="background: linear-gradient(to right, rgb(32, 149, 192), rgb(139, 175, 188));" class="card stretch stretch-full text-white">
+                <div class="card-body">
+                    <div class="d-flex align-items-start justify-content-between mb-4">
+                        <div class="d-flex gap-4 align-items-center">
+                            <div class="avatar-text avatar-lg bg-white text-success">
+                                <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
+                                     <i style="" class="">
+                                        <img src="{{asset('backend/assets/icon/icon9.jpg')}}" width="30px" height="50%"  class="img-fluid">
                                     </i>
                                         {{-- <i style="background-color: rgb(228, 189, 19);padding:3px;" class="icon-rainbow icon-hover5-color fa-solid fa-gas-pump engine-spin55"></i> --}}
                                 </a>
@@ -247,16 +245,15 @@
             </div>
         </div>
         <div class="col-xxl-6 col-md-6">
-            <div style="background: linear-gradient(to right,#4e4e7e,#2a2aa9"  class="card stretch stretch-full text-white">
+            <div style="background: linear-gradient(to right,#2323c3,#8d8dc0"  class="card stretch stretch-full text-white">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
-                            <div class="avatar-text avatar-lg bg-gray-200">
+                            <div class="avatar-text avatar-lg bg-white text-success">
                                 <a href="#" target="_blank" class="text-white">
-                                     <i style="background-color: rgb(18, 50, 87);" class="icon-rainbow icon-hover3-color icon-rainbow ">
-                                        <img src="{{asset('backend/assets/icon/icon7.jpg')}}" width="25px" height="50%"  class="img-fluid">
+                                    <i style="" class="">
+                                        <img src="{{asset('backend/assets/icon/icon7.jpg')}}" width="30px" height="50%"  class="img-fluid">
                                     </i>
-                                    {{-- <i style="background-color: rgb(169, 18, 18);padding:3px;" class="icon-rainbow icon-hover3-color fas fa-toolbox engine-spin66"></i> --}}
                                 </a>
                             </div>
                             <div>
@@ -300,13 +297,15 @@
     <div class="row">
         <!-- Card 1 -->
         <div class="col-xxl-3 col-md-3">
-            <div  style="background: linear-gradient(to right, #a1aec0, #5576a5);" class="card stretch stretch-full bg-secondary  text-white">
+            <div  style="background: linear-gradient(to right, #286fd1, #859cbc);" class="card stretch stretch-full bg-secondary  text-white">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
                             <div class="avatar-text avatar-lg bg-white text-success">
                                 <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
-                                     <i style="background-color: rgb(101, 116, 132);padding:3px;" class="icon-rainbow icon-hover2-color fa-solid fa-ship tractor-spin22"></i>
+                                    <i style="" class="">
+                                        <img src="{{asset('backend/assets/icon/icon13.jpg')}}" width="30px" height="50%"  class="img-fluid">
+                                    </i>
                                 </a>
                             </div>
                             <div>
@@ -335,13 +334,15 @@
 
         <!-- Card 2 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(to right,rgb(122, 146, 135),rgb(32, 189, 116));"  class="card stretch stretch-full  text-white">
+            <div style="background: linear-gradient(to right,rgb(42, 205, 132),rgb(151, 193, 173));"  class="card stretch stretch-full  text-white">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
-                            <div class="avatar-text avatar-lg bg-gray-200">
+                            <div class="avatar-text avatar-lg bg-white text-success">
                                 <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
-                                     <i style="background-color: rgb(24, 196, 196);padding:3px;" class="icon-rainbow icon-hover6-color icon-rainbow fa-solid fa-gas-pump engine-spin44"></i>
+                                    <i style="" class=" ">
+                                        <img src="{{asset('backend/assets/icon/icon5.jpg')}}" width="30px" height="50%"  class="img-fluid">
+                                    </i>
                                 </a>
                             </div>
                             <div>
@@ -368,13 +369,14 @@
 
         <!-- Card 3 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(to right,rgb(146, 146, 181),rgb(93, 93, 203));" class="card stretch stretch-full text-white">
+            <div style="background: linear-gradient(to right,rgb(47, 47, 203),rgb(132, 132, 180))" class="card stretch stretch-full text-white">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
-                            <div class="avatar-text avatar-lg bg-gray-200">
+                            <div class="avatar-text avatar-lg bg-white text-success">
                                 <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
-                                    <i style="background-color: rgb(162, 16, 118);padding:3px;" class="icon-rainbow icon-hover3-color icon-rainbow fa-solid fa-anchor engine-spin33"></i>
+                                        <img src="{{asset('backend/assets/icon/icon12.jpg')}}" width="30px" height="50%"  class="img-fluid">
+                                    </i>
                                 </a>
                             </div>
                             <div>
@@ -401,17 +403,19 @@
 
         <!-- Card 4 -->
             <div class="col-xxl-3 col-md-3">
-                <div style="background: linear-gradient(to right,rgb(126, 98, 113),rgb(154, 52, 106));"  class="card stretch stretch-full text-white">
+                <div style="background: linear-gradient(to right,rgb(203, 36, 125),rgb(187, 142, 166));"  class="card stretch stretch-full text-white">
                     <div class="card-body">
                         <div class="d-flex align-items-start justify-content-between mb-4">
                             <div class="d-flex gap-4 align-items-center">
-                                <div class="avatar-text avatar-lg bg-gray-200">
+                                <div class="avatar-text avatar-lg bg-white text-success">
                                     <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
-                                        <i style="background-color: rgb(190, 228, 52);padding:3px;" class="icon-rainbow icon-hover5-color fas fa-gear fa-screwdriver-wrench "></i>
+                                        <i style="" class="">
+                                        <img src="{{asset('backend/assets/icon/icon3.jpg')}}" width="30px" height="50%"  class="img-fluid">
+                                    </i>
                                     </a>
                                 </div>
                                 <div>
-                                    <div class="fs-4 fw-bold text-white"><span class="counter">66</span></div>
+                                    <div class="fs-4 fw-bold text-white"><span class="counter">6</span></div>
                                     <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Cool</h3>
                                 </div>
                             </div>
@@ -436,51 +440,51 @@
 
     </div>
 
-            <div class="row">
-                    <!-- Chart 1 -->
-                <div class="col-xxl-6 col-md-6">
-                    <div class="card stretch stretch-full p-3">
+        <div class="row">
+                <!-- Chart 1 -->
+            <div class="col-xxl-6 col-md-6">
+                <div class="card stretch stretch-full p-3">
                     <div class="card-body">
                         <div class="chart-wrapper">
-                        <canvas id="projectChart"></canvas>
+                            <canvas id="projectInqury"></canvas>
                         </div>
-                    </div>
-                    </div>
-                </div>
-
-                <!-- Chart 2 -->
-                <div class="col-xxl-6 col-md-6">
-                    <div class="card stretch stretch-full p-3">
-                        <div class="card-body">
-                        <div class="chart-wrapper">
-                            <canvas id="projectDiscontinuation"></canvas>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-
-           <div class="row">
-                <div class="col-xxl-6 col-md-6 col-12">
-                    <div class="card stretch stretch-full p-3">
-                    <div class="card-body custom-card-action">
-                        <div class="chart-wrapper">
-                        <canvas id="inquiryChart"></canvas>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="col-xxl-6 col-md-6 col-12">
-                    <div class="card stretch stretch-full p-3">
-                    <div class="card-body custom-card-action">
-                        <div class="chart-wrapper">
-                        <canvas id="productChart"></canvas>
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Chart 2 -->
+            <div class="col-xxl-6 col-md-6">
+                <div class="card stretch stretch-full p-3">
+                    <div class="card-body">
+                        <div class="chart-wrapper">
+                            <canvas id="projectDiscontinuation"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xxl-6 col-md-6 col-12">
+                <div class="card stretch stretch-full p-3">
+                    <div class="card-body custom-card-action">
+                        <div class="chart-wrapper">
+                            <canvas id="inquiryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xxl-6 col-md-6 col-12">
+                <div class="card stretch stretch-full p-3">
+                    <div class="card-body custom-card-action">
+                        <div class="chart-wrapper">
+                            <canvas id="productChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
             <div class="row">
@@ -526,6 +530,142 @@
         });
     });
 
+</script>
+
+
+<!-- Include the Data Labels plugin -->
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+<script>
+  const ctx = document.getElementById('projectInqury').getContext('2d');
+
+  const projectChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Successful', 'Total Project'],
+      datasets: [{
+        label: 'Project Stats',
+        data: [20, 10],
+        backgroundColor: ['#c0392b', '#2980b9'],
+        borderWidth: 2,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Achievement Ratio',  // ✅ Chart Title Here
+          font: {
+            size: 20,
+            weight: 'bold'
+          },
+          color: '#333'
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              const total = 30;
+              const value = context.raw;
+              const percentage = ((value / total) * 100).toFixed(0);
+              return `${context.label}: ${percentage}%`;
+            }
+          }
+        },
+        legend: {
+          position: 'top',
+          labels: {
+            font: {
+              size: 14,
+              weight: 'bold'
+            }
+          }
+        },
+        datalabels: {
+          formatter: (value, ctx) => {
+            const total = ctx.dataset.data.reduce((acc, val) => acc + val, 0);
+            const percentage = ((value / total) * 100).toFixed(0);
+            return `${percentage}%`;
+          },
+          color: '#fff',
+          font: {
+            size: 14,
+            weight: 'bold'
+          }
+        }
+      },
+      animation: {
+        animateScale: true,
+        animateRotate: true
+      }
+    },
+    plugins: [ChartDataLabels]
+  });
+</script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const ctx = document.getElementById('projectDiscontinuation').getContext('2d');
+
+    const totalProjects = 50;
+    const discontinuation = 20;
+    const ongoingProjects = totalProjects - discontinuation;
+
+    const projectChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Total Project', 'Discontinuation'],
+        datasets: [{
+          label: 'Project Status',
+          data: [ongoingProjects, discontinuation],
+          backgroundColor: ['#3b72b3', '#b7aed8'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false, // Make sure this is false to allow flexible height
+        aspectRatio: 1, // Optional: Set aspect ratio (1 = square, adjust as necessary)
+        plugins: {
+          title: {
+            display: true,
+            text: 'Discontinuation Ratio', // Chart title here
+            font: {
+              size: 20,
+              weight: 'bold'
+            },
+            color: '#333',
+            padding: {
+              top: 5,
+              bottom: 20
+            }
+          },
+          legend: {
+            position: 'top',
+            labels: {
+              boxWidth: 15,
+              padding: 20,
+              font: {
+                size: 14,
+                weight: 'bold'
+              }
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                const value = context.raw;
+                const percentage = ((value / totalProjects) * 100).toFixed(0);
+                return `${context.label}: ${percentage}%`; // Show percentage in the tooltip
+              }
+            }
+          }
+        }
+      }
+    });
+  });
 </script>
 
 <script>
@@ -631,141 +771,6 @@
 </script>
 
 
-<!-- Include the Data Labels plugin -->
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-
-<script>
-  const ctx = document.getElementById('projectChart').getContext('2d');
-
-  const projectChart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-      labels: ['Successful', 'Total Project'],
-      datasets: [{
-        label: 'Project Stats',
-        data: [20, 10],
-        backgroundColor: ['#c0392b', '#2980b9'],
-        borderWidth: 2,
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        title: {
-          display: true,
-          text: 'Achievement Ratio',  // ✅ Chart Title Here
-          font: {
-            size: 20,
-            weight: 'bold'
-          },
-          color: '#333'
-        },
-        tooltip: {
-          callbacks: {
-            label: function(context) {
-              const total = 30;
-              const value = context.raw;
-              const percentage = ((value / total) * 100).toFixed(0);
-              return `${context.label}: ${percentage}%`;
-            }
-          }
-        },
-        legend: {
-          position: 'top',
-          labels: {
-            font: {
-              size: 14,
-              weight: 'bold'
-            }
-          }
-        },
-        datalabels: {
-          formatter: (value, ctx) => {
-            const total = ctx.dataset.data.reduce((acc, val) => acc + val, 0);
-            const percentage = ((value / total) * 100).toFixed(0);
-            return `${percentage}%`;
-          },
-          color: '#fff',
-          font: {
-            size: 14,
-            weight: 'bold'
-          }
-        }
-      },
-      animation: {
-        animateScale: true,
-        animateRotate: true
-      }
-    },
-    plugins: [ChartDataLabels]
-  });
-</script>
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const ctx = document.getElementById('projectDiscontinuation').getContext('2d');
-
-    const totalProjects = 50;
-    const discontinuation = 20;
-    const ongoingProjects = totalProjects - discontinuation;
-
-    const projectChart = new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: ['Total Project', 'Discontinuation'],
-        datasets: [{
-          label: 'Project Status',
-          data: [ongoingProjects, discontinuation],
-          backgroundColor: ['#3b72b3', '#b7aed8'],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          title: {
-            display: true,
-            text: 'Discontinuation Ratio', // 👈 Chart title here
-            font: {
-              size: 20,
-              weight: 'bold'
-            },
-            color: '#333',
-            padding: {
-              top: 10,
-              bottom: 20
-            }
-          },
-          legend: {
-            position: 'top',
-            labels: {
-              boxWidth: 15,
-              padding: 20,
-              font: {
-                size: 14,
-                weight: 'bold'
-              }
-            }
-          },
-          tooltip: {
-            callbacks: {
-              label: function(context) {
-                const value = context.parsed;
-                const percentage = ((value / totalProjects) * 100).toFixed(0);
-                return `${context.label}: ${percentage}%`;
-              }
-            }
-          }
-        }
-      }
-    });
-  });
-</script>
-
-
 
     {{-- <script>
         const ctx = document.getElementById('projectChart').getContext('2d');
@@ -846,37 +851,6 @@
     </script> --}}
 <style>
  
- @keyframes rainbowColors {
-  0%, 100% { color: #e74c3c; }
-  15% { color: #f39c12; }
-  30% { color: #f1c40f; }
-  45% { color: #2ecc71; }
-  60% { color: #3498db; }
-  75% { color: #9b59b6; }
-  90% { color: #e74c3c; }
-}
-
-.icon-rainbow {
-  animation: rainbowColors 4s linear infinite;
-}
-.icon-hover-color:hover {
-  color: #c9134c;
-}
-.icon-hover2-color:hover {
-  color: #6b13c9;
-}
-.icon-hover3-color:hover {
-  color: #511111;
-}
-.icon-hover4-color:hover {
-  color: #3674ca;
-}
-.icon-hover5-color:hover {
-  color: #11cb33;
-}
-.icon-hover6-color:hover {
-  color: #cfb540;
-}
 
  .chart-wrapper {
   width: 100%;
@@ -893,84 +867,16 @@
   display: block;
 }
 
-   @media (max-width: 768px) {
-     
-     .chart-wrapper {
-  width: 100%;
-  max-width: 400px;      /* max width on desktop */
-  margin: 0 auto;        /* center horizontally */
-  aspect-ratio: 1 / 1;   /* keep square */
-  padding: 10px;         /* optional padding */
-  box-sizing: border-box;
-}
+   
 
-.chart-wrapper canvas {
-  width: 100% !important;
-  height: auto !important;
-  display: block;
-}
-
-
-    
+@media (max-width: 768px) {
+  #projectDiscontinuation {
+    width: 100%; /* Adjust width for mobile */
+    height: 300px; /* Adjust height for mobile */
+    margin: 0 auto; /* Ensure the chart is centered horizontally */
   }
-
-/* .engine-spin {
-  font-size: 20px;
-  color: rgb(23, 225, 161);
-  display: inline-block;
-  animation: moveTractor 3s linear infinite;
 }
-.engine-spin2 {
-  font-size: 20px;
-  color: rgb(161, 35, 58);
-  display: inline-block;
-  animation: moveTractor 3s linear infinite;
-}
-
-.engine-spin3 {
-  font-size: 20px;
-  color: rgb(202, 193, 31);
-  display: inline-block;
-  animation: moveTractor 3s linear infinite;
-}
-.engine-spin4 {
-  font-size: 20px;
-  color: rgb(128, 0, 70);
-  display: inline-block;
-  animation: moveTractor 3s linear infinite;
-}
-.engine-spin5 {
-  font-size: 20px;
-  color: rgb(231, 154, 29);
-  display: inline-block;
-  animation: moveTractor 3s linear infinite;
-}
-.engine-spin6 {
-  font-size: 20px;
-  color: rgb(45, 219, 149);
-  display: inline-block;
-  animation: moveTractor 3s linear infinite;
-} */
-
-
-@keyframes moveTractor {
-  0%   { transform: translateX(0); }
-  50%  { transform: translateX(20px); }
-  100% { transform: translateX(0); }
-}
-
-.marine-engine-icon {
-  width: 48px;
-  height: 48px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.marine-engine-icon:hover {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
-}
-
+    
 .chart-container,
 .chart-container2 {
   display: flex;
@@ -982,27 +888,12 @@
 }
 
 #projectDiscontinuation {
-  width: 350px !important;
-  height: 350px !important;
-}
-#inquiryChart {
-  width: 400px !important;
-  height: 400px !important;
+  width: 100%; /* Full width by default */
+  height: 400px; /* Default height */
+  margin: 0 auto; /* Center the chart horizontally */
 }
 
-#productChart {
-  width: 400px !important;
-  height: 400px !important;
-}
 
-.custom-card-action {
-    padding: 5px;        
-    margin: 0 auto;        
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
- 
 
 </style>
 
