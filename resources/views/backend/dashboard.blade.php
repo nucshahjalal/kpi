@@ -204,7 +204,7 @@
 
     <div class="row">
         <div class="col-xxl-6 col-md-6">
-            <div style="background: linear-gradient(to right, rgb(32, 149, 192), rgb(139, 175, 188));" class="card stretch stretch-full text-white">
+            <div style="background: linear-gradient(to right, rgb(32, 149, 192), rgb(198, 213, 219));" class="card stretch stretch-full text-white">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
@@ -334,7 +334,7 @@
 
         <!-- Card 2 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(to right,rgb(42, 205, 132),rgb(151, 193, 173));"  class="card stretch stretch-full  text-white">
+            <div style="background: linear-gradient(to right,rgb(232, 93, 93),rgb(227, 186, 186));"  class="card stretch stretch-full  text-white">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
@@ -369,7 +369,7 @@
 
         <!-- Card 3 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(to right,rgb(47, 47, 203),rgb(132, 132, 180))" class="card stretch stretch-full text-white">
+            <div style="background: linear-gradient(to right,rgb(220, 203, 73),rgb(173, 201, 202))" class="card stretch stretch-full text-white">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
@@ -454,10 +454,10 @@
 
             <!-- Chart 2 -->
             <div class="col-xxl-6 col-md-6">
-                <div class="card stretch stretch-full p-3">
-                    <div class="card-body">
-                        <div class="chart-wrapper">
-                            <canvas id="projectDiscontinuation"></canvas>
+                <div  class="card stretch stretch-full p-3">
+                    <div  class="card-body">
+                        <div  class="chart-wrapper">
+                            <canvas  id="projectDiscontinuation"></canvas>
                         </div>
                     </div>
                 </div>
@@ -626,8 +626,8 @@
       },
       options: {
         responsive: true,
-        maintainAspectRatio: false, // Make sure this is false to allow flexible height
-        aspectRatio: 1, // Optional: Set aspect ratio (1 = square, adjust as necessary)
+        maintainAspectRatio: false, 
+        aspectRatio: 1, 
         plugins: {
           title: {
             display: true,
@@ -638,8 +638,8 @@
             },
             color: '#333',
             padding: {
-              top: 5,
-              bottom: 20
+              top: 3,
+              bottom: 5
             }
           },
           legend: {
@@ -700,7 +700,7 @@
             color: '#333'
           },
           legend: {
-            position: 'bottom',  // Better placement for doughnut chart
+            position: 'bottom',  
             labels: {
               font: {
                 size: 14
@@ -770,88 +770,85 @@
   };
 </script>
 
+{{-- <script>
+    const ctx = document.getElementById('projectChart').getContext('2d');
 
-
-    {{-- <script>
-        const ctx = document.getElementById('projectChart').getContext('2d');
-
-        const projectChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: ['Successful', 'Unsuccessful'],
-                datasets: [{
-                    label: 'Project Stats',
-                    data: [{{ $successful }}, {{ $total - $successful }}],
-                    backgroundColor: [
-                        '#c0392b',  // Red for successful (based on your image)
-                        '#2980b9'   // Blue for total (remaining unsuccessful projects)
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                plugins: {
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                const total = {{ $total }};
-                                const value = context.parsed;
-                                const percentage = ((value / total) * 100).toFixed(0);
-                                return `${context.label}: ${percentage}%`;
-                            }
+    const projectChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Successful', 'Unsuccessful'],
+            datasets: [{
+                label: 'Project Stats',
+                data: [{{ $successful }}, {{ $total - $successful }}],
+                backgroundColor: [
+                    '#c0392b',  // Red for successful (based on your image)
+                    '#2980b9'   // Blue for total (remaining unsuccessful projects)
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const total = {{ $total }};
+                            const value = context.parsed;
+                            const percentage = ((value / total) * 100).toFixed(0);
+                            return `${context.label}: ${percentage}%`;
                         }
                     }
                 }
             }
-        });
-    </script> --}}
+        }
+    });
+</script> --}}
 
-    {{-- <script>
-        const ctx = document.getElementById('projectChart').getContext('2d');
+{{-- <script>
+    const ctx = document.getElementById('projectChart').getContext('2d');
 
-        const totalProjects = {{ $total }};
-        const discontinuation = {{ $discontinuation }};
-        const ongoingProjects = totalProjects - discontinuation;
+    const totalProjects = {{ $total }};
+    const discontinuation = {{ $discontinuation }};
+    const ongoingProjects = totalProjects - discontinuation;
 
-        const projectChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: ['Total Project', 'Discontinuation'],
-                datasets: [{
-                    label: 'Project Status',
-                    data: [ongoingProjects, discontinuation],
-                    backgroundColor: [
-                        '#3b72b3',   // Blue color similar to your image
-                        '#b7aed8'    // Light purple color similar to your image
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                plugins: {
-                    legend: {
-                        position: 'right',
-                        labels: {
-                            boxWidth: 15,
-                            padding: 20
-                        }
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                const value = context.parsed;
-                                const percentage = ((value / totalProjects) * 100).toFixed(0);
-                                return `${context.label}: ${percentage}%`;
-                            }
+    const projectChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Total Project', 'Discontinuation'],
+            datasets: [{
+                label: 'Project Status',
+                data: [ongoingProjects, discontinuation],
+                backgroundColor: [
+                    '#3b72b3',   // Blue color similar to your image
+                    '#b7aed8'    // Light purple color similar to your image
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    position: 'right',
+                    labels: {
+                        boxWidth: 15,
+                        padding: 20
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const value = context.parsed;
+                            const percentage = ((value / totalProjects) * 100).toFixed(0);
+                            return `${context.label}: ${percentage}%`;
                         }
                     }
                 }
             }
-        });
-    </script> --}}
+        }
+    });
+</script> --}}
 <style>
  
-
  .chart-wrapper {
   width: 100%;
   max-width: 400px;      /* max width on desktop */

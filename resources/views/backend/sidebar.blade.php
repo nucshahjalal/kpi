@@ -31,6 +31,12 @@
                         <ul class="nxl-submenu">
                             <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry.create')}}">Add Inquiry</a></li>
                         </ul>
+                        <ul class="nxl-submenu">
+                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry.create')}}"> Inquiry List</a></li>
+                        </ul>
+                        <ul class="nxl-submenu">
+                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry.create')}}"> Check-In List</a></li>
+                        </ul>
                     </li>
 
                     <li class="nxl-item nxl-hasmenu">

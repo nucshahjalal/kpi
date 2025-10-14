@@ -65,7 +65,7 @@
                         <tbody>
                             @forelse ($inqries as $obj)
                             <tr>
-                                <td>{{ $loop->index + $employees->firstItem() }}</td>
+                                <td>{{ $loop->index + $inqries->firstItem() }}</td>
                                 <td>{{ $obj->emp_id }}</td>
                                 <td>{{ $obj->name }}</td>
                                 <td>{{ $obj->designation }}</td>
@@ -73,7 +73,6 @@
                                 <td>{{ $obj->portfolio }}</td>
                                 <td>{{ $obj->status ? 'Active' : 'InActive' }}</td>
                                 <td>
-                                    <input type="hidden" name="emp_id" id="emp_id" value="{{$obj->id}}"/>
                                     <a class="btn btn-sm btn-primary" href="{{ url('inquiry/view', $obj->id) }}"> <i class="bi bi-eye"></i> View</a>
                                     <a class="btn btn-sm btn-info" href="{{ url('inquiry/edit', $obj->id) }}"><i class="bi bi-pencil-square"></i> Edit</a>
                                     <a class="btn btn-sm btn-danger" href="{{ url('inquiry/delete', $obj->id) }}" onclick="javascript: return confirm('are you sure delete?')"><i class="bi bi-trash"></i> Delete</a>

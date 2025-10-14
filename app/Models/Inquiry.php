@@ -12,11 +12,12 @@ class Inquiry extends Model
 
     public static function getInquiryList($filter) {
         
-        $inquries = Inquiry::from('inquries as I')
-                    ->where('I.emp_id', 'like', '%'.$filter.'%')
+        $inquries = Inquiry::from('inquiries as I')
+                    ->where('I.company_name', 'like', '%'.$filter.'%')
                     ->orWhere('I.name', 'like', '%'.$filter.'%')
-                    ->orWhere('I.designation', 'like', '%'.$filter.'%')
                     ->orWhere('I.phone', 'like', '%'.$filter.'%')
+                    ->orWhere('I.price', 'like', '%'.$filter.'%')
+                    ->orWhere('I.pbt', 'like', '%'.$filter.'%')
                     ->orderBy('I.id','desc')
                     ->paginate(10, array('I.*'));
         return $inquries;

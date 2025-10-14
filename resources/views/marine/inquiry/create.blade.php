@@ -43,157 +43,108 @@
                             <div class="row">
                                 <div class="col-lg-4 mb-3">
                                     <label class="form-label">Company Name <span class="text-danger">*</span></label>
-                                    <input class="form-control" type="text" name="com_name"  value="{{ old('com_name') }}" id="com_name" placeholder="Company Name">
-                                    @error('com_name')
+                                    <input class="form-control" type="text" name="company_name"  value="{{ old('company_name') }}" id="company_name" placeholder="Company Name">
+                                    @error('company_name')
                                         <div style="color: red">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-lg-4 mb-3">
                                     <label class="form-label">Owner Name <span class="text-danger">*</span></label>
-                                    <input class="form-control" type="text" name="owner_name"  value="{{ old('owner_name') }}" id="owner_name" placeholder="Owner Name">
-                                    @error('owner_name')
+                                    <input class="form-control" type="text" name="name"  value="{{ old('name') }}" id="name" placeholder="Owner Name">
+                                    @error('name')
                                         <div style="color: red">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Owner Phone <span class="text-danger">*</span></label>
-                                    <input class="form-control" type="number" name="owner_phone"  value="{{ old('owner_phone') }}" id="owner_phone" placeholder="Owner Phone">
-                                    @error('owner_phone')
+                                    <label class="form-label">Phone <span class="text-danger">*</span></label>
+                                    <input class="form-control" type="number" name="phone"  value="{{ old('phone') }}" id="phone" placeholder="Phone">
+                                    @error('phone')
                                         <div style="color: red">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
-                    
-                            <div class="row">   
+
+                            <div class="row">
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Price <span class="text-danger">*</span></label>
+                                    <input class="form-control" type="text" name="price"  value="{{ old('price') }}" id="price" placeholder="Price">
+                                    @error('price')
+                                        <div style="color: red">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label"> Project PBT <span class="text-danger">*</span></label>
+                                    <input class="form-control" type="text" name="pbt"  value="{{ old('pbt') }}" id="pbt" placeholder="Project PBT">
+                                    @error('pbt')
+                                        <div style="color: red">{{ $message }}</div>
+                                    @enderror
+                                </div>
                                 <div class="col-lg-4 mb-3">
                                     <label class="form-label">Product Type <span class="text-danger">*</span></label>
-                                    <div class="input-group">
-                                        <!-- Dropdown field -->
-                                    <select class="form-control" name="product_type" id="product_type" data-select2-selector="icon">
-                                        <option value="">--Select--</option> 
-                                        <option value="Marine Engine">Marine Engine</option> 
-                                        <option value="Marine Equipment">Marine Equipment</option> 
-                                    </select>
-
-                                    <!-- Dropdown Icon -->
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">
-                                            <i class="fas fa-caret-down"></i> <!-- FontAwesome Dropdown Icon -->
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                                
-                            <div class="col-lg-4 mb-3">
-                                <label class="form-label">Marine Engine <span class="text-danger">*</span></label>
-                                <div class="input-group">
-                                    <!-- Dropdown field -->
-                                <select class="form-control" name="marine_engine" id="marine_engine" data-select2-selector="icon">
-                                        <option value="">--Select--</option> 
-                                        <option value="Mitshubishi">Mitshubishi</option> 
-                                        <option value="Yuchai">Yuchai</option> 
-                                    </select>
-
-                                <!-- Dropdown Icon -->
-                                <div class="input-group-append">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-caret-down"></i> <!-- FontAwesome Dropdown Icon -->
-                                    </span>
-                                </div>
-                                </div>
-                            </div>
-                                
-                            <div class="col-lg-4 mb-3">
-                                <label class="form-label">Product Model & Specification <span class="text-danger">*</span></label>
-                                <input class="form-control" type="text" name="product_model"  value="{{ old('product_model') }}" id="product_model" placeholder="Product Model & Specification">
-                                @error('product_model')
-                                    <div style="color: red">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            </div>
-
-                            <div class="row"> 
-                                
-                                <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Customer Type <span class="text-danger">*</span></label>
-                                    <div class="input-group">
-                                        <!-- Dropdown field -->
-                                    <select class="form-control" name="customer_type" id="customer_type" data-select2-selector="icon">
-                                        <option value="">--Select--</option> 
-                                        <option value="Govt">Govt</option> 
-                                        <option value="Private">Private</option> 
-                                    </select>
-
-                                    <!-- Dropdown Icon -->
+                                        <div class="input-group">
+                                        <select class="form-control" name="product_type" id="product_type" data-select2-selector="icon">
+                                            <option value="">--Select--</option> 
+                                            <option value="0">Marine Engine</option> 
+                                            <option value="1">Marine Equipment</option> 
+                                        </select>
+                                        <!-- Dropdown Icon -->
                                         <div class="input-group-append">
                                             <span class="input-group-text">
-                                                <i class="fas fa-caret-down"></i> <!-- FontAwesome Dropdown Icon -->
+                                                <i class="fas fa-caret-down"></i> 
                                             </span>
                                         </div>
                                     </div>
                                 </div>
 
+                            </div>
+                            
+                            <div class="row">
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Inquiry Date <span class="text-danger">*</span></label>
+                                    <label class="form-label">Project Start <span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <input class="form-control" type="date" name="inqiry_date" value="{{ old('inqiry_date') }}" id="add_inqiry_date" placeholder="Inquiry Date">
+                                        <input class="form-control date-class" type="text" name="start" value="{{ old('start') }}" id="add_start_date" placeholder="Date Calender">
                                         <div class="input-group-append">
                                             <span class="input-group-text">
                                                 <i class="fas fa-calendar-alt"></i>
                                             </span>
                                         </div>
                                     </div>
-                                    @error('project_pbt')
+                                    @error('start')
                                         <div style="color: red">{{ $message }}</div>
                                     @enderror
                                 </div>
-
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Inquery Type <span class="text-danger">*</span></label>
+                                    <label class="form-label">Engine Type <span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                    <select class="form-control" name="query_type" id="query_type" data-select2-selector="icon">
-                                        <option value="">--Select--</option> 
-                                        <option value="HOT">HOT</option> 
-                                        <option value="WARM">WARM</option> 
-                                        <option value="COLD">COLD</option> 
-                                    </select>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">
-                                            <i class="fas fa-caret-down"></i> <!-- FontAwesome Dropdown Icon -->
-                                        </span>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
+                                        <select class="form-control" name="engine_type" id="engine_type" data-select2-selector="icon">
+                                            <option value="">--Select--</option> 
+                                            <option value="0">Mitshubishi</option> 
+                                            <option value="1">Yuchai</option> 
+                                        </select>
 
-                            <div class="row">      
-                                <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Approx Project PBT <span class="text-danger">*</span></label>
-                                    <input class="form-control" type="text" name="project_pbt"  value="{{ old('project_pbt') }}" id="project_pbt" placeholder="Approx Project PBT">
-                                    @error('project_pbt')
-                                        <div style="color: red">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Approx Project Start Date <span class="text-danger">*</span></label>
-                                    <div class="input-group">
-                                        <input class="form-control" type="date" name="project_start_date" value="{{ old('project_start_date') }}" id="add_project_start_date" placeholder="Project Start Date">
+                                        <!-- Dropdown Icon -->
                                         <div class="input-group-append">
                                             <span class="input-group-text">
-                                                <i class="fas fa-calendar-alt"></i>
+                                                <i class="fas fa-caret-down"></i> 
                                             </span>
                                         </div>
                                     </div>
-                                    @error('project_start_date')
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Product Model <span class="text-danger">*</span></label>
+                                    <input class="form-control" type="text" name="model"  value="{{ old('model') }}" id="model" placeholder="Product Model">
+                                    @error('model')
                                         <div style="color: red">{{ $message }}</div>
                                     @enderror
                                 </div>
 
+                            </div>
+
+                            <div class="row">   
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Approx Product purchase Date <span class="text-danger">*</span></label>
+                                    <label class="form-label">Purchase Date <span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <input class="form-control" type="date" name="purchase_date" value="{{ old('purchase_date') }}" id="add_purchase_date" placeholder="Approx Product purchase Date">
+                                        <input class="form-control date-class" type="text" name="purchase_date" value="{{ old('purchase_date') }}" id="add_purchase_date" placeholder="Date Calender">
                                         <div class="input-group-append">
                                             <span class="input-group-text">
                                                 <i class="fas fa-calendar-alt"></i>
@@ -204,13 +155,28 @@
                                         <div style="color: red">{{ $message }}</div>
                                     @enderror
                                 </div>
+                                
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Customer Type <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                    <select class="form-control" name="customer_type" id="customer_type" data-select2-selector="icon">
+                                        <option value="">--Select--</option> 
+                                        <option value="0">Govt</option> 
+                                        <option value="1">Private</option> 
+                                    </select>
 
-                            </div>
-                            <div class="row"> 
+                                    <!-- Dropdown Icon -->
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-caret-down"></i> 
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
                                 <div class="col-lg-4 mb-3">
                                     <label class="form-label">Project Status <span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <!-- Dropdown field -->
                                     <select class="form-control" name="project_status" id="project_status" data-select2-selector="icon">
                                         @php $status = get_project_status(); @endphp
                                         <option value=""> --Select-- </option>
@@ -218,63 +184,51 @@
                                             <option value="{{ $key }}"> {{ $value }}</option>
                                         @endforeach
                                     </select>
-
                                     <!-- Dropdown Icon -->
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">
-                                            <i class="fas fa-caret-down"></i> <!-- FontAwesome Dropdown Icon -->
-                                        </span>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-caret-down"></i>
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
 
-                                @error('inquiry_status')
-                                    <div style="color: red">{{ $message }}</div>
-                                @enderror
-                            </div>     
-                                
+                                    @error('inquiry_status')
+                                        <div style="color: red">{{ $message }}</div>
+                                    @enderror
+                                </div> 
+                            </div>
 
-                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Approx Project Start Date <span class="text-danger">*</span></label>
+                            <div class="row"> 
+
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Inquiry Date <span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <input class="form-control" type="date" name="project_start_date" value="{{ old('project_start_date') }}" id="add_project_start_date" placeholder="Project Start Date">
+                                        <input class="form-control date-class" type="text" name="date" value="{{ old('date') }}" id="add_inqiry_date" placeholder="Date Calender">
                                         <div class="input-group-append">
                                             <span class="input-group-text">
                                                 <i class="fas fa-calendar-alt"></i>
                                             </span>
                                         </div>
                                     </div>
-                                    @error('project_start_date')
+                                    @error('date')
                                         <div style="color: red">{{ $message }}</div>
                                     @enderror
                                 </div>
 
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Approx Project Value <span class="text-danger">*</span></label>
-                                    <input class="form-control" type="text" name="project_value"  value="{{ old('project_value') }}" id="project_value" placeholder="Approx Project Value">
-                                    @error('project_value')
-                                        <div style="color: red">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row"> 
-
-                                <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Visited BY <span class="text-danger">*</span></label>
+                                    <label class="form-label">Inquiry Status <span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <!-- Dropdown field -->
-                                   <select class="form-control" name="visited_by" id="visited_by" data-select2-selector="icon">
-                                        @php $status = get_visited_status(); @endphp
-                                        <option value=""> --Select-- </option>
-                                        @foreach($status as $key => $value)
-                                            <option value="{{ $key }}"> {{ $value }}</option>
-                                        @endforeach
+                                    <select class="form-control" name="status" id="status" data-select2-selector="icon">
+                                        <option value="">--Select--</option> 
+                                        <option value="0">HOT</option> 
+                                        <option value="1">WARM</option> 
+                                        <option value="2">COLD</option> 
                                     </select>
 
                                     <!-- Dropdown Icon -->
                                         <div class="input-group-append">
                                             <span class="input-group-text">
-                                                <i class="fas fa-caret-down"></i> <!-- FontAwesome Dropdown Icon -->
+                                                <i class="fas fa-caret-down"></i> 
                                             </span>
                                         </div>
                                     </div>
@@ -287,41 +241,34 @@
                                         <div style="color: red">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                <div class="col-lg-4 mb-3">
+
+                            </div>
+                            
+                            <div class="row"> 
+
+                                <div class="col-lg-6 mb-3">
                                     <div class="form-group">
-                                        <label for="InvoiceNote" class="form-label">Vessel Description <span class="text-danger">*</span></label>
-                                        <textarea rows="2" type="text" name="vessel_description" class="form-control" id="vessel_description" placeholder="">{{ old('vessel_description') }}</textarea>
+                                        <label for="InvoiceNote" class="form-label">Builder Details </label>
+                                        <textarea rows="2" type="text" name="builder_details" class="form-control" id="builder_details" placeholder="">{{ old('builder_details') }}</textarea>
                                     </div>
-                                    @error('vessel_description')
+                                    @error('builder_details')
+                                        <div style="color: red">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="col-lg-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="InvoiceNote" class="form-label">Description </label>
+                                        <textarea rows="2" type="text" name="description" class="form-control" id="description" placeholder="Description">{{ old('description') }}</textarea>
+                                    </div>
+                                    @error('description')
                                         <div style="color: red">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 
                             </div>
 
-                            <div class="row">      
-                                
-                                
-                                <div class="col-lg-6 mb-3">
-                                    <div class="form-group">
-                                        <label for="InvoiceNote" class="form-label">Builder Details <span class="text-danger">*</span></label>
-                                        <textarea rows="2" type="text" name="builder_detail" class="form-control" id="vessel_description" placeholder="">{{ old('builder_detail') }}</textarea>
-                                    </div>
-                                    @error('builder_detail')
-                                        <div style="color: red">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="col-lg-6 mb-3">
-                                    <div class="form-group">
-                                        <label for="InvoiceNote" class="form-label">Visit Remarks <span class="text-danger">*</span></label>
-                                        <textarea rows="2" type="text" name="remark" class="form-control" id="remark" placeholder="">{{ old('remark') }}</textarea>
-                                    </div>
-                                    @error('remark')
-                                        <div style="color: red">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                
-                            </div>
+                           
                             
                             <div style="text-align:center;" class="row">      
                                 <div class="col-lg-12 mb-7 ">
@@ -357,6 +304,8 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<!-- Dropdown and Date calender icon -->
 <script src="https://cdn.jsdelivr.net/npm/feather-icons"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
@@ -368,12 +317,12 @@
             altInput: true,
             altFormat: "F j, Y",
         });
-        flatpickr("#add_visit_date", {
+        flatpickr("#add_visited_date", {
             dateFormat: "Y-m-d", 
             altInput: true,
             altFormat: "F j, Y",
         });
-        flatpickr("#add_project_start_date", {
+        flatpickr("#add_start_date", {
             dateFormat: "Y-m-d", 
             altInput: true,
             altFormat: "F j, Y",
@@ -385,16 +334,15 @@
         });
     });
 
-    // $(document).ready(function() {
-    //     $('#add_inqiry_date').datepicker({
-    //         dateFormat: 'yy-mm-dd', 
-    //         showAnim: "slideDown" 
-    //     });
-    // });
 </script>
 
 <style>
     
+    /* date field bacground color white */
+.date-class{
+     background-color: white !important;
+    color: #000;  
+}
 .input-group {
     position: relative;
 }
@@ -438,6 +386,8 @@
 .input-group .input-group-text {
     background-color: white;
     border-left: none; 
+}
 
 </style>
+
 @endsection
