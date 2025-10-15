@@ -15,7 +15,7 @@ if (!function_exists('get_project_status  ')) {
     function get_project_status() {
         return array(  
             '0' => 'Planning ',
-            '1' => 'ongoing',
+            '1' => 'Ongoing',
             '2' => 'Vessel Complete',
             '3' => 'Repowering',
             '4' => 'New Build',

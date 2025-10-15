@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Marine;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use App\Models\Inquiry;
+use App\Models\{Inquiry, Visit};
 
 class InquiryController extends Controller
 {
@@ -13,9 +13,17 @@ class InquiryController extends Controller
 
     public function index(Request $request){
 
-        $filter = $request->filter;
-        $this->data['inquiries'] = Inquiry::getInquiryList($filter);
+        $from_date = $request->from_date;
+        $to_date = $request->to_date;
+        $this->data['inquiries'] = Inquiry::getInquiryList($from_date, $to_date);
         return view('marine.inquiry.index', $this->data);
+    }
+
+    public function visitList(Request $request){
+
+        $filter = $request->filter;
+        $this->data['visits'] = Visit::getVisitList($filter);
+        return view('marine.inquiry.visitList', $this->data);
     }
 
     public function createForm(Request $request){
@@ -28,16 +36,24 @@ class InquiryController extends Controller
        // dd($request->all());
         $request->validate([
            'company_name' => ['required',],
+           'product_type' => ['required',],
+           'engine_type' => ['required',],
+           'customer_type' => ['required',],
+           'project_status' => ['required',],
+           'status' => ['required',],
         ], [
-            'company_name.required'   => 'Company Name id is required.',
+            'company_name.required'   => 'Company name is required.',
+            'product_type.required'   => 'Product type is required.',
+            'engine_type.required'   => 'Engine type  is required.',
+            'customer_type.required'   => 'Customer type is required.',
+            'project_status.required'   => 'Project status is required.',
+            'status.required'   => 'Inquiry status is required.',
         ]);
         
-        // $request->merge([
-        //     'date' => date('Y-m-d', strtotime('date')),
-        // ]);
         $request->merge([
             'userid' => auth()->user()->id,
         ]);
+
         $inquiry  = Inquiry::create($request->all());
         if($inquiry){
             return redirect('inquiry/list')->with('success','Inquiry create successfull');
@@ -58,9 +74,19 @@ class InquiryController extends Controller
         $inquiry = Inquiry::findOrFail($request->id);
 
         $request->validate([
-            'company_name' => ['required',],
+           'company_name' => ['required',],
+           'product_type' => ['required',],
+           'engine_type' => ['required',],
+           'customer_type' => ['required',],
+           'project_status' => ['required',],
+           'status' => ['required',],
         ], [
-            'company_name.required'   => 'Company Name id is required.',
+            'company_name.required'   => 'Company name is required.',
+            'product_type.required'   => 'Product type is required.',
+            'engine_type.required'   => 'Engine type  is required.',
+            'customer_type.required'   => 'Customer type is required.',
+            'project_status.required'   => 'Project status is required.',
+            'status.required'   => 'Inquiry status is required.',
         ]);
 
         $inquiry->fill($request->all());
@@ -88,5 +114,25 @@ class InquiryController extends Controller
         }
     } 
 
+    public function insertVisitData(Request $request)
+    {
+
+        $data = [
+            'inquiry_id' => $request->inquiry_id,
+            'details' => $request->details,
+            'userid' => auth()->user()->id,
+        ];
+
+        $visit = Visit::updateOrCreate(
+            ['inquiry_id' => $request->inquiry_id], 
+            $data 
+        );
+
+        if($visit){
+            return redirect('inquiry/list')->with('success','Visit create successfull');
+        }else{
+            return redirect('inquiry/create')->with('error','Visit create failed');
+        }
+    }
     
 }

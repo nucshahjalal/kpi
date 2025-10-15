@@ -20,7 +20,7 @@
                         </a>
                     </div>
                     <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-                        <a href="{{ url('inquiry.save') }}" class="btn btn-sm btn-lg btn-primary w-100 text-white fw-bold" >
+                        <a href="{{ url('inquiry/list') }}" class="btn btn-sm btn-lg btn-primary w-100 text-white fw-bold" >
                             ← Back
                         </a>
                     </div>
@@ -49,14 +49,14 @@
                                     @enderror
                                 </div>
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Owner Name <span class="text-danger">*</span></label>
+                                    <label class="form-label">Owner Name </label>
                                     <input class="form-control" type="text" name="name"  value="{{ old('name') }}" id="name" placeholder="Owner Name">
                                     @error('name')
                                         <div style="color: red">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Phone <span class="text-danger">*</span></label>
+                                    <label class="form-label">Phone </label>
                                     <input class="form-control" type="number" name="phone"  value="{{ old('phone') }}" id="phone" placeholder="Phone">
                                     @error('phone')
                                         <div style="color: red">{{ $message }}</div>
@@ -66,14 +66,14 @@
 
                             <div class="row">
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Price <span class="text-danger">*</span></label>
+                                    <label class="form-label">Price </label>
                                     <input class="form-control" type="text" name="price"  value="{{ old('price') }}" id="price" placeholder="Price">
                                     @error('price')
                                         <div style="color: red">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label"> Project PBT <span class="text-danger">*</span></label>
+                                    <label class="form-label"> Project PBT </label>
                                     <input class="form-control" type="text" name="pbt"  value="{{ old('pbt') }}" id="pbt" placeholder="Project PBT">
                                     @error('pbt')
                                         <div style="color: red">{{ $message }}</div>
@@ -83,7 +83,6 @@
                                     <label class="form-label">Product Type <span class="text-danger">*</span></label>
                                         <div class="input-group">
                                         <select class="form-control" name="product_type" id="product_type" data-select2-selector="icon">
-                                            <option value="">--Select--</option> 
                                             <option value="0">Marine Engine</option> 
                                             <option value="1">Marine Equipment</option> 
                                         </select>
@@ -100,7 +99,7 @@
                             
                             <div class="row">
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Project Start <span class="text-danger">*</span></label>
+                                    <label class="form-label">Start Date </label>
                                     <div class="input-group">
                                         <input class="form-control date-class" type="text" name="start" value="{{ old('start') }}" id="add_start_date" placeholder="Date Calender">
                                         <div class="input-group-append">
@@ -117,7 +116,6 @@
                                     <label class="form-label">Engine Type <span class="text-danger">*</span></label>
                                     <div class="input-group">
                                         <select class="form-control" name="engine_type" id="engine_type" data-select2-selector="icon">
-                                            <option value="">--Select--</option> 
                                             <option value="0">Mitshubishi</option> 
                                             <option value="1">Yuchai</option> 
                                         </select>
@@ -131,7 +129,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Product Model <span class="text-danger">*</span></label>
+                                    <label class="form-label">Product Model </label>
                                     <input class="form-control" type="text" name="model"  value="{{ old('model') }}" id="model" placeholder="Product Model">
                                     @error('model')
                                         <div style="color: red">{{ $message }}</div>
@@ -142,7 +140,7 @@
 
                             <div class="row">   
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Purchase Date <span class="text-danger">*</span></label>
+                                    <label class="form-label">Purchase Date </label>
                                     <div class="input-group">
                                         <input class="form-control date-class" type="text" name="purchase_date" value="{{ old('purchase_date') }}" id="add_purchase_date" placeholder="Date Calender">
                                         <div class="input-group-append">
@@ -160,7 +158,6 @@
                                     <label class="form-label">Customer Type <span class="text-danger">*</span></label>
                                     <div class="input-group">
                                     <select class="form-control" name="customer_type" id="customer_type" data-select2-selector="icon">
-                                        <option value="">--Select--</option> 
                                         <option value="0">Govt</option> 
                                         <option value="1">Private</option> 
                                     </select>
@@ -179,7 +176,6 @@
                                     <div class="input-group">
                                     <select class="form-control" name="project_status" id="project_status" data-select2-selector="icon">
                                         @php $status = get_project_status(); @endphp
-                                        <option value=""> --Select-- </option>
                                         @foreach($status as $key => $value)
                                             <option value="{{ $key }}"> {{ $value }}</option>
                                         @endforeach
@@ -201,7 +197,7 @@
                             <div class="row"> 
 
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Inquiry Date <span class="text-danger">*</span></label>
+                                    <label class="form-label">Inquiry Date </label>
                                     <div class="input-group">
                                         <input class="form-control date-class" type="text" name="date" value="{{ old('date') }}" id="add_inqiry_date" placeholder="Date Calender">
                                         <div class="input-group-append">
@@ -219,7 +215,6 @@
                                     <label class="form-label">Inquiry Status <span class="text-danger">*</span></label>
                                     <div class="input-group">
                                     <select class="form-control" name="status" id="status" data-select2-selector="icon">
-                                        <option value="">--Select--</option> 
                                         <option value="0">HOT</option> 
                                         <option value="1">WARM</option> 
                                         <option value="2">COLD</option> 
@@ -235,7 +230,7 @@
                                 </div>
 
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Vessel Name <span class="text-danger">*</span></label>
+                                    <label class="form-label">Vessel Name </label>
                                     <input class="form-control" type="text" name="vessel_name"  value="{{ old('vessel_name') }}" id="vessel_name" placeholder="Vessel Name">
                                     @error('vessel_name')
                                         <div style="color: red">{{ $message }}</div>
@@ -268,8 +263,6 @@
                                 
                             </div>
 
-                           
-                            
                             <div style="text-align:center;" class="row">      
                                 <div class="col-lg-12 mb-7 ">
                                     <button  type="submit" class="btn btn-success">Submit</button>
@@ -317,11 +310,6 @@
             altInput: true,
             altFormat: "F j, Y",
         });
-        flatpickr("#add_visited_date", {
-            dateFormat: "Y-m-d", 
-            altInput: true,
-            altFormat: "F j, Y",
-        });
         flatpickr("#add_start_date", {
             dateFormat: "Y-m-d", 
             altInput: true,
@@ -338,7 +326,7 @@
 
 <style>
     
-    /* date field bacground color white */
+/* date field bacground color white */
 .date-class{
      background-color: white !important;
     color: #000;  
@@ -346,35 +334,26 @@
 .input-group {
     position: relative;
 }
-
-/* Style the input field */
 .input-group .form-control {
-    padding-right: 35px; /* Add space for the icon */
+    padding-right: 35px; 
 }
-
-/* Style the icon and position it inside the input group */
 .input-group-append {
     position: absolute;
     right: 10px; 
     top: 50%;
     transform: translateY(-50%); 
 }
-
-/* Optional: Add some padding and border to the icon */
 .input-group .input-group-text {
     background-color: white;
     border-left: none; 
 }
-
 .input-group {
     position: relative;
 }
-
 .input-group .form-control {
     padding-right: 35px; 
 }
 
-/* Align the icon inside the input */
 .input-group-append {
     position: absolute;
     right: 0px;  
@@ -391,3 +370,4 @@
 </style>
 
 @endsection
+

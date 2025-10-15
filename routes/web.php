@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Marine\InquiryController;
+use App\Http\Controllers\Marine\ReportController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -36,4 +37,10 @@ Route::get('/inquiry/view/{id}', [InquiryController::class, 'view'])->name('inqu
 Route::post('/inquiry/update', [InquiryController::class, 'update'])->name('inquiry.update');
 Route::get('/inquiry/delete/{id}', [InquiryController::class, 'destroy'])->name('inquiry.destroy');
 
+// visit
+Route::get('/visit/list', [InquiryController::class, 'visitList'])->name('visit.list');
+Route::post('/visit/save', [InquiryController::class, 'insertVisitData'])->name('visit.save');
 
+//report
+Route::get('/inquiry/download-pdf', [ReportController::class, 'inquiryDownloadPdf'])->name('inquiry.download-pdf');
+Route::get('/inquiry/export', [ReportController::class, 'inquiryDownloadExcel'])->name('inquiry.export');
