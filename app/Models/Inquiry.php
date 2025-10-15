@@ -35,19 +35,5 @@ class Inquiry extends Model
 
             return $inquiries;
         }
-
-        
-    public static function getInquiryList2() {
-        
-        $inquries = Inquiry::from('inquiries as I')
-                    // ->where('I.company_name', 'like', '%'.$filter.'%')
-                    // ->orWhere('I.name', 'like', '%'.$filter.'%')
-                    // ->orWhere('I.phone', 'like', '%'.$filter.'%')
-                    // ->orWhere('I.price', 'like', '%'.$filter.'%')
-                    // ->orWhere('I.pbt', 'like', '%'.$filter.'%')
-                    ->orderBy('I.id','desc')
-                    ->paginate(10, array('I.*'));
-        return $inquries;
-    }
   
 }

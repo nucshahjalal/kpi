@@ -7,15 +7,11 @@
         <!-- [ page-header ] start -->
     <div class="page-header d-flex align-items-center justify-content-between">
         <div class="page-header-left d-flex align-items-center gap-2">
-            <a style="font-size: 10px;" href="{{ url('inquiry/export') }}" class="btn btn-sm btn-info">
-                <i class="bi bi-file-earmark-excel"></i> Export Excel
+
+             <a style="font-size: 10px;" href="#" id="download_excel" class="btn btn-sm btn-success">
+                <i class="bi bi-file-earmark-pdf"></i> Download Excel
             </a>
-
-            {{-- <a style="font-size: 10px;" href="#" id="download_excel" class="btn btn-sm btn-info">
-                <i class="bi bi-file-earmark-excel"></i> Export Excel
-            </a> --}}
-
-            <a style="font-size: 10px;" href="{{ url('inquiry/download-pdf') }}" class="btn btn-sm btn-dark">
+             <a style="font-size: 10px;" href="#" id="download_pdf" class="btn btn-sm btn-dark">
                 <i class="bi bi-file-earmark-pdf"></i> Download PDF
             </a>
         </div>
@@ -25,15 +21,15 @@
                 <form method="get" action="{{ url('inquiry/list') }}" id="submitForm" class="d-flex align-items-center gap-2">
                     @csrf
                     <label class="form-label" style="white-space: nowrap;">From Date</label>
-                    <input type="text" name="from_date" id="add_from_date" class="form-control form-control-sm add_from_date" style="max-width: 100px; " value="{{ request('from_date') }}" placeholder="From Date">
+                    <input type="text" name="from_date" id="from_date" class="add_from_date form-control form-control-sm add_from_date" style="max-width: 100px; " value="{{ request('from_date') }}" placeholder="From Date">
                     <label class="form-label" style="white-space: nowrap;">To Date</label>
-                    <input type="text" name="to_date" id="add_to_date" class="form-control form-control-sm" style="max-width: 100px;" value="{{ request('to_date') }}" placeholder="To Date">
+                    <input type="text" name="to_date" id="to_date" class="add_to_date form-control form-control-sm" style="max-width: 100px;" value="{{ request('to_date') }}" placeholder="To Date">
                     <div class="col-auto">
                         <button style="font-size: 12px;" class="btn btn-sm btn-primary"><i class="bi bi-search"></i> Search</button>
                     </div>
                 </form>
             </div>
-            <a  style="font-size: 12px;" href="{{ url('inquiry/create') }}" class="btn btn-sm  btn-success">
+            <a  style="font-size: 11px;" href="{{ url('inquiry/create') }}" class="btn btn-sm  btn-success">
                 <i class="feather-plus me-2"></i>
                 <span>Add New</span>
             </a>
@@ -149,12 +145,12 @@
 <script type="text/javascript">
 
     document.addEventListener('DOMContentLoaded', function () {
-        flatpickr("#add_from_date", {
+        flatpickr(".add_from_date", {
             dateFormat: "Y-m-d", 
             altInput: true,
             altFormat: "F j, Y",
         });
-        flatpickr("#add_to_date", {
+        flatpickr(".add_to_date", {
             dateFormat: "Y-m-d", 
             altInput: true,
             altFormat: "F j, Y",
@@ -177,31 +173,28 @@
 </script>
 
 <script type="text/javascript">
+
+    
+
     document.getElementById('download_pdf').addEventListener('click', function(e) {
         e.preventDefault();
-        var empId = document.getElementById('add_from_date').value;
-        window.location.href = "{{ url('employee-wise-vehicle/download-pdf') }}" + "?emp_id=" + empId;
-    });
+        var fromDate = document.getElementById('from_date').value;  
+        var toDate = document.getElementById('to_date').value;
 
+        var url = "{{ url('inquiry/download-pdf') }}" + "?from_date=" + encodeURIComponent(fromDate) + "&to_date=" + encodeURIComponent(toDate);
+
+        window.location.href = url;
+    });
+    
     document.getElementById('download_excel').addEventListener('click', function(e) {
-        alert('hi');
         e.preventDefault();
-        var inquiry_id = document.getElementById('inquiry_id').value;
-        window.location.href = "{{ url('inquiry/export') }}" + "?inquiry_id=" + inquiry_id;
+        var fromDate = document.getElementById('from_date').value;  
+        var toDate = document.getElementById('to_date').value;
+
+        var url = "{{ url('inquiry/export') }}" + "?from_date=" + encodeURIComponent(fromDate) + "&to_date=" + encodeURIComponent(toDate);
+
+        window.location.href = url;
     });
-
-//    document.getElementById('download_excel').addEventListener('click', function(e) {
-//         e.preventDefault();
-
-//         var from_date = document.getElementById('add_from_date').value;
-//         var to_date = document.getElementById('add_to_date').value;
-
-//         var url = "{{ url('inquiry/export') }}" 
-//                 + "?from_date=" + encodeURIComponent(from_date) 
-//                 + "&to_date=" + encodeURIComponent(to_date);
-
-//         window.location.href = url;
-//     });
 
 
 </script>

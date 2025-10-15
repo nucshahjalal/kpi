@@ -10,34 +10,21 @@ use Barryvdh\DomPDF\Facade\Pdf;
 class ReportController extends Controller
 {
 
-    public function inquiryDownloadPdf(Request $request){
+    public $data = array();
 
-       // dd('hi');
-        $filter = $request->filter;
-        $from_date = $request->from_date;
-        $to_date = $request->to_date;
-        $inquiries = Inquiry::getInquiryList2($filter);
-    //dd($inquiries);
-         $pdf = Pdf::loadView('report.inquiryPdf', compact('inquiries'))
-                 ->setPaper('a4', 'landscape');
+    public function inquiryDownloadPdf(Request $request)
+        {
+            $from_date = $request->input('from_date');
+            $to_date = $request->input('to_date');
 
-        return $pdf->download('inquiry-report.pdf');
-    }
+            $inquiries = Inquiry::getInquiryList($from_date, $to_date);
 
-    public function chassisWiseDownloadPdf(Request $request)
-    {
-        $from_date = $request->from_date;
-        $to_date = $request->to_date;
-        $inquiries = Inquiry::getInquiryList($from_date, $to_date);
+            $pdf = Pdf::loadView('report.inquiryPdf', compact('inquiries'))->setPaper('a4', 'landscape');
 
-        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('report.inquiryPdf', [
-            'inquiries' => $inquiries,
-        ])->setPaper('a4', 'landscape');
+            $fileName = $from_date ? 'inquiry-' . $from_date . '-to-' . $to_date . '.pdf' : 'inquiry.pdf';
 
-        $fileName = $from_date ? 'inquiry-' . $from_date . '.pdf': 'inquiry.pdf';
-
-        return $pdf->download($fileName);
-    }
+            return $pdf->download($fileName);
+        }
 
     public function inquiryDownloadExcel(Request $request)
     {
@@ -69,14 +56,20 @@ class ReportController extends Controller
                 $inquiry->phone,
                 $inquiry->price,
                 $inquiry->pbt,
-                $inquiry->product_type,
+                $inquiry->product_type == 0 ? 'Marine' : 'Marine Equipment',
                 $inquiry->start,
-                $inquiry->engine_type,
+                $inquiry->engine_type == 0 ? 'Mitshubishi' : 'Yuchai',
                 $inquiry->model,
                 $inquiry->purchase_date,
-                $inquiry->customer_type,
-                $inquiry->project_status,
-                $inquiry->status,
+                $inquiry->customer_type == 0 ? 'Govt' : 'Private',
+                $projectStatusText = 
+                $inquiry->project_status == 0 ? 'Planning' :
+                ($inquiry->project_status == 1 ? 'Ongoing' :
+                ($inquiry->project_status == 2 ? 'Vessel Complete' :
+                ($inquiry->project_status == 3 ? 'Repowering' :
+                ($inquiry->project_status == 4 ? 'New Build' : 'Halt')))),
+                $inquiry->projectStatusText,
+                $inquiry->status == 0 ? 'HOT' : ($inquiry->status == 1 ? 'WARM' : 'COLD'),
                 $inquiry->vessel_name,
                 $inquiry->builder_details,
                 $inquiry->description,
