@@ -1,104 +1,154 @@
 @extends('backend.app')
-@section('page_title','Employee View')
+@section('page_title', 'Inquiry List')
 @section('content')
 
 <main class="nxl-container">
     <div class="nxl-content">
-        <!-- [ page-header ] start -->
-    <div class="page-header">
-        <div class="page-header-left d-flex align-items-center">                    
-            <ul class="breadcrumb">
-                    <h3 style="text-align: center !important;"> Manage Employee View</h3>
-            </ul>
-        </div>
-        <div class="page-header-right ms-auto">
-            <div class="page-header-right-items">
-                <div class="d-flex d-md-none">
-                    <a href="javascript:void(0)" class="page-header-right-close-toggle">
-                        <i class="feather-arrow-left me-2"></i>
-                        <span>Back</span>
-                    </a>
-                </div>
-                <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-                    <a href="{{ url('employee/list') }}" class="btn btn-sm  btn-primary w-100 text-white fw-bold" style="font-size: 20px;">
-                        ← Back
-                    </a>
-                </div>
+
+        <!-- Page Header -->
+        <div class="page-header d-flex align-items-center justify-content-between">
+            <div class="page-header-left d-flex align-items-center gap-2">
+                <button class="btn btn-sm btn-info printBTN"><i class="feather feather-printer"></i> Print</button>
             </div>
-            <div class="d-md-none d-flex align-items-center">
-                <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                    <i class="feather-align-right fs-20"></i>
+
+            <div class="page-header-left d-flex align-items-center gap-2">
+                <a href="{{ url('inquiry/list') }}" class="btn btn-sm btn-lg btn-primary w-100 text-white fw-bold">
+                    ← Back
                 </a>
             </div>
         </div>
-    </div>
-    <div class="main-content">
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="card stretch stretch-full">
-                    <div class="card-body">
-                        <form action="{{ route('employee.update') }}" method="POST">
-                            @csrf
 
-                            <input class="form-control" type="hidden" name="id" value="{{ $employee->id }}"  id="id" >
-                            <div class="row">
-                                <div class="col-lg-6 mb-3">
-                                    <label class="form-label">Employee ID <span class="text-danger">*</span></label>
-                                    <input class="form-control" type="text" name="emp_id"  value="{{ $employee->emp_id }}" id="emp_id" placeholder="Employee ID" readonly>
+        <!-- Main Content -->
+        <div class="main-content p-4">
+            <div class="row">
+                <div class="col-xl-12" id="printableArea">
+                    <div class="card invoice-container">
+                        <div class="card-body p-0" >
+                            <div class="px-4 pt-4">
+                                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;" class="d-sm-flex">
+                                    
+                                    <div>
+                                        <address class="text-muted" style="margin-left: 0px; font-style: normal;">
+                                            <span class="fs-4 fw-bold text-primary">Inquiry History </span><br>
+                                        </address>
+                                    </div>
+                                    
+                                    <div class="text-center">
+                                       <img src="data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('backend/assets/images/logo.jpg'))) }}" style="height: 80px;">
+                                    </div>
+
+                                    <div class="lh-lg pt-3 pt-sm-0 text-end" style="margin-right: 10px;">
+                                        <h2 class="fs-4 fw-bold text-primary"></h2>
+                                        <div>
+                                            <span class="fw-bold text-dark">ID No:</span>
+                                            <span class="fw-bold text-primary">#{{ $inquiry->id }}</span>
+                                        </div>
+                                        <div>
+                                            <span class="fw-bold text-dark">Date:</span>
+                                            <span class="fw-bold text-primary">{{ date('d-m-Y', strtotime(now())) }}</span>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
-                                <div class="col-lg-6 mb-3">
-                                    <label class="form-label"> Name </label>
-                                    <input class="form-control" type="text" name="name"  value="{{$employee->name }}" id="name" placeholder="Name" readonly>
-                                </div> 
                             </div>
-                            <div class="row">      
-                                <div class="col-lg-6 mb-3">
-                                    <label class="form-label">Designation </label>
-                                    <input class="form-control" type="text" name="designation"  value="{{ $employee->designation }}" id="designation" placeholder="Designation" readonly>
-                                </div> 
-                                <div class="col-lg-6 mb-3">
-                                    <label class="form-label">Phone </label>
-                                    <input class="form-control" type="number" name="phone"  value="{{ $employee->phone }}" id="phone" placeholder="Phone" readonly>
-                                </div> 
-                            </div>
-                            <div class="row">     
-                                <div class="col-lg-6 mb-3">
-                                    <label class="form-label">Portfolio </label>
-                                    <input class="form-control" type="text" name="portfolio"  value="{{ $employee->portfolio }}" id="portfolio" placeholder="Portfolio" readonly>
+
+                            <!-- Vehicle Table -->
+                             <br>
+                            <!-- <hr class="border-dashed mb-0"> -->
+                            <div class="table-responsive">
+                                <div style="margin: 1rem; padding: 1rem; border: 1px solid #ccc;"> 
+                                    <div style=" display: flex; flex-wrap: wrap; gap: 10px; width: 58rem; padding: 1rem;"> 
+                                        <div style="flex: 1 1 45%;"><strong>Company Name:</strong> {{ $inquiry->company_name }}</div> 
+                                        <div style="flex: 1 1 45%;"><strong>Owner Name:</strong> {{ $inquiry->name }}</div> 
+                                        <div style="flex: 1 1 45%;"><strong>Phone:</strong> {{ $inquiry->phone }}</div> 
+                                        <div style="flex: 1 1 45%;"><strong>Price:</strong> {{ $inquiry->price }}</div> 
+                                        <div style="flex: 1 1 45%;"><strong>Project PBT:</strong> {{ $inquiry->pbt }}</div> 
+                                        <div style="flex: 1 1 45%;"><strong>Product Type:</strong> {{ $inquiry->product_type == 0 ? 'Marine' : 'Marine Equipment' }}</div> 
+                                        <div style="flex: 1 1 45%;"><strong>Start Date:</strong> {{ date('d-m-Y', strtotime($inquiry->start)) }}</div> 
+                                        <div style="flex: 1 1 45%;"><strong>Engine Type:</strong> {{ $inquiry->engine_type == 0 ? 'Mitshubishi' : 'Yuchai' }}</div> 
+                                        <div style="flex: 1 1 45%;"><strong>Product Model:</strong> {{ $inquiry->model }}</div> 
+                                        <div style="flex: 1 1 45%;"><strong>Purchase Date:</strong> {{ date('d-m-Y', strtotime($inquiry->purchase_date)) }}</div> 
+                                        <div style="flex: 1 1 45%;"><strong>Customer Type:</strong> {{ $inquiry->customer_type == 0 ? 'Govt' : 'Private' }}</div> 
+                                        <div style="flex: 1 1 45%;"><strong>Inquiry Date:</strong> {{ date('d-m-Y', strtotime($inquiry->date)) }}</div> 
+                                        <div style="flex: 1 1 45%;"><strong>Project Status:</strong> 
+                                            @if ($inquiry->project_status == 0)
+                                                Planning
+                                            @elseif ($inquiry->project_status == 1)
+                                                Ongoing
+                                            @elseif ($inquiry->project_status == 2)
+                                                Vessel Complete
+                                            @elseif ($inquiry->project_status == 3)
+                                                Repowering
+                                            @elseif ($inquiry->project_status == 4)
+                                                New Build
+                                            @else
+                                                Halt
+                                            @endif 
+                                        </div>
+                                        <div style="flex: 1 1 45%;"><strong>Inquiry Status:</strong> {{ $inquiry->status == 0 ? 'HOT' : ($inquiry->status == 1 ? 'WARM' : 'COLD') }}</div>
+                                        <div style="flex: 1 1 45%;"><strong>Vessel Name:</strong> {{ $inquiry->vessel_name }}</div>
+                                        <div style="flex: 1 1 45%;"><strong>Builder Details:</strong> {{ $inquiry->builder_details }}</div>
+                                        <div style="flex: 1 1 45%;"><strong>Description:</strong> {{ $inquiry->description }}</div>
+                                    </div> 
                                 </div>
-                                <div class="col-lg-6 mb-3">
-                                    <label class="form-label">Status </label>
-                                    <select class="form-control" name="status" id="status" data-select2-selector="icon" readonly>
-                                        <option value="1" {{ ($employee->status ?? '') == '1' ? 'selected' : '' }} data-icon="feather-at-sign">Active</option>
-                                        <option value="0" {{ ($employee->status ?? '') == '0' ? 'selected' : '' }} data-icon="feather-at-sign">In Active</option> 
-                                    </select>
-                                </div>       
-                            </div>
-                            
-                        </form>
+                            </div> 
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            
         </div>
     </div>
-        <!-- [ page-header ] end -->
-        <!-- [ Main Content ] start -->
-        <!-- dashboardMainContent -->
-        <!-- [ Main Content ] end -->
-    </div>
-    
-    <!-- [ Footer ] start -->
-    <!-- @include('backend.footer') -->
-    <!-- [ Footer ] end -->
-    
+
+</div>
 </main>
 
+<!-- Style -->
 <style>
-   .btn {
+    .btn {
         text-transform: capitalize;
     }
+
+    @media print {
+        .page-header-right, .printBTN {
+            display: none !important;
+        }
+    }
 </style>
+
+<script type="text/javascript">
+    document.querySelector('.printBTN').addEventListener('click', function () {
+        var printContents = document.getElementById('printableArea').innerHTML;
+        var printWindow = window.open('', '', 'height=800,width=1200');
+
+        printWindow.document.write('<html><head><title>Inquiry History</title>');
+        printWindow.document.write('<style>');
+        printWindow.document.write(`
+            body { font-family: Arial, sans-serif; padding: 20px; }
+            table { border-collapse: collapse; width: 100%; }
+            table, th, td { border: 1px solid #ddd; padding: 8px; }
+            th { background-color: #f2f2f2; text-align: left; }
+            h2 { margin-top: 0; }
+        `);
+        printWindow.document.write('</style>');
+        printWindow.document.write('</head><body>');
+        printWindow.document.write(printContents);
+        printWindow.document.write('</body></html>');
+
+        printWindow.document.close();
+        printWindow.focus();
+        printWindow.print();
+        printWindow.close();
+    });
+</script>
+
+<!-- Script: PDF Download -->
+ <!-- <script type="text/javascript">
+    document.getElementById('download_pdf').addEventListener('click', function(e) {
+        e.preventDefault();
+        const empId = document.getElementById('emp_id').value;
+        const downloadUrl = "{{ url('vehicle/employee-history/download-pdf') }}/" + empId;
+        window.location.href = downloadUrl;
+    });
+</script>  -->
 
 @endsection

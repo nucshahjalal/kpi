@@ -100,7 +100,7 @@
                             
                             <div class="row">
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Start Date <span class="text-danger">*</span></label>
+                                    <label class="form-label">Start Date </label>
                                     <div class="input-group">
                                         <input class="form-control date-class" type="text" name="start" value="{{ date('m-d-Y', strtotime($inquiry->start)) }}" id="add_start_date" placeholder="Date Calender">
                                         <div class="input-group-append">
@@ -245,7 +245,7 @@
                                 <div class="col-lg-6 mb-3">
                                     <div class="form-group">
                                         <label for="InvoiceNote" class="form-label">Builder Details </label>
-                                        <textarea rows="2" type="text" name="builder_details" class="form-control" id="builder_details" placeholder="">{{ $inquiry->builder_details }}</textarea>
+                                        <textarea rows="2" type="text" name="builder_details" class="form-control" id="builder_details" placeholder="Builder Details">{{ $inquiry->builder_details }}</textarea>
                                     </div>
                                     @error('builder_details')
                                         <div style="color: red">{{ $message }}</div>

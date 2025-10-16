@@ -1,5 +1,5 @@
 @extends('backend.app')
-@section('page_title','Inquiry List')
+@section('page_title','Check-in List')
 @section('content')
 
 <main class="nxl-container">
@@ -7,22 +7,23 @@
         <!-- [ page-header ] start -->
     <div class="page-header d-flex align-items-center justify-content-between">
         <div class="page-header-left d-flex align-items-center gap-2">
+            <h3>Inquiry Check-in List</h3>
         </div>
 
         <div class="page-header-left d-flex align-items-center gap-2">
-        <div class="page-header-right ms-auto">
-            <form method="get" action="{{ url('visit/list') }}">
-                @csrf
-                <div class="d-flex align-items-center gap-2">
-                    <input class="form-control" type="text" name="filter" 
-                        value="{{ request('filter') }}" id="filter" placeholder="Search...">
-                    <div class="col-auto">
-                        <button class="btn btn-sm btn-primary"><i class="bi bi-search"></i> Search</button>
+            <div class="page-header-right ms-auto">
+                <form method="get" action="{{ url('visit/list') }}">
+                    @csrf
+                    <div class="d-flex align-items-center gap-2">
+                        <input class="form-control" type="text" name="filter" 
+                            value="{{ request('filter') }}" id="filter" placeholder="Search...">
+                        <div class="col-auto">
+                            <button class="btn btn-sm btn-primary"><i class="bi bi-search"></i> Search</button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
 </div>
 
 <div class="main-content">   
@@ -39,6 +40,8 @@
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Company Name</th>
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Owner Name</th>
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Visit Details</th>
+                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Check-In Date</th>
+                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Last Check-In Date</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -48,6 +51,8 @@
                                 <td>{{ $obj->company_name }}</td>
                                 <td>{{ $obj->name }}</td>
                                 <td>{{ $obj->details }}</td>
+                                <td>{{ $obj->created_at->timezone('Asia/Dhaka')->format('d-m-Y h:i A') }}</td>
+                                <td>{{ $obj->updated_at->timezone('Asia/Dhaka')->format('d-m-Y h:i A') }}</td>
                             </tr>
                             @empty
                             <tr>

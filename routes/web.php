@@ -37,7 +37,13 @@ Route::get('/inquiry/view/{id}', [InquiryController::class, 'view'])->name('inqu
 Route::post('/inquiry/update', [InquiryController::class, 'update'])->name('inquiry.update');
 Route::get('/inquiry/delete/{id}', [InquiryController::class, 'destroy'])->name('inquiry.destroy');
 
-// visit
+// visit 
+Route::get('/inquiry-hot/list', [InquiryController::class, 'hotList'])->name('inquiry-hot.list');
+Route::post('/inquiry-hot/list', [InquiryController::class, 'hotList'])->name('inquiry-hot.list');
+Route::get('/inquiry-cold/list', [InquiryController::class, 'coldList'])->name('inquiry-cold.list');
+Route::post('/inquiry-cold/list', [InquiryController::class, 'coldList'])->name('inquiry-cold.list');
+Route::get('/inquiry-warm/list', [InquiryController::class, 'warmList'])->name('inquiry-warm.list');
+Route::post('/inquiry-warm/list', [InquiryController::class, 'warmList'])->name('inquiry-warm.list');
 Route::get('/visit/list', [InquiryController::class, 'visitList'])->name('visit.list');
 Route::post('/visit/save', [InquiryController::class, 'insertVisitData'])->name('visit.save');
 

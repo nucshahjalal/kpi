@@ -49,13 +49,13 @@
                             <span class="nxl-mtext">Inquiry List</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
                         <ul class="nxl-submenu">
-                            <li style="margin-left: 10px;" class="nxl-item"><a class="nxl-link" href="">HOT</a></li>
+                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry-hot.list')}}">HOT</a></li>
                         </ul>
                         <ul class="nxl-submenu">
-                            <li style="margin-left: 10px;" class="nxl-item"><a class="nxl-link" href="">COLD</a></li>
+                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry-cold.list')}}">COLD</a></li>
                         </ul>
                         <ul class="nxl-submenu">
-                            <li style="margin-left: 10px;" class="nxl-item"><a class="nxl-link" href="">WARM</a></li>
+                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry-warm.list')}}">WARM</a></li>
                         </ul>
                     </li>
                     

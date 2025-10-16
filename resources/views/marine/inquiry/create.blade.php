@@ -188,7 +188,7 @@
                                         </div>
                                     </div>
 
-                                    @error('inquiry_status')
+                                    @error('project_status')
                                         <div style="color: red">{{ $message }}</div>
                                     @enderror
                                 </div> 
@@ -244,7 +244,7 @@
                                 <div class="col-lg-6 mb-3">
                                     <div class="form-group">
                                         <label for="InvoiceNote" class="form-label">Builder Details </label>
-                                        <textarea rows="2" type="text" name="builder_details" class="form-control" id="builder_details" placeholder="">{{ old('builder_details') }}</textarea>
+                                        <textarea rows="2" type="text" name="builder_details" class="form-control" id="builder_details" placeholder="Builder Details">{{ old('builder_details') }}</textarea>
                                     </div>
                                     @error('builder_details')
                                         <div style="color: red">{{ $message }}</div>

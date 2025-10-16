@@ -1,5 +1,5 @@
 @extends('backend.app')
-@section('page_title','Inquiry List')
+@section('page_title','Inquiry Hot List')
 @section('content')
 
 <main class="nxl-container">
@@ -18,7 +18,7 @@
 
         <div class="page-header-left d-flex align-items-center gap-2">
             <div class="page-header-right ms-auto">
-                <form method="get" action="{{ url('inquiry/list') }}" id="submitForm" class="d-flex align-items-center gap-2">
+                <form method="get" action="{{ url('inquiry-hot/list') }}" id="submitForm" class="d-flex align-items-center gap-2">
                     @csrf
                     <label class="form-label" style="white-space: nowrap;">From Date</label>
                     <div class="input-group input-group-sm" style="max-width: 170px;">
@@ -39,10 +39,6 @@
                     </div>
                 </form>
             </div>
-            <a  style="font-size: 12px;" href="{{ url('inquiry/create') }}" class="btn btn-sm  btn-success">
-                <i class="feather-plus me-2"></i>
-                <span>Add New</span>
-            </a>
     </div>
 </div>
 
@@ -65,7 +61,6 @@
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Product Type</th>
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Engine Type</th>
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Model</th>
-                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -80,14 +75,6 @@
                                 <td>{{ $obj->product_type == 0 ? 'Marine' : 'Marine Equipment' }}</td>
                                 <td>{{ $obj->engine_type == 0 ? 'Mitshubishi' : 'Yuchai'}}</td>
                                 <td>{{ $obj->model }}</td>
-                                <td>
-                                    {{-- <input type="hidden" name="inquiry_id" id="inquiry_id" value="{{$obj->id}}"> --}}
-                                    <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#myModal" 
-                                     onclick="visitModal({{ $obj->id }})"><i class="bi bi-check-circle"></i> Check-In </button>
-                                    <a class="btn btn-sm btn-primary" href="{{ url('inquiry/view', $obj->id) }}"> <i class="bi bi-eye"></i> View</a>
-                                    <a class="btn btn-sm btn-info" href="{{ url('inquiry/edit', $obj->id) }}"><i class="bi bi-pencil-square"></i> Edit</a>
-                                    <a class="btn btn-sm btn-danger" href="{{ url('inquiry/delete', $obj->id) }}" onclick="javascript: return confirm('are you sure delete?')"><i class="bi bi-trash"></i> Delete</a>
-                                </td>
                             </tr>
                             @empty
                             <tr>
@@ -113,41 +100,6 @@
     <!-- [ Footer ] end -->
     
 </main>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <form method="POST" action="{{ route('visit.save') }}">
-      @csrf
-
-     <input type="hidden" name="inquiry_id" id="modal_inquiry_id">
-      <div class="modal-content">
-        {{-- <div class="modal-header">
-          <h5 class="modal-title" id="modalTitle">Visit Information</h5>
-        </div> --}}
-        <div class="modal-body">
-          <div class="mb-1">
-            <label for="inputData" class="form-label">Check-In Details</label>
-            <textarea rows="3" type="text" name="details" class="form-control" id="details" placeholder="Check-In Details"></textarea>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-sm btn-success">Save</button>
-          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-
-
-<!--open modal and insert data -->
-<script>
-  function visitModal(id) {
-    document.getElementById('modal_inquiry_id').value = id;
-    document.getElementById('details').value = ''; 
-  }
-</script>
 
 <!-- Date calender -->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -196,14 +148,7 @@
 </style>
 
 <script type="text/javascript">
-    document.getElementById('inquiry_id').addEventListener('change', function() {
-        document.getElementById('submitForm').submit();
-    });
-</script>
 
-<script type="text/javascript">
-
-    
     document.getElementById('download_pdf').addEventListener('click', function(e) {
         e.preventDefault();
         var fromDate = document.getElementById('from_date').value;  
@@ -223,7 +168,6 @@
 
         window.location.href = url;
     });
-
 
 </script>
 

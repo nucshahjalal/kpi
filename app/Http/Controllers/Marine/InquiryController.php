@@ -19,6 +19,30 @@ class InquiryController extends Controller
         return view('marine.inquiry.index', $this->data);
     }
 
+    public function warmList(Request $request){
+
+        $from_date = $request->from_date;
+        $to_date = $request->to_date;
+        $this->data['inquiries'] = Inquiry::getWarmList($from_date, $to_date);
+        return view('marine.inquiry.warmList', $this->data);
+    }
+
+    public function coldList(Request $request){
+
+        $from_date = $request->from_date;
+        $to_date = $request->to_date;
+        $this->data['inquiries'] = Inquiry::getColdList($from_date, $to_date);
+        return view('marine.inquiry.coldList', $this->data);
+    }
+
+    public function hotList(Request $request){
+
+        $from_date = $request->from_date;
+        $to_date = $request->to_date;
+        $this->data['inquiries'] = Inquiry::getHotList($from_date, $to_date);
+        return view('marine.inquiry.hotList', $this->data);
+    }
+
     public function visitList(Request $request){
 
         $filter = $request->filter;
@@ -33,7 +57,7 @@ class InquiryController extends Controller
 
     public function store(Request $request)
     {
-       // dd($request->all());
+       
         $request->validate([
            'company_name' => ['required',],
            'product_type' => ['required',],
@@ -116,7 +140,7 @@ class InquiryController extends Controller
 
     public function insertVisitData(Request $request)
     {
-
+        
         $data = [
             'inquiry_id' => $request->inquiry_id,
             'details' => $request->details,
@@ -129,9 +153,9 @@ class InquiryController extends Controller
         );
 
         if($visit){
-            return redirect('inquiry/list')->with('success','Visit create successfull');
+            return redirect('inquiry/list')->with('success','Check-in successfull');
         }else{
-            return redirect('inquiry/create')->with('error','Visit create failed');
+            return redirect('inquiry/create')->with('error','Check-in failed');
         }
     }
     
