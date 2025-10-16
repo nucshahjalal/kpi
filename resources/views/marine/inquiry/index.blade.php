@@ -39,12 +39,12 @@
                     </div>
                 </form>
             </div>
-            <a  style="font-size: 12px;" href="{{ url('inquiry/create') }}" class="btn btn-sm  btn-success">
+            <a  style="font-size: 12px;" href="{{ url('inquiry/create') }}" class="btn btn-sm  btn-info">
                 <i class="feather-plus me-2"></i>
                 <span>Add New</span>
             </a>
+        </div>
     </div>
-</div>
 
 <div class="main-content">   
     <div class="row">
@@ -64,7 +64,7 @@
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Project PBT</th>
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Product Type</th>
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Engine Type</th>
-                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Model</th>
+                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Product Model</th>
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Action</th>
                             </tr>
                         </thead>
@@ -203,7 +203,6 @@
 
 <script type="text/javascript">
 
-    
     document.getElementById('download_pdf').addEventListener('click', function(e) {
         e.preventDefault();
         var fromDate = document.getElementById('from_date').value;  

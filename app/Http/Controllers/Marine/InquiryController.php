@@ -45,8 +45,9 @@ class InquiryController extends Controller
 
     public function visitList(Request $request){
 
-        $filter = $request->filter;
-        $this->data['visits'] = Visit::getVisitList($filter);
+        $from_date = $request->from_date;
+        $to_date = $request->to_date;
+        $this->data['visits'] = Visit::getVisitList($from_date, $to_date);
         return view('marine.inquiry.visitList', $this->data);
     }
 
@@ -76,6 +77,9 @@ class InquiryController extends Controller
         
         $request->merge([
             'userid' => auth()->user()->id,
+        ]);
+        $request->merge([
+            'date' => now()->format('Y-m-d H:i:s'),
         ]);
 
         $inquiry  = Inquiry::create($request->all());

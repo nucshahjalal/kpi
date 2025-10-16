@@ -180,14 +180,14 @@
                             </div>
                             <div>
                                 <div class="fs-4 fw-bold text-white"><span class="counter">5</span></div>
-                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Cool</h3>
+                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Cold</h3>
                             </div>
                         </div>
                         <a href="javascript:void(0);" class="text-white"><i class="feather-more-vertical"></i></a>
                     </div>
                     <div class="pt-4">
                         <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="fs-12 fw-medium text-white text-truncate-1-line">Cool Process</a>
+                            <a href="javascript:void(0);" class="fs-12 fw-medium text-white text-truncate-1-line">Cold Process</a>
                             <div class="w-100 text-end">
                                 <span class="fs-11 text-white">5%</span>
                             </div>
@@ -416,14 +416,14 @@
                                 </div>
                                 <div>
                                     <div class="fs-4 fw-bold text-white"><span class="counter">6</span></div>
-                                    <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Cool</h3>
+                                    <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Cold</h3>
                                 </div>
                             </div>
                             <a href="javascript:void(0);" class="text-white"><i class="feather-more-vertical"></i></a>
                         </div>
                         <div class="pt-4">
                             <div class="d-flex align-items-center justify-content-between">
-                                <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Cool Process</a>
+                                <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Cold Process</a>
                                 <div class="w-100 text-end">
                                     <span class="fs-11 text-white">5%</span>
                                 </div>
@@ -675,7 +675,7 @@
     const inquiryChart = new Chart(ctx, {
       type: 'doughnut',  
       data: {
-        labels: ['Cool', 'Warm', 'Hot'],
+        labels: ['Cold', 'Warm', 'Hot'],
         datasets: [{
           label: 'Millions',
           data: [1.7, 15, 12],

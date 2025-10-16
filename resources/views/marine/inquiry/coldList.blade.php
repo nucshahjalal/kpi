@@ -60,7 +60,7 @@
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Project PBT</th>
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Product Type</th>
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Engine Type</th>
-                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Model</th>
+                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Product Model</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -154,7 +154,7 @@
         var fromDate = document.getElementById('from_date').value;  
         var toDate = document.getElementById('to_date').value;
 
-        var url = "{{ url('inquiry/download-pdf') }}" + "?from_date=" + encodeURIComponent(fromDate) + "&to_date=" + encodeURIComponent(toDate);
+        var url = "{{ url('inquiry-cold/download-pdf') }}" + "?from_date=" + encodeURIComponent(fromDate) + "&to_date=" + encodeURIComponent(toDate);
 
         window.location.href = url;
     });
@@ -164,7 +164,7 @@
         var fromDate = document.getElementById('from_date').value;  
         var toDate = document.getElementById('to_date').value;
 
-        var url = "{{ url('inquiry/export') }}" + "?from_date=" + encodeURIComponent(fromDate) + "&to_date=" + encodeURIComponent(toDate);
+        var url = "{{ url('inquiry-cold/export') }}" + "?from_date=" + encodeURIComponent(fromDate) + "&to_date=" + encodeURIComponent(toDate);
 
         window.location.href = url;
     });

@@ -198,21 +198,6 @@
                             <div class="row"> 
 
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Inquiry Date </label>
-                                    <div class="input-group">
-                                        <input class="form-control date-class" type="text" name="date" value="{{ date('m-d-Y', strtotime($inquiry->date)) }}" id="add_inqiry_date" placeholder="Date Calender">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">
-                                                <i class="fas fa-calendar-alt"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    @error('date')
-                                        <div style="color: red">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <div class="col-lg-4 mb-3">
                                     <label class="form-label">Inquiry Status <span class="text-danger">*</span></label>
                                     <div class="input-group">
                                     <select class="form-control" name="status" id="status" data-select2-selector="icon">
@@ -238,11 +223,7 @@
                                     @enderror
                                 </div>
 
-                            </div>
-                            
-                            <div class="row"> 
-
-                                <div class="col-lg-6 mb-3">
+                                <div class="col-lg-4 mb-3">
                                     <div class="form-group">
                                         <label for="InvoiceNote" class="form-label">Builder Details </label>
                                         <textarea rows="2" type="text" name="builder_details" class="form-control" id="builder_details" placeholder="Builder Details">{{ $inquiry->builder_details }}</textarea>
@@ -252,7 +233,11 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-lg-6 mb-3">
+                            </div>
+                            
+                            <div class="row"> 
+
+                                <div class="col-lg-4 mb-3">
                                     <div class="form-group">
                                         <label for="InvoiceNote" class="form-label">Description </label>
                                         <textarea rows="2" type="text" name="description" class="form-control" id="description" placeholder="Description">{{ $inquiry->description }}</textarea>
@@ -306,11 +291,7 @@
 <script type="text/javascript">
 
     document.addEventListener('DOMContentLoaded', function () {
-        flatpickr("#add_inqiry_date", {
-            dateFormat: "Y-m-d", 
-            altInput: true,
-            altFormat: "F j, Y",
-        });
+      
         flatpickr("#add_visited_date", {
             dateFormat: "Y-m-d", 
             altInput: true,

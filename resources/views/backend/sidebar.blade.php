@@ -35,8 +35,15 @@
                             <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry.list')}}"> Inquiry List</a></li>
                         </ul>
                         <ul class="nxl-submenu">
-                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('visit.list')}}"> Check-In List</a></li>
+                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry-hot.list')}}">HOT Inquiry</a></li>
                         </ul>
+                        <ul class="nxl-submenu">
+                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry-cold.list')}}">COLD Inquiry</a></li>
+                        </ul>
+                        <ul class="nxl-submenu">
+                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry-warm.list')}}">WARM Inquiry</a></li>
+                        </ul>
+                        
                     </li>
 
                     <li class="nxl-item nxl-hasmenu">
@@ -46,16 +53,10 @@
                                     <img src="{{asset('backend/assets/icon/icon12.jpg')}}" width="18px" height="50%" class="img-fluid">
                                 </i>
                             </span>
-                            <span class="nxl-mtext">Inquiry List</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                            <span class="nxl-mtext">Check-In</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
                         <ul class="nxl-submenu">
-                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry-hot.list')}}">HOT</a></li>
-                        </ul>
-                        <ul class="nxl-submenu">
-                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry-cold.list')}}">COLD</a></li>
-                        </ul>
-                        <ul class="nxl-submenu">
-                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry-warm.list')}}">WARM</a></li>
+                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('visit.list')}}"> Check-In List</a></li>
                         </ul>
                     </li>
                     

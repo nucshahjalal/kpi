@@ -5,26 +5,42 @@
 <main class="nxl-container">
 <div class="nxl-content">
         <!-- [ page-header ] start -->
-    <div class="page-header d-flex align-items-center justify-content-between">
+      <div class="page-header d-flex align-items-center justify-content-between">
         <div class="page-header-left d-flex align-items-center gap-2">
-            <h3>Inquiry Check-in List</h3>
+
+             <a style="font-size: 12px;" href="#" id="download_excel" class="btn btn-sm btn-success">
+                <i class="bi bi-file-earmark-pdf"></i> Download Excel
+            </a>
+             <a style="font-size: 12px;" href="#" id="download_pdf" class="btn btn-sm btn-dark">
+                <i class="bi bi-file-earmark-pdf"></i> Download PDF
+            </a>
         </div>
 
         <div class="page-header-left d-flex align-items-center gap-2">
             <div class="page-header-right ms-auto">
-                <form method="get" action="{{ url('visit/list') }}">
+                <form method="get" action="{{ url('visit/list') }}" id="submitForm" class="d-flex align-items-center gap-2">
                     @csrf
-                    <div class="d-flex align-items-center gap-2">
-                        <input class="form-control" type="text" name="filter" 
-                            value="{{ request('filter') }}" id="filter" placeholder="Search...">
-                        <div class="col-auto">
-                            <button class="btn btn-sm btn-primary"><i class="bi bi-search"></i> Search</button>
-                        </div>
+                    <label class="form-label" style="white-space: nowrap;">From Date</label>
+                    <div class="input-group input-group-sm" style="max-width: 170px;">
+                        <input type="text" name="from_date" id="from_date"
+                            class="date-class add_from_date form-control"
+                            value="{{ request('from_date') }}" placeholder=" Date Calender">
+                        <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                    </div>
+                    <label class="form-label" style="white-space: nowrap;">From Date</label>
+                    <div class="input-group input-group-sm" style="max-width: 170px;">
+                        <input type="text" name="to_date" id="to_date"
+                            class="date-class add_to_date form-control"
+                            value="{{ request('to_date') }}" placeholder=" Date Calender">
+                        <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                    </div>
+                    <div class="col-auto">
+                        <button style="font-size: 12px;" class="btn btn-sm btn-primary"><i class="bi bi-search"></i> Search</button>
                     </div>
                 </form>
             </div>
         </div>
-</div>
+    </div>
 
 <div class="main-content">   
     <div class="row">
@@ -39,9 +55,10 @@
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col" >SL No</th>
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Company Name</th>
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Owner Name</th>
+                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Phone</th>
+                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Engine Type</th>
+                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Vessel Name</th>
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Visit Details</th>
-                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Check-In Date</th>
-                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Last Check-In Date</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,9 +67,10 @@
                                 <td>{{ $loop->index + $visits->firstItem() }}</td>
                                 <td>{{ $obj->company_name }}</td>
                                 <td>{{ $obj->name }}</td>
+                                <td>{{ $obj->phone }}</td>
+                                <td>{{ $obj->engine_type == 0 ? 'Mitshubishi' : 'Yuchai' }}</td>
+                                <td>{{ $obj->vessel_name }}</td>
                                 <td>{{ $obj->details }}</td>
-                                <td>{{ $obj->created_at->timezone('Asia/Dhaka')->format('d-m-Y h:i A') }}</td>
-                                <td>{{ $obj->updated_at->timezone('Asia/Dhaka')->format('d-m-Y h:i A') }}</td>
                             </tr>
                             @empty
                             <tr>
@@ -86,12 +104,12 @@
 <script type="text/javascript">
 
     document.addEventListener('DOMContentLoaded', function () {
-        flatpickr("#add_from_date", {
+        flatpickr(".add_from_date", {
             dateFormat: "Y-m-d", 
             altInput: true,
             altFormat: "F j, Y",
         });
-        flatpickr("#add_to_date", {
+        flatpickr(".add_to_date", {
             dateFormat: "Y-m-d", 
             altInput: true,
             altFormat: "F j, Y",
@@ -105,23 +123,50 @@
    .btn {
         text-transform: capitalize;
     }
+
+    .date-class{
+        background-color: white !important;
+        color: #000;  
+    }
+
+    .input-group-text {
+        background-color: #e9ecef; 
+        border-left: none; 
+        cursor: pointer; 
+    }
+
+  .input-group .form-control {
+    border-right: none; 
+
+  .input-group-text i {
+    font-size: 1.1rem;
+    color: #495057; 
+  }
+  
 </style>
 
-
-
 <script type="text/javascript">
+
     document.getElementById('download_pdf').addEventListener('click', function(e) {
         e.preventDefault();
-        var empId = document.getElementById('add_from_date').value;
-        window.location.href = "{{ url('employee-wise-vehicle/download-pdf') }}" + "?emp_id=" + empId;
+        var fromDate = document.getElementById('from_date').value;  
+        var toDate = document.getElementById('to_date').value;
+
+        var url = "{{ url('visit-checkin/download-pdf') }}" + "?from_date=" + encodeURIComponent(fromDate) + "&to_date=" + encodeURIComponent(toDate);
+
+        window.location.href = url;
+    });
+    
+    document.getElementById('download_excel').addEventListener('click', function(e) {
+        e.preventDefault();
+        var fromDate = document.getElementById('from_date').value;  
+        var toDate = document.getElementById('to_date').value;
+
+        var url = "{{ url('visit-checkin/export') }}" + "?from_date=" + encodeURIComponent(fromDate) + "&to_date=" + encodeURIComponent(toDate);
+
+        window.location.href = url;
     });
 
-    document.getElementById('download_excel').addEventListener('click', function(e) {
-        alert('hi');
-        e.preventDefault();
-        var inquiry_id = document.getElementById('inquiry_id').value;
-        window.location.href = "{{ url('inquiry/export') }}" + "?inquiry_id=" + inquiry_id;
-    });
 
 </script>
 

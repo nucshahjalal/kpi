@@ -47,6 +47,18 @@ Route::post('/inquiry-warm/list', [InquiryController::class, 'warmList'])->name(
 Route::get('/visit/list', [InquiryController::class, 'visitList'])->name('visit.list');
 Route::post('/visit/save', [InquiryController::class, 'insertVisitData'])->name('visit.save');
 
-//report
+//pdf and excel report
 Route::get('/inquiry/download-pdf', [ReportController::class, 'inquiryDownloadPdf'])->name('inquiry.download-pdf');
 Route::get('/inquiry/export', [ReportController::class, 'inquiryDownloadExcel'])->name('inquiry.export');
+
+Route::get('/inquiry-hot/download-pdf', [ReportController::class, 'inquiryHotDownloadPdf'])->name('inquiry-hot.download-pdf');
+Route::get('/inquiry-hot/export', [ReportController::class, 'inquiryHotDownloadExcel'])->name('inquiry-hot.export');
+
+Route::get('/inquiry-cold/download-pdf', [ReportController::class, 'inquiryColdDownloadPdf'])->name('inquiry-cold.download-pdf');
+Route::get('/inquiry-cold/export', [ReportController::class, 'inquiryColdDownloadExcel'])->name('inquiry-cold.export');
+
+Route::get('/inquiry-warm/download-pdf', [ReportController::class, 'inquiryWarmDownloadPdf'])->name('inquiry-warm.download-pdf');
+Route::get('/inquiry-warm/export', [ReportController::class, 'inquiryWarmDownloadExcel'])->name('inquiry-warm.export');
+
+Route::get('/visit-checkin/download-pdf', [ReportController::class, 'checkinDownloadPdf'])->name('visit-checkin.download-pdf');
+Route::get('/visit-checkin/export', [ReportController::class, 'checkinDownloadExcel'])->name('visit-checkin.export');
