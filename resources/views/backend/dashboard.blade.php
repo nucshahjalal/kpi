@@ -70,7 +70,7 @@
                                     </a>
                                 </div>
                                 <div>
-                                    <div class="fs-4 fw-bold text-white"><span class="counter">10</span></div>
+                                    <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_inquries }}</span></div>
                                     <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Inquiry</h3>
                                 </div>
                             </div>
@@ -80,13 +80,18 @@
                         </div>
                         <div class="pt-4">
                             <div class="d-flex align-items-center justify-content-between">
-                                <a href="javascript:void(0);" style="font-size: 11px;" class="fs-12 fw-medium text-white text-truncate-1-line">Inquiry Process</a>
+                                <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Inquiry Process</a>
                                 <div class="w-100 text-end">
-                                    <span class="fs-11 text-white">10%</span>
+                                    <span class="fs-11 text-white">{{ $total_inquries }}%</span>
                                 </div>
                             </div>
-                            <div class="progress mt-2 ht-3" style="height: 5px;">
-                                <div class="progress-bar bg-white" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress mt-2 ht-3">
+                                <div class="progress-bar bg-info" role="progressbar" 
+                                    style="width: 15%" 
+                                    aria-valuenow="{{ $total_inquries }}" 
+                                    aria-valuemin="0" 
+                                    aria-valuemax="100">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -107,7 +112,7 @@
                                     </a>
                                 </div>
                                 <div>
-                                    <div class="fs-4 fw-bold text-white"><span class="counter">5</span></div>
+                                    <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_engine_hot }}</span></div>
                                     <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Hot</h3>
                                 </div>
                             </div>
@@ -115,13 +120,18 @@
                         </div>
                         <div class="pt-4">
                             <div class="d-flex align-items-center justify-content-between">
-                                <a href="javascript:void(0);" style="font-size: 12px;" class="text-white fs-12 fw-medium text-truncate-1-line">Hot Process</a>
+                                <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Hot Process</a>
                                 <div class="w-100 text-end">
-                                    <span class="fs-11 text-white">5%</span>
+                                    <span class="fs-11 text-white">{{ $total_engine_hot }}%</span>
                                 </div>
                             </div>
                             <div class="progress mt-2 ht-3">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-danger" role="progressbar" 
+                                    style="width: 15%" 
+                                    aria-valuenow="{{ $total_engine_hot }}" 
+                                    aria-valuemin="0" 
+                                    aria-valuemax="100">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -143,7 +153,7 @@
                                     
                                 </div>
                                 <div>
-                                    <div class="fs-4 fw-bold text-white"><span class="counter">10</span></div>
+                                    <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_engine_warm }}</span></div>
                                     <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Warm</h3>
                                 </div>
                             </div>
@@ -151,13 +161,18 @@
                         </div>
                         <div class="pt-4">
                             <div class="d-flex align-items-center justify-content-between">
-                                <a href="javascript:void(0);" class="fs-12 fw-medium text-white text-truncate-1-line">Warm Process</a>
+                                <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Warm Process</a>
                                 <div class="w-100 text-end">
-                                    <span class="fs-11 text-white">10%</span>
+                                    <span class="fs-11 text-white">{{ $total_engine_warm }}%</span>
                                 </div>
                             </div>
                             <div class="progress mt-2 ht-3">
-                                <div class="progress-bar bg-info text-white" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-dark" role="progressbar" 
+                                    style="width: 15%" 
+                                    aria-valuenow="{{ $total_engine_warm }}" 
+                                    aria-valuemin="0" 
+                                    aria-valuemax="100">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -179,7 +194,7 @@
                                 </a>
                             </div>
                             <div>
-                                <div class="fs-4 fw-bold text-white"><span class="counter">5</span></div>
+                                <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_engine_cold}}</span></div>
                                 <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Cold</h3>
                             </div>
                         </div>
@@ -187,13 +202,18 @@
                     </div>
                     <div class="pt-4">
                         <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="fs-12 fw-medium text-white text-truncate-1-line">Cold Process</a>
+                            <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Cold Process</a>
                             <div class="w-100 text-end">
-                                <span class="fs-11 text-white">5%</span>
+                                <span class="fs-11 text-white">{{ $total_engine_cold }}%</span>
                             </div>
                         </div>
                         <div class="progress mt-2 ht-3">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-success" role="progressbar" 
+                                style="width: 15%" 
+                                aria-valuenow="{{ $total_engine_cold }}" 
+                                aria-valuemin="0" 
+                                aria-valuemax="100">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -213,11 +233,10 @@
                                      <i style="" class="">
                                         <img src="{{asset('backend/assets/icon/icon9.jpg')}}" width="30px" height="50%"  class="img-fluid">
                                     </i>
-                                        {{-- <i style="background-color: rgb(228, 189, 19);padding:3px;" class="icon-rainbow icon-hover5-color fa-solid fa-gas-pump engine-spin55"></i> --}}
                                 </a>
                             </div>
                             <div>
-                                <div class="fs-4 fw-bold text-white"><span class="counter">5</span></div>
+                                <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_mitshubisi }}</span></div>
                                 <h3 class="fs-13 fw-semibold text-truncate-1-line text-white">Mitsubishi Total Inquiry</h3>
                             </div>
                         </div>
@@ -229,13 +248,13 @@
                         <div class="d-flex align-items-center justify-content-between">
                             <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Mitsubishi Process</a>
                             <div class="w-100 text-end">
-                                <span class="fs-11 text-white">15%</span>
+                                <span class="fs-11 text-white">{{ $total_mitshubisi }}%</span>
                             </div>
                         </div>
                         <div class="progress mt-2 ht-3">
                             <div class="progress-bar bg-warning" role="progressbar" 
                                 style="width: 15%" 
-                                aria-valuenow="15" 
+                                aria-valuenow="{{ $total_mitshubisi }}" 
                                 aria-valuemin="0" 
                                 aria-valuemax="100">
                             </div>
@@ -257,7 +276,7 @@
                                 </a>
                             </div>
                             <div>
-                                <div class="fs-4 fw-bold text-white"><span class="counter">5</span></div>
+                                <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_yuchai }}</span></div>
                                 <h3 class="fs-13 fw-semibold text-truncate-1-line text-white">Yuchai Total Inquery</h3>
                             </div>
                         </div>
@@ -269,13 +288,13 @@
                         <div class="d-flex align-items-center justify-content-between">
                             <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Yuchai Process</a>
                             <div class="w-100 text-end">
-                                <span class="fs-11 text-white">5%</span>
+                                <span class="fs-11 text-white">{{ $total_yuchai }}%</span>
                             </div>
                         </div>
                         <div class="progress mt-2 ht-3">
-                            <div class="progress-bar bg-dark" role="progressbar" 
+                            <div class="progress-bar bg-info" role="progressbar" 
                                 style="width: 5%" 
-                                aria-valuenow="5" 
+                                aria-valuenow="{{ $total_yuchai }}" 
                                 aria-valuemin="0" 
                                 aria-valuemax="100">
                             </div>
@@ -309,7 +328,7 @@
                                 </a>
                             </div>
                             <div>
-                                <div class="fs-4 fw-bold text-white"><span class="counter">10</span></div>
+                                <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_equipment_inquries}}</span></div>
                                 <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Inquiry</h3>
                             </div>
                         </div>
@@ -319,13 +338,18 @@
                     </div>
                     <div class="pt-4">
                         <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" style="font-size: 11px;" class="text-white fs-12 fw-medium text-truncate-1-line">Inquery Process</a>
+                            <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Yuchai Process</a>
                             <div class="w-100 text-end">
-                                <span class="fs-11 text-white">10%</span>
+                                <span class="fs-11 text-white">{{ $total_equipment_inquries }}%</span>
                             </div>
                         </div>
-                        <div class="progress mt-2 ht-3" style="height: 5px;">
-                            <div class="progress-bar bg-white" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress mt-2 ht-3">
+                            <div class="progress-bar bg-success" role="progressbar" 
+                                style="width: 5%" 
+                                aria-valuenow="{{ $total_equipment_inquries }}" 
+                                aria-valuemin="0" 
+                                aria-valuemax="100">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -346,7 +370,7 @@
                                 </a>
                             </div>
                             <div>
-                                <div class="fs-4 fw-bold text-white"><span class="counter">5</span></div>
+                                <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_equipment_hot }}</span></div>
                                 <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Hot</h3>
                             </div>
                         </div>
@@ -354,13 +378,18 @@
                     </div>
                     <div class="pt-4">
                         <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="fs-12 fw-medium text-white text-truncate-1-line">Hot Process</a>
+                            <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Hot Process</a>
                             <div class="w-100 text-end">
-                                <span class="fs-11 text-white">5%</span>
+                                <span class="fs-11 text-white">{{ $total_equipment_hot }}%</span>
                             </div>
                         </div>
                         <div class="progress mt-2 ht-3">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-danger" role="progressbar" 
+                                style="width: 5%" 
+                                aria-valuenow="{{ $total_equipment_hot }}" 
+                                aria-valuemin="0" 
+                                aria-valuemax="100">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -380,7 +409,7 @@
                                 </a>
                             </div>
                             <div>
-                                <div class="fs-4 fw-bold text-white"><span class="counter">10</span></div>
+                                <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_equipment_warm}}</span></div>
                                 <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Warm</h3>
                             </div>
                         </div>
@@ -388,13 +417,18 @@
                     </div>
                     <div class="pt-4">
                         <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="fs-12 fw-medium text-white text-truncate-1-line">Warm Process</a>
+                            <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Warm Process</a>
                             <div class="w-100 text-end">
-                                <span class="fs-11 text-white">10%</span>
+                                <span class="fs-11 text-white">{{ $total_equipment_warm }}%</span>
                             </div>
                         </div>
                         <div class="progress mt-2 ht-3">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-dark" role="progressbar" 
+                                style="width: 5%" 
+                                aria-valuenow="{{ $total_equipment_warm }}" 
+                                aria-valuemin="0" 
+                                aria-valuemax="100">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -415,7 +449,7 @@
                                     </a>
                                 </div>
                                 <div>
-                                    <div class="fs-4 fw-bold text-white"><span class="counter">6</span></div>
+                                    <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_equipment_cold }}</span></div>
                                     <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Cold</h3>
                                 </div>
                             </div>
@@ -425,11 +459,16 @@
                             <div class="d-flex align-items-center justify-content-between">
                                 <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Cold Process</a>
                                 <div class="w-100 text-end">
-                                    <span class="fs-11 text-white">5%</span>
+                                    <span class="fs-11 text-white">{{ $total_equipment_cold }}%</span>
                                 </div>
                             </div>
                             <div class="progress mt-2 ht-3">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-success" role="progressbar" 
+                                    style="width: 5%" 
+                                    aria-valuenow="{{ $total_equipment_cold }}" 
+                                    aria-valuemin="0" 
+                                    aria-valuemax="100">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -678,7 +717,7 @@
         labels: ['Cold', 'Warm', 'Hot'],
         datasets: [{
           label: 'Millions',
-          data: [1.7, 15, 12],
+          data: [{{$total_engine_cold}}, {{$total_warm}}, {{$total_cold}}],
           backgroundColor: ['#8E44AD', '#F39C12', '#E74C3C'],  // Segment colors
           borderWidth: 1
         }]
@@ -709,7 +748,7 @@
           },
           tooltip: {
             callbacks: {
-              label: (context) => `${context.label}: ${context.raw.toFixed(2)}M`
+              label: (context) => `${context.label}: ${context.raw.toFixed(2)}` //m
             }
           },
           datalabels: {
@@ -719,7 +758,7 @@
               size: 16
             },
             formatter: (value, context) => {
-              return `${value.toFixed(2)}M`;
+              return `${value.toFixed(2)}`; //m
             }
           }
         }
@@ -735,7 +774,7 @@
         labels: ['Equipment', 'Egnine'],
         datasets: [{
           label: 'Product Value (Millions)',
-          data: [10.2, 8.4],
+          data: [{{ $total_engine}}, {{ $total_equipment}}],
           backgroundColor: ['#3498DB', '#E67E22'],
           borderWidth: 1
         }]
@@ -755,13 +794,13 @@
           },
           tooltip: {
             callbacks: {
-              label: (context) => `${context.label}: ${context.raw.toFixed(2)}M`
+              label: (context) => `${context.label}: ${context.raw.toFixed(2)}`//m
             }
           },
           datalabels: {
             color: '#fff',
             font: { weight: 'bold', size: 10 },
-            formatter: (value) => `${value.toFixed(2)}M`
+            formatter: (value) => `${value.toFixed(2)}`//m
           }
         }
       },

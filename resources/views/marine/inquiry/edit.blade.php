@@ -8,7 +8,7 @@
        <div class="page-header">
             <div class="page-header-left d-flex align-items-center">                    
                 <ul class="breadcrumb">
-                        <h3 style="text-align: center !important;"> Manage Inquiry Information</h3>
+                        <h3 style="text-align: center !important;"> Manage Edit Inquiry</h3>
                 </ul>
             </div>
             <div class="page-header-right ms-auto">
