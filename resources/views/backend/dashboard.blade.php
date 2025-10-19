@@ -105,7 +105,7 @@
                         <div class="d-flex align-items-start justify-content-between mb-4">
                             <div class="d-flex gap-4 align-items-center">
                                 <div class="avatar-text avatar-lg bg-white text-success">
-                                    <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
+                                    <a href="{{ url('inquiry-hot/list')}}" target="_blank" class="text-white">
                                         <i style="">
                                         <img src="{{asset('backend/assets/icon/icon2.jpg')}}" width="30px" height="100%" class="img-fluid">
                                         </i>
@@ -145,7 +145,7 @@
                         <div class="d-flex align-items-start justify-content-between mb-4">
                             <div class="d-flex gap-4 align-items-center">
                               <div class="avatar-text avatar-lg bg-white text-success">
-                                    <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
+                                    <a href="{{ url('inquiry-warm/list')}}" target="_blank" class="text-white">
                                         <i style="" class="">
                                             <img src="{{asset('backend/assets/icon/icon6.jpg')}}" width="30px" height="50%"  class="img-fluid">
                                         </i>
@@ -186,11 +186,10 @@
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
                             <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
+                                <a href="{{ url('inquiry-cold/list')}}" target="_blank" class="text-white">
                                         <i style="" class="">
-                                        <img src="{{asset('backend/assets/icon/icon10.jpg')}}" width="30px" height="50%"  class="img-fluid">
+                                        <img src="{{asset('backend/assets/icon/icon12.jpg')}}" width="30px" height="50%"  class="img-fluid">
                                     </i>
-                                    {{-- <i style="background-color: rgb(207, 149, 62);padding:3px;" class="icon-rainbow icon-hover4-color icon-rainbow fa-solid fa-gas-pump engine-spin44"></i> --}}
                                 </a>
                             </div>
                             <div>
@@ -264,7 +263,7 @@
             </div>
         </div>
         <div class="col-xxl-6 col-md-6">
-            <div style="background: linear-gradient(to right,#2323c3,#8d8dc0"  class="card stretch stretch-full text-white">
+            <div style="background: linear-gradient(to right,#2323c3,#8d8ec0"  class="card stretch stretch-full text-white">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
@@ -316,7 +315,7 @@
     <div class="row">
         <!-- Card 1 -->
         <div class="col-xxl-3 col-md-3">
-            <div  style="background: linear-gradient(to right, #286fd1, #859cbc);" class="card stretch stretch-full bg-secondary  text-white">
+            <div  style="background: linear-gradient(to right, #0dbc5c, #b7c3bc);"  class="card stretch stretch-full bg-secondary  text-white">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
@@ -358,12 +357,12 @@
 
         <!-- Card 2 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(to right,rgb(232, 93, 93),rgb(227, 186, 186));"  class="card stretch stretch-full  text-white">
+            <div style="background: linear-gradient(to right, #d2252b, #e43f47);"   class="card stretch stretch-full  text-white">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
                             <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
+                                <a href="{{ url('inquiry-hot/list')}}" target="_blank" class="text-white">
                                     <i style="" class=" ">
                                         <img src="{{asset('backend/assets/icon/icon5.jpg')}}" width="30px" height="50%"  class="img-fluid">
                                     </i>
@@ -398,13 +397,13 @@
 
         <!-- Card 3 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(to right,rgb(220, 203, 73),rgb(173, 201, 202))" class="card stretch stretch-full text-white">
+            <div style="background: linear-gradient(to right, #df960d, #c1b295);" class="card stretch stretch-full text-white">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
                             <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
-                                        <img src="{{asset('backend/assets/icon/icon12.jpg')}}" width="30px" height="50%"  class="img-fluid">
+                                <a href="{{ url('inquiry-warm/list')}}" target="_blank" class="text-white">
+                                        <img src="{{asset('backend/assets/icon/icon10.jpg')}}" width="30px" height="50%"  class="img-fluid">
                                     </i>
                                 </a>
                             </div>
@@ -437,12 +436,12 @@
 
         <!-- Card 4 -->
             <div class="col-xxl-3 col-md-3">
-                <div style="background: linear-gradient(to right,rgb(203, 36, 125),rgb(187, 142, 166));"  class="card stretch stretch-full text-white">
+                <div style="background: linear-gradient(to right, #0fbdb2, #a1c9c6);"  class="card stretch stretch-full text-white">
                     <div class="card-body">
                         <div class="d-flex align-items-start justify-content-between mb-4">
                             <div class="d-flex gap-4 align-items-center">
                                 <div class="avatar-text avatar-lg bg-white text-success">
-                                    <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
+                                    <a href="{{ url('inquiry-cold/list')}}" target="_blank" class="text-white">
                                         <i style="" class="">
                                         <img src="{{asset('backend/assets/icon/icon3.jpg')}}" width="30px" height="50%"  class="img-fluid">
                                     </i>
@@ -717,8 +716,8 @@
         labels: ['Cold', 'Warm', 'Hot'],
         datasets: [{
           label: 'Millions',
-          data: [{{$total_engine_cold}}, {{$total_warm}}, {{$total_cold}}],
-          backgroundColor: ['#8E44AD', '#F39C12', '#E74C3C'],  // Segment colors
+          data: [ {{ $total_engine_cold }}, {{ $total_warm }}, {{ $total_cold }} ],
+          backgroundColor: ['#0fbdb2', '#e0ae49','#ec3c45'],  
           borderWidth: 1
         }]
       },
@@ -774,8 +773,8 @@
         labels: ['Equipment', 'Egnine'],
         datasets: [{
           label: 'Product Value (Millions)',
-          data: [{{ $total_engine}}, {{ $total_equipment}}],
-          backgroundColor: ['#3498DB', '#E67E22'],
+          data: [ {{ $total_engine }}, {{ $total_equipment }} ],
+          backgroundColor: ['#44b5eb', '#6262db'],
           borderWidth: 1
         }]
       },

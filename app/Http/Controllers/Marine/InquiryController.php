@@ -43,14 +43,6 @@ class InquiryController extends Controller
         return view('marine.inquiry.hotList', $this->data);
     }
 
-    public function visitList(Request $request){
-
-        $from_date = $request->from_date;
-        $to_date = $request->to_date;
-        $this->data['visits'] = Visit::getVisitList($from_date, $to_date);
-        return view('marine.inquiry.visitList', $this->data);
-    }
-
     public function createForm(Request $request){
 
         return view('marine.inquiry.create');
@@ -142,7 +134,37 @@ class InquiryController extends Controller
         }
     } 
 
+     public function visitList(Request $request){
+
+        $from_date = $request->from_date;
+        $to_date = $request->to_date;
+        $this->data['visits'] = Visit::getVisitList($from_date, $to_date);
+        return view('marine.inquiry.visitList', $this->data);
+    }
+
     public function insertVisitData(Request $request)
+    {
+        $validated = $request->validate([
+            'inquiry_id' => 'required|exists:inquiries,id', // Ensure inquiry_id exists in the inquiries table
+            'details' => 'required|string|max:255', // Example validation for details
+        ]);
+
+        // Prepare data for insertion
+        $data = [
+            'inquiry_id' => $request->inquiry_id,
+            'details' => $request->details,
+            'userid' => auth()->user()->id, 
+        ];
+
+        $visit = Visit::create($data); 
+
+        if($visit) {
+            return redirect('inquiry/list')->with('success', 'Check-in successful');
+        } else {
+            return redirect('inquiry/create')->with('error', 'Check-in failed');
+        }
+    }
+    public function insertVisitData2(Request $request)
     {
         
         $data = [

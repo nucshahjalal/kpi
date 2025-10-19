@@ -60,6 +60,7 @@
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Vessel Name</th>
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Visit Details</th>
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">User Name</th>
+                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Visit Count</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -72,6 +73,7 @@
                                 <td>{{ $obj->engine_type == 0 ? 'Mitshubishi' : 'Yuchai' }}</td>
                                 <td>{{ $obj->vessel_name }}</td>
                                 <td>{{ $obj->details }}</td>
+                                <td>{{ $obj->user_name }}</td>
                                 <td>{{ $obj->visit_count }}</td>
                             </tr>
                             @empty
