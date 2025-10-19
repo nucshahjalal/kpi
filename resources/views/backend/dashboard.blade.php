@@ -28,12 +28,22 @@
                     <form method="get" action="{{ url('/dashboard') }}" id="submitForm" class="d-flex align-items-center gap-2">
                         @csrf
                         <label class="form-label" style="white-space: nowrap;">From Date</label>
-                        <input type="text" name="from_date" id="add_from_date" class="form-control form-control-sm" style="max-width: 160px;" value="{{ request('from_date') }}" placeholder="From Date">
-                        <label class="form-label" style="white-space: nowrap;">To Date</label>
-                        <input type="text" name="to_date" id="add_to_date" class="form-control form-control-sm" style="max-width: 160px;" value="{{ request('to_date') }}" placeholder="To Date">
-                        <div class="col-auto">
-                            <button class="btn btn-sm btn-primary"><i class="bi bi-search"></i> Search</button>
-                        </div>
+                    <div class="input-group input-group-sm" style="max-width: 170px;">
+                        <input type="text" name="from_date" id="from_date"
+                            class="date-class add_from_date form-control"
+                            value="{{ request('from_date') }}" placeholder=" Date Calender">
+                        <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                    </div>
+                    <label class="form-label" style="white-space: nowrap;">From Date</label>
+                    <div class="input-group input-group-sm" style="max-width: 170px;">
+                        <input type="text" name="to_date" id="to_date"
+                            class="date-class add_to_date form-control"
+                            value="{{ request('to_date') }}" placeholder=" Date Calender">
+                        <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                    </div>
+                    <div class="col-auto">
+                        <button style="font-size: 12px;" class="btn btn-sm btn-primary"><i class="bi bi-search"></i> Search</button>
+                    </div>
                     </form>
                 </div>
             </div> 
@@ -57,131 +67,131 @@
 
     <div class="row">
         <!-- Card 1 -->
-            <div class="col-xxl-3 col-md-3">
-                <div style="background: linear-gradient(to right, #0dbc5c, #b7c3bc);" class="card stretch stretch-full text-white">
-                    <div class="card-body">
-                        <div class="d-flex align-items-start justify-content-between mb-4">
-                            <div class="d-flex gap-4 align-items-center">
-                                <div class="avatar-text avatar-lg bg-white text-success">
-                                    <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
-                                        <i style="">
-                                            <img src="{{asset('backend/assets/icon/icon1.jpg')}}" width="30px" height="50%" class="img-fluid">
-                                        </i>
-                                    </a>
-                                </div>
-                                <div>
-                                    <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_inquries }}</span></div>
-                                    <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Inquiry</h3>
-                                </div>
+        <div class="col-xxl-3 col-md-3">
+            <div style="background: linear-gradient(to right, #00853c, #b7c3bc);" class="card stretch stretch-full text-white">
+                <div class="card-body">
+                    <div class="d-flex align-items-start justify-content-between mb-4">
+                        <div class="d-flex gap-4 align-items-center">
+                            <div class="avatar-text avatar-lg bg-white text-success">
+                                <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
+                                    <i style="">
+                                        <img src="{{asset('backend/assets/icon/icon1.jpg')}}" width="30px" height="50%" class="img-fluid">
+                                    </i>
+                                </a>
                             </div>
-                            <a href="javascript:void(0);" class="text-white">
-                                <i class="feather-more-vertical"></i>
-                            </a>
+                            <div>
+                                <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_inquries }}</span></div>
+                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Inquiry</h3>
+                            </div>
                         </div>
-                        <div class="pt-4">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Inquiry Process</a>
-                                <div class="w-100 text-end">
-                                    <span class="fs-11 text-white">{{ $total_inquries }}%</span>
-                                </div>
+                        <a href="javascript:void(0);" class="text-white">
+                            <i class="feather-more-vertical"></i>
+                        </a>
+                    </div>
+                    <div class="pt-4">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Inquiry Process</a>
+                            <div class="w-100 text-end">
+                                <span class="fs-11 text-white">{{ $total_inquries }}%</span>
                             </div>
-                            <div class="progress mt-2 ht-3">
-                                <div class="progress-bar bg-info" role="progressbar" 
-                                    style="width: 15%" 
-                                    aria-valuenow="{{ $total_inquries }}" 
-                                    aria-valuemin="0" 
-                                    aria-valuemax="100">
-                                </div>
+                        </div>
+                        <div class="progress mt-2 ht-3">
+                            <div class="progress-bar bg-info" role="progressbar" 
+                                style="width: 15%" 
+                                aria-valuenow="{{ $total_inquries }}" 
+                                aria-valuemin="0" 
+                                aria-valuemax="100">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
         <!-- Card 2 -->
-            <div class="col-xxl-3 col-md-3">
-                <div style="background: linear-gradient(to right, #d2252b, #da9598);" class="card stretch stretch-full  text-white">
-                    <div class="card-body">
-                        <div class="d-flex align-items-start justify-content-between mb-4">
-                            <div class="d-flex gap-4 align-items-center">
-                                <div class="avatar-text avatar-lg bg-white text-success">
-                                    <a href="{{ url('inquiry-hot/list')}}" target="_blank" class="text-white">
-                                        <i style="">
-                                        <img src="{{asset('backend/assets/icon/icon2.jpg')}}" width="30px" height="100%" class="img-fluid">
-                                        </i>
-                                    </a>
-                                </div>
-                                <div>
-                                    <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_engine_hot }}</span></div>
-                                    <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Hot</h3>
-                                </div>
+        <div class="col-xxl-3 col-md-3">
+            <div style="background: linear-gradient(to right, #b60000, #da9598);" class="card stretch stretch-full  text-white">
+                <div class="card-body">
+                    <div class="d-flex align-items-start justify-content-between mb-4">
+                        <div class="d-flex gap-4 align-items-center">
+                            <div class="avatar-text avatar-lg bg-white text-success">
+                                <a href="{{ url('inquiry-hot/list')}}" target="_blank" class="text-white">
+                                    <i style="">
+                                    <img src="{{asset('backend/assets/icon/icon2.jpg')}}" width="30px" height="100%" class="img-fluid">
+                                    </i>
+                                </a>
                             </div>
-                            <a href="javascript:void(0);" class="text-white"><i class="feather-more-vertical"></i></a>
+                            <div>
+                                <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_engine_hot }}</span></div>
+                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Hot</h3>
+                            </div>
                         </div>
-                        <div class="pt-4">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Hot Process</a>
-                                <div class="w-100 text-end">
-                                    <span class="fs-11 text-white">{{ $total_engine_hot }}%</span>
-                                </div>
+                        <a href="javascript:void(0);" class="text-white"><i class="feather-more-vertical"></i></a>
+                    </div>
+                    <div class="pt-4">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Hot Process</a>
+                            <div class="w-100 text-end">
+                                <span class="fs-11 text-white">{{ $total_engine_hot }}%</span>
                             </div>
-                            <div class="progress mt-2 ht-3">
-                                <div class="progress-bar bg-danger" role="progressbar" 
-                                    style="width: 15%" 
-                                    aria-valuenow="{{ $total_engine_hot }}" 
-                                    aria-valuemin="0" 
-                                    aria-valuemax="100">
-                                </div>
+                        </div>
+                        <div class="progress mt-2 ht-3">
+                            <div class="progress-bar bg-danger" role="progressbar" 
+                                style="width: 15%" 
+                                aria-valuenow="{{ $total_engine_hot }}" 
+                                aria-valuemin="0" 
+                                aria-valuemax="100">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
         <!-- Card 3 -->
-            <div class="col-xxl-3 col-md-3">
-                <div style="background: linear-gradient(to right, #df960d, #c1b295);" class="card stretch stretch-full  text-white">
-                    <div class="card-body">
-                        <div class="d-flex align-items-start justify-content-between mb-4">
-                            <div class="d-flex gap-4 align-items-center">
-                              <div class="avatar-text avatar-lg bg-white text-success">
-                                    <a href="{{ url('inquiry-warm/list')}}" target="_blank" class="text-white">
-                                        <i style="" class="">
-                                            <img src="{{asset('backend/assets/icon/icon6.jpg')}}" width="30px" height="50%"  class="img-fluid">
-                                        </i>
-                                    </a>
-                                    
-                                </div>
-                                <div>
-                                    <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_engine_warm }}</span></div>
-                                    <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Warm</h3>
-                                </div>
+        <div class="col-xxl-3 col-md-3">
+            <div style="background: linear-gradient(to right, #da8e00, #c1b295);" class="card stretch stretch-full  text-white">
+                <div class="card-body">
+                    <div class="d-flex align-items-start justify-content-between mb-4">
+                        <div class="d-flex gap-4 align-items-center">
+                            <div class="avatar-text avatar-lg bg-white text-success">
+                                <a href="{{ url('inquiry-warm/list')}}" target="_blank" class="text-white">
+                                    <i style="" class="">
+                                        <img src="{{asset('backend/assets/icon/icon6.jpg')}}" width="30px" height="50%"  class="img-fluid">
+                                    </i>
+                                </a>
+                                
                             </div>
-                            <a href="javascript:void(0);" class="text-white"><i class="feather-more-vertical"></i></a>
+                            <div>
+                                <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_engine_warm }}</span></div>
+                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Warm</h3>
+                            </div>
                         </div>
-                        <div class="pt-4">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Warm Process</a>
-                                <div class="w-100 text-end">
-                                    <span class="fs-11 text-white">{{ $total_engine_warm }}%</span>
-                                </div>
+                        <a href="javascript:void(0);" class="text-white"><i class="feather-more-vertical"></i></a>
+                    </div>
+                    <div class="pt-4">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Warm Process</a>
+                            <div class="w-100 text-end">
+                                <span class="fs-11 text-white">{{ $total_engine_warm }}%</span>
                             </div>
-                            <div class="progress mt-2 ht-3">
-                                <div class="progress-bar bg-dark" role="progressbar" 
-                                    style="width: 15%" 
-                                    aria-valuenow="{{ $total_engine_warm }}" 
-                                    aria-valuemin="0" 
-                                    aria-valuemax="100">
-                                </div>
+                        </div>
+                        <div class="progress mt-2 ht-3">
+                            <div class="progress-bar bg-dark" role="progressbar" 
+                                style="width: 15%" 
+                                aria-valuenow="{{ $total_engine_warm }}" 
+                                aria-valuemin="0" 
+                                aria-valuemax="100">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Card 4 -->
+        <!-- Card 4 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(to right, #0fbdb2, #a1c9c6);" class="card stretch stretch-full bg-info text-white">
+            <div style="background: linear-gradient(to right, #00b3a7, #a1c9c6);" class="card stretch stretch-full bg-info text-white">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
@@ -219,7 +229,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="row">
         <div class="col-xxl-6 col-md-6">
@@ -315,7 +324,7 @@
     <div class="row">
         <!-- Card 1 -->
         <div class="col-xxl-3 col-md-3">
-            <div  style="background: linear-gradient(to right, #0dbc5c, #b7c3bc);"  class="card stretch stretch-full bg-secondary  text-white">
+            <div  style="background: linear-gradient(to right, #352b75, #a89dec);"  class="card stretch stretch-full bg-secondary  text-white">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
@@ -357,7 +366,7 @@
 
         <!-- Card 2 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(to right, #d2252b, #e43f47);"   class="card stretch stretch-full  text-white">
+            <div style="background: linear-gradient(to right, #640923, #e19cb0);"   class="card stretch stretch-full  text-white">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
@@ -397,7 +406,7 @@
 
         <!-- Card 3 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(to right, #df960d, #c1b295);" class="card stretch stretch-full text-white">
+            <div style="background: linear-gradient(to right, #27391C, #99c67e);" class="card stretch stretch-full text-white">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
@@ -435,46 +444,46 @@
         </div>
 
         <!-- Card 4 -->
-            <div class="col-xxl-3 col-md-3">
-                <div style="background: linear-gradient(to right, #0fbdb2, #a1c9c6);"  class="card stretch stretch-full text-white">
-                    <div class="card-body">
-                        <div class="d-flex align-items-start justify-content-between mb-4">
-                            <div class="d-flex gap-4 align-items-center">
-                                <div class="avatar-text avatar-lg bg-white text-success">
-                                    <a href="{{ url('inquiry-cold/list')}}" target="_blank" class="text-white">
-                                        <i style="" class="">
-                                        <img src="{{asset('backend/assets/icon/icon3.jpg')}}" width="30px" height="50%"  class="img-fluid">
-                                    </i>
-                                    </a>
-                                </div>
-                                <div>
-                                    <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_equipment_cold }}</span></div>
-                                    <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Cold</h3>
-                                </div>
+        <div class="col-xxl-3 col-md-3">
+            <div style="background: linear-gradient(to right, #3e5566, #a3cbea);"  class="card stretch stretch-full text-white">
+                <div class="card-body">
+                    <div class="d-flex align-items-start justify-content-between mb-4">
+                        <div class="d-flex gap-4 align-items-center">
+                            <div class="avatar-text avatar-lg bg-white text-success">
+                                <a href="{{ url('inquiry-cold/list')}}" target="_blank" class="text-white">
+                                    <i style="" class="">
+                                    <img src="{{asset('backend/assets/icon/icon3.jpg')}}" width="30px" height="50%"  class="img-fluid">
+                                </i>
+                                </a>
                             </div>
-                            <a href="javascript:void(0);" class="text-white"><i class="feather-more-vertical"></i></a>
+                            <div>
+                                <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_equipment_cold }}</span></div>
+                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Cold</h3>
+                            </div>
                         </div>
-                        <div class="pt-4">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Cold Process</a>
-                                <div class="w-100 text-end">
-                                    <span class="fs-11 text-white">{{ $total_equipment_cold }}%</span>
-                                </div>
+                        <a href="javascript:void(0);" class="text-white"><i class="feather-more-vertical"></i></a>
+                    </div>
+                    <div class="pt-4">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Cold Process</a>
+                            <div class="w-100 text-end">
+                                <span class="fs-11 text-white">{{ $total_equipment_cold }}%</span>
                             </div>
-                            <div class="progress mt-2 ht-3">
-                                <div class="progress-bar bg-success" role="progressbar" 
-                                    style="width: 5%" 
-                                    aria-valuenow="{{ $total_equipment_cold }}" 
-                                    aria-valuemin="0" 
-                                    aria-valuemax="100">
-                                </div>
+                        </div>
+                        <div class="progress mt-2 ht-3">
+                            <div class="progress-bar bg-success" role="progressbar" 
+                                style="width: 5%" 
+                                aria-valuenow="{{ $total_equipment_cold }}" 
+                                aria-valuemin="0" 
+                                aria-valuemax="100">
                             </div>
                         </div>
                     </div>
-                    </div>
+                </div>
                 </div>
             </div>
         </div>
+    </div>
 
     </div>
 
@@ -524,12 +533,11 @@
             </div>
         </div>
 
+        <div class="row">
+            
+            
 
-            <div class="row">
-                
-                
-
-            </div>
+        </div>
 
     </div>
         
@@ -556,12 +564,12 @@
 <script type="text/javascript">
 
     document.addEventListener('DOMContentLoaded', function () {
-        flatpickr("#add_from_date", {
+        flatpickr(".add_from_date", {
             dateFormat: "Y-m-d", 
             altInput: true,
             altFormat: "F j, Y",
         });
-        flatpickr("#add_to_date", {
+        flatpickr(".add_to_date", {
             dateFormat: "Y-m-d", 
             altInput: true,
             altFormat: "F j, Y",
@@ -569,7 +577,6 @@
     });
 
 </script>
-
 
 <!-- Include the Data Labels plugin -->
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
@@ -716,7 +723,7 @@
         labels: ['Cold', 'Warm', 'Hot'],
         datasets: [{
           label: 'Millions',
-          data: [ {{ $total_engine_cold }}, {{ $total_warm }}, {{ $total_cold }} ],
+          data: [ {{ $total_cold }}, {{ $total_warm }}, {{ $total_hot }} ],
           backgroundColor: ['#0fbdb2', '#e0ae49','#ec3c45'],  
           borderWidth: 1
         }]
@@ -808,91 +815,14 @@
   };
 </script>
 
-{{-- <script>
-    const ctx = document.getElementById('projectChart').getContext('2d');
-
-    const projectChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ['Successful', 'Unsuccessful'],
-            datasets: [{
-                label: 'Project Stats',
-                data: [{{ $successful }}, {{ $total - $successful }}],
-                backgroundColor: [
-                    '#c0392b',  // Red for successful (based on your image)
-                    '#2980b9'   // Blue for total (remaining unsuccessful projects)
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            const total = {{ $total }};
-                            const value = context.parsed;
-                            const percentage = ((value / total) * 100).toFixed(0);
-                            return `${context.label}: ${percentage}%`;
-                        }
-                    }
-                }
-            }
-        }
-    });
-</script> --}}
-
-{{-- <script>
-    const ctx = document.getElementById('projectChart').getContext('2d');
-
-    const totalProjects = {{ $total }};
-    const discontinuation = {{ $discontinuation }};
-    const ongoingProjects = totalProjects - discontinuation;
-
-    const projectChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ['Total Project', 'Discontinuation'],
-            datasets: [{
-                label: 'Project Status',
-                data: [ongoingProjects, discontinuation],
-                backgroundColor: [
-                    '#3b72b3',   // Blue color similar to your image
-                    '#b7aed8'    // Light purple color similar to your image
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            plugins: {
-                legend: {
-                    position: 'right',
-                    labels: {
-                        boxWidth: 15,
-                        padding: 20
-                    }
-                },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            const value = context.parsed;
-                            const percentage = ((value / totalProjects) * 100).toFixed(0);
-                            return `${context.label}: ${percentage}%`;
-                        }
-                    }
-                }
-            }
-        }
-    });
-</script> --}}
 <style>
  
  .chart-wrapper {
   width: 100%;
-  max-width: 400px;      /* max width on desktop */
-  margin: 0 auto;        /* center horizontally */
-  aspect-ratio: 1 / 1;   /* keep square */
-  padding: 10px;         /* optional padding */
+  max-width: 400px;     
+  margin: 0 auto;      
+  aspect-ratio: 1 / 1;  
+  padding: 10px;         
   box-sizing: border-box;
 }
 
@@ -902,13 +832,11 @@
   display: block;
 }
 
-   
-
 @media (max-width: 768px) {
   #projectDiscontinuation {
     width: 100%; /* Adjust width for mobile */
-    height: 300px; /* Adjust height for mobile */
-    margin: 0 auto; /* Ensure the chart is centered horizontally */
+    height: 300px; 
+    margin: 0 auto; 
   }
 }
     
@@ -917,18 +845,35 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;        /* Equal padding on all sides */
+  padding: 20px;        
   height: 400px;       
   box-sizing: border-box;
 }
 
 #projectDiscontinuation {
-  width: 100%; /* Full width by default */
-  height: 400px; /* Default height */
-  margin: 0 auto; /* Center the chart horizontally */
+  width: 100%; 
+  height: 400px; 
+  margin: 0 auto; 
 }
 
+.date-class{
+    background-color: white !important;
+    color: #000;  
+}
 
+.input-group-text {
+    background-color: #e9ecef; 
+    border-left: none; 
+    cursor: pointer; 
+}
+
+.input-group .form-control {
+border-right: none; 
+
+.input-group-text i {
+font-size: 1.1rem;
+color: #495057; 
+}
 
 </style>
 

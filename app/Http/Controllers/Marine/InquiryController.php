@@ -145,11 +145,10 @@ class InquiryController extends Controller
     public function insertVisitData(Request $request)
     {
         $validated = $request->validate([
-            'inquiry_id' => 'required|exists:inquiries,id', // Ensure inquiry_id exists in the inquiries table
-            'details' => 'required|string|max:255', // Example validation for details
+            'inquiry_id' => 'required|exists:inquiries,id',
+            'details' => 'required|string|max:255', 
         ]);
 
-        // Prepare data for insertion
         $data = [
             'inquiry_id' => $request->inquiry_id,
             'details' => $request->details,
@@ -160,29 +159,8 @@ class InquiryController extends Controller
 
         if($visit) {
             return redirect('inquiry/list')->with('success', 'Check-in successful');
-        } else {
-            return redirect('inquiry/create')->with('error', 'Check-in failed');
-        }
+        } 
     }
-    public function insertVisitData2(Request $request)
-    {
-        
-        $data = [
-            'inquiry_id' => $request->inquiry_id,
-            'details' => $request->details,
-            'userid' => auth()->user()->id,
-        ];
-
-        $visit = Visit::updateOrCreate(
-            ['inquiry_id' => $request->inquiry_id], 
-            $data 
-        );
-
-        if($visit){
-            return redirect('inquiry/list')->with('success','Check-in successfull');
-        }else{
-            return redirect('inquiry/create')->with('error','Check-in failed');
-        }
-    }
+    
     
 }

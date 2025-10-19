@@ -57,7 +57,7 @@
                             <!-- <hr class="border-dashed mb-0"> -->
                             <div class="table-responsive">
                                 <div style="margin: 1rem; padding: 1rem; border: 1px solid #ccc;"> 
-                                    <div style=" display: flex; flex-wrap: wrap; gap: 10px; width: 58rem; padding: 1rem;"> 
+                                    <div style=" display: flex; flex-wrap: wrap; gap: 10px; width: 90rem; padding: 1rem;"> 
                                         <div style="flex: 1 1 45%;"><strong>Company Name:</strong> {{ $inquiry->company_name }}</div> 
                                         <div style="flex: 1 1 45%;"><strong>Owner Name:</strong> {{ $inquiry->name }}</div> 
                                         <div style="flex: 1 1 45%;"><strong>Phone:</strong> {{ $inquiry->phone }}</div> 

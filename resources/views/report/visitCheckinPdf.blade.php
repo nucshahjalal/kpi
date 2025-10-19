@@ -71,6 +71,9 @@
                 <th>Engine Type</th>
                 <th>Vessel Name</th>
                 <th>Visit Details</th>
+                <th>User Name</th>
+                <th>Visit Count</th>
+                <th>Check-In Date</th>
             </tr>
         </thead>
         <tbody>
@@ -83,6 +86,9 @@
                 <td>{{ $obj->engine_type == 0 ? 'Mitshubishi' : 'Yuchai' }}</td>
                 <td>{{ $obj->vessel_name }}</td>
                 <td>{{ $obj->details }}</td>
+                <td>{{ $obj->user_name }}</td>
+                <td>{{ $obj->visit_count }}</td>
+                <td>{{ date('d-m-Y', strtotime($obj->created_at)) }}</td>
             </tr>
             @empty
             <tr>

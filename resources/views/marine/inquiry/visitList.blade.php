@@ -5,42 +5,42 @@
 <main class="nxl-container">
 <div class="nxl-content">
         <!-- [ page-header ] start -->
-      <div class="page-header d-flex align-items-center justify-content-between">
-        <div class="page-header-left d-flex align-items-center gap-2">
+    <div class="page-header d-flex align-items-center justify-content-between">
+    <div class="page-header-left d-flex align-items-center gap-2">
 
-             <a style="font-size: 12px;" href="#" id="download_excel" class="btn btn-sm btn-success">
-                <i class="bi bi-file-earmark-pdf"></i> Download Excel
-            </a>
-             <a style="font-size: 12px;" href="#" id="download_pdf" class="btn btn-sm btn-dark">
-                <i class="bi bi-file-earmark-pdf"></i> Download PDF
-            </a>
-        </div>
+            <a style="font-size: 12px;" href="#" id="download_excel" class="btn btn-sm btn-success">
+            <i class="bi bi-file-earmark-pdf"></i> Download Excel
+        </a>
+            <a style="font-size: 12px;" href="#" id="download_pdf" class="btn btn-sm btn-dark">
+            <i class="bi bi-file-earmark-pdf"></i> Download PDF
+        </a>
+    </div>
 
-        <div class="page-header-left d-flex align-items-center gap-2">
-            <div class="page-header-right ms-auto">
-                <form method="get" action="{{ url('visit/list') }}" id="submitForm" class="d-flex align-items-center gap-2">
-                    @csrf
-                    <label class="form-label" style="white-space: nowrap;">From Date</label>
-                    <div class="input-group input-group-sm" style="max-width: 170px;">
-                        <input type="text" name="from_date" id="from_date"
-                            class="date-class add_from_date form-control"
-                            value="{{ request('from_date') }}" placeholder=" Date Calender">
-                        <span class="input-group-text"><i class="bi bi-calendar"></i></span>
-                    </div>
-                    <label class="form-label" style="white-space: nowrap;">From Date</label>
-                    <div class="input-group input-group-sm" style="max-width: 170px;">
-                        <input type="text" name="to_date" id="to_date"
-                            class="date-class add_to_date form-control"
-                            value="{{ request('to_date') }}" placeholder=" Date Calender">
-                        <span class="input-group-text"><i class="bi bi-calendar"></i></span>
-                    </div>
-                    <div class="col-auto">
-                        <button style="font-size: 12px;" class="btn btn-sm btn-primary"><i class="bi bi-search"></i> Search</button>
-                    </div>
-                </form>
-            </div>
+    <div class="page-header-left d-flex align-items-center gap-2">
+        <div class="page-header-right ms-auto">
+            <form method="get" action="{{ url('visit/list') }}" id="submitForm" class="d-flex align-items-center gap-2">
+                @csrf
+                <label class="form-label" style="white-space: nowrap;">From Date</label>
+                <div class="input-group input-group-sm" style="max-width: 170px;">
+                    <input type="text" name="from_date" id="from_date"
+                        class="date-class add_from_date form-control"
+                        value="{{ request('from_date') }}" placeholder=" Date Calender">
+                    <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                </div>
+                <label class="form-label" style="white-space: nowrap;">From Date</label>
+                <div class="input-group input-group-sm" style="max-width: 170px;">
+                    <input type="text" name="to_date" id="to_date"
+                        class="date-class add_to_date form-control"
+                        value="{{ request('to_date') }}" placeholder=" Date Calender">
+                    <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                </div>
+                <div class="col-auto">
+                    <button style="font-size: 12px;" class="btn btn-sm btn-primary"><i class="bi bi-search"></i> Search</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
 <div class="main-content">   
     <div class="row">
@@ -61,6 +61,7 @@
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Visit Details</th>
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">User Name</th>
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Visit Count</th>
+                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Check-In Date</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -68,13 +69,14 @@
                             <tr>
                                 <td>{{ $loop->index + $visits->firstItem() }}</td>
                                 <td>{{ $obj->company_name }}</td>
-                                <td>{{ $obj->name }}</td>
+                                <td>{{ $obj->owner_name }}</td>
                                 <td>{{ $obj->phone }}</td>
                                 <td>{{ $obj->engine_type == 0 ? 'Mitshubishi' : 'Yuchai' }}</td>
                                 <td>{{ $obj->vessel_name }}</td>
                                 <td>{{ $obj->details }}</td>
                                 <td>{{ $obj->user_name }}</td>
                                 <td>{{ $obj->visit_count }}</td>
+                                <td>{{ date('d-m-Y', strtotime($obj->created_at)) }}</td>
                             </tr>
                             @empty
                             <tr>

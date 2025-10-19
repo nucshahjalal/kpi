@@ -301,7 +301,7 @@ class ReportController extends Controller
         fputcsv($file, []);
         fputcsv($file, [
             'Company Name', 'Owner Name','Phone','Engine Type',
-            'Vessel Name','Visit Details',
+            'Vessel Name','Visit Details','User Name','Visit Count','Check-In Date'
         ]);
         
         foreach ($visits as $visit) {
@@ -312,6 +312,9 @@ class ReportController extends Controller
                 $visit->engine_type == 0 ? 'Mitshubishi' : 'Yuchai',
                 $visit->vessel_name,
                 $visit->details,
+                $visit->user_name,
+                $visit->visit_count,
+                date('m-d-Y', strtotime($visit->created_at)),
             ]);
         }
 
