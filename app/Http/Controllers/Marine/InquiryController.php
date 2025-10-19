@@ -134,7 +134,7 @@ class InquiryController extends Controller
         }
     } 
 
-     public function visitList(Request $request){
+    public function visitList(Request $request){
 
         $from_date = $request->from_date;
         $to_date = $request->to_date;
