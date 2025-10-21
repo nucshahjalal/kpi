@@ -34,16 +34,15 @@
                                     </div>
                                     
                                     <div class="text-center">
-                                       <img src="data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('backend/assets/images/logo.jpg'))) }}" style="height: 80px;">
+                                       <img src="data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('backend/assets/images/logo.jpg'))) }}" style="height: 50px;">
                                     </div>
 
-                                    <div class="lh-lg pt-3 pt-sm-0 text-end" style="margin-right: 10px;">
-                                        <h2 class="fs-4 fw-bold text-primary"></h2>
-                                        <div>
+                                    <div class="lh-lg pt-3 pt-sm-0 text-end me-3">
+                                        <div class="d-flex justify-content-end gap-2">
                                             <span class="fw-bold text-dark">ID No:</span>
                                             <span class="fw-bold text-primary">#{{ $inquiry->id }}</span>
                                         </div>
-                                        <div>
+                                        <div class="d-flex justify-content-end gap-2">
                                             <span class="fw-bold text-dark">Date:</span>
                                             <span class="fw-bold text-primary">{{ date('d-m-Y', strtotime(now())) }}</span>
                                         </div>
@@ -102,8 +101,8 @@
 </div>
 </main>
 
-<!-- Style -->
 <style>
+
     .btn {
         text-transform: capitalize;
     }
@@ -111,6 +110,12 @@
     @media print {
         .page-header-right, .printBTN {
             display: none !important;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .lh-lg > div {
+            justify-content: flex-start !important;
         }
     }
 </style>

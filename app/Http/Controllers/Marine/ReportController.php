@@ -30,7 +30,7 @@ class ReportController extends Controller
 
         $inquiries = Inquiry::getHotList($from_date, $to_date);
         $pdf = Pdf::loadView('report.hotPdf', compact('inquiries'))->setPaper('a4', 'landscape');
-        $fileName = $from_date ? 'inquiry-hot' . $from_date . '-to-' . $to_date . '.pdf' : 'inquiry.pdf';
+        $fileName = $from_date ? 'inquiry-hot' . $from_date . '-to-' . $to_date . '.pdf' : 'inquiry-hot.pdf';
         return $pdf->download($fileName);
     }
 
@@ -41,7 +41,7 @@ class ReportController extends Controller
 
         $inquiries = Inquiry::getColdList($from_date, $to_date);
         $pdf = Pdf::loadView('report.coldPdf', compact('inquiries'))->setPaper('a4', 'landscape');
-        $fileName = $from_date ? 'inquiry-cold' . $from_date . '-to-' . $to_date . '.pdf' : 'inquiry.pdf';
+        $fileName = $from_date ? 'inquiry-cold' . $from_date . '-to-' . $to_date . '.pdf' : 'inquiry-cold.pdf';
         return $pdf->download($fileName);
     }
 
@@ -52,7 +52,7 @@ class ReportController extends Controller
 
         $inquiries = Inquiry::getWarmList($from_date, $to_date);
         $pdf = Pdf::loadView('report.warmPdf', compact('inquiries'))->setPaper('a4', 'landscape');
-        $fileName = $from_date ? 'inquiry-warm' . $from_date . '-to-' . $to_date . '.pdf' : 'inquiry.pdf';
+        $fileName = $from_date ? 'inquiry-warm' . $from_date . '-to-' . $to_date . '.pdf' : 'inquiry-warm.pdf';
         return $pdf->download($fileName);
     }
 
@@ -63,7 +63,7 @@ class ReportController extends Controller
 
         $inquiries = Visit::getVisitList($from_date, $to_date);
         $pdf = Pdf::loadView('report.visitCheckinPdf', compact('inquiries'))->setPaper('a4', 'landscape');
-        $fileName = $from_date ? 'inquiry-warm' . $from_date . '-to-' . $to_date . '.pdf' : 'inquiry.pdf';
+        $fileName = $from_date ? 'check-in' . $from_date . '-to-' . $to_date . '.pdf' : 'check-in.pdf';
         return $pdf->download($fileName);
     }
 

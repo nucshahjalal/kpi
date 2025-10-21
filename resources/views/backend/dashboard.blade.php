@@ -42,8 +42,8 @@
                         <span class="input-group-text"><i class="bi bi-calendar"></i></span>
                     </div>
                     <div class="col-auto">
-                        <button style="font-size: 12px;" class="btn btn-sm btn-primary"><i class="bi bi-search"></i> Search</button>
-                    </div>
+                <button style="font-size: 12px;" class="btn btn-sm btn-primary"><i class="bi bi-search"></i> Search</button>
+            </div>
                     </form>
                 </div>
             </div> 
@@ -68,31 +68,31 @@
     <div class="row">
         <!-- Card 1 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(to right, #00853c, #b7c3bc);" class="card stretch stretch-full text-white">
+            <div style="background: linear-gradient(120deg,#87dfe1 0%, #b6f0ee 100%); color:#072018;" class="card stretch stretch-full text-dark">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
                             <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
+                                <a href="{{ url('inquiry/list')}}" target="_blank" class="text-dark">
                                     <i style="">
                                         <img src="{{asset('backend/assets/icon/icon1.jpg')}}" width="30px" height="50%" class="img-fluid">
                                     </i>
                                 </a>
                             </div>
                             <div>
-                                <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_inquries }}</span></div>
-                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Inquiry</h3>
+                                <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_inquries }}</span></div>
+                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-dark text-truncate-1-line">Total Inquiry</h3>
                             </div>
                         </div>
-                        <a href="javascript:void(0);" class="text-white">
+                        <a href="javascript:void(0);" class="text-dark">
                             <i class="feather-more-vertical"></i>
                         </a>
                     </div>
                     <div class="pt-4">
                         <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Inquiry Process</a>
+                            <a href="javascript:void(0);" class="text-dark fs-12 fw-medium text-truncate-1-line">Inquiry Process</a>
                             <div class="w-100 text-end">
-                                <span class="fs-11 text-white">{{ $total_inquries }}%</span>
+                                <span class="fs-11 text-dark">{{ $total_inquries }}%</span>
                             </div>
                         </div>
                         <div class="progress mt-2 ht-3">
@@ -110,29 +110,29 @@
 
         <!-- Card 2 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(to right, #b60000, #da9598);" class="card stretch stretch-full  text-white">
+            <div style="background: linear-gradient(120deg,#ffb4a8 0%, #ffd6d1 100%); color:#072018;" class="card stretch stretch-full  text-dark">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
                             <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry-hot/list')}}" target="_blank" class="text-white">
+                                <a href="{{ url('inquiry-hot/list')}}" target="_blank" class="text-dark">
                                     <i style="">
                                     <img src="{{asset('backend/assets/icon/icon2.jpg')}}" width="30px" height="100%" class="img-fluid">
                                     </i>
                                 </a>
                             </div>
                             <div>
-                                <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_engine_hot }}</span></div>
-                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Hot</h3>
+                                <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_engine_hot }}</span></div>
+                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-dark text-truncate-1-line">Total Hot</h3>
                             </div>
                         </div>
-                        <a href="javascript:void(0);" class="text-white"><i class="feather-more-vertical"></i></a>
+                        <a href="javascript:void(0);" class="text-dark"><i class="feather-more-vertical"></i></a>
                     </div>
                     <div class="pt-4">
                         <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Hot Process</a>
+                            <a href="javascript:void(0);" class="text-dark fs-12 fw-medium text-truncate-1-line">Hot Process</a>
                             <div class="w-100 text-end">
-                                <span class="fs-11 text-white">{{ $total_engine_hot }}%</span>
+                                <span class="fs-11 text-dark">{{ $total_engine_hot }}%</span>
                             </div>
                         </div>
                         <div class="progress mt-2 ht-3">
@@ -150,12 +150,12 @@
 
         <!-- Card 3 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(to right, #da8e00, #c1b295);" class="card stretch stretch-full  text-white">
+            <div style="background: linear-gradient(120deg,#ffc994 0%, #ffe8c9 100%); color:#072018;" class="card stretch stretch-full  text-dark">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
                             <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry-warm/list')}}" target="_blank" class="text-white">
+                                <a href="{{ url('inquiry-warm/list')}}" target="_blank" class="text-dark">
                                     <i style="" class="">
                                         <img src="{{asset('backend/assets/icon/icon6.jpg')}}" width="30px" height="50%"  class="img-fluid">
                                     </i>
@@ -163,17 +163,17 @@
                                 
                             </div>
                             <div>
-                                <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_engine_warm }}</span></div>
-                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Warm</h3>
+                                <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_engine_warm }}</span></div>
+                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-dark text-truncate-1-line">Total Warm</h3>
                             </div>
                         </div>
-                        <a href="javascript:void(0);" class="text-white"><i class="feather-more-vertical"></i></a>
+                        <a href="javascript:void(0);" class="text-dark"><i class="feather-more-vertical"></i></a>
                     </div>
                     <div class="pt-4">
                         <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Warm Process</a>
+                            <a href="javascript:void(0);" class="text-dark fs-12 fw-medium text-truncate-1-line">Warm Process</a>
                             <div class="w-100 text-end">
-                                <span class="fs-11 text-white">{{ $total_engine_warm }}%</span>
+                                <span class="fs-11 text-dark">{{ $total_engine_warm }}%</span>
                             </div>
                         </div>
                         <div class="progress mt-2 ht-3">
@@ -191,29 +191,29 @@
 
         <!-- Card 4 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(to right, #00b3a7, #a1c9c6);" class="card stretch stretch-full bg-info text-white">
+            <div style="background: linear-gradient(120deg,#bfeaf8 0%, #c2deec 100%); color:#072018;" class="card stretch stretch-full bg-info text-dark">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
                             <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry-cold/list')}}" target="_blank" class="text-white">
+                                <a href="{{ url('inquiry-cold/list')}}" target="_blank" class="text-dark">
                                         <i style="" class="">
                                         <img src="{{asset('backend/assets/icon/icon12.jpg')}}" width="30px" height="50%"  class="img-fluid">
                                     </i>
                                 </a>
                             </div>
                             <div>
-                                <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_engine_cold}}</span></div>
-                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Cold</h3>
+                                <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_engine_cold}}</span></div>
+                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-dark text-truncate-1-line">Total Cold</h3>
                             </div>
                         </div>
-                        <a href="javascript:void(0);" class="text-white"><i class="feather-more-vertical"></i></a>
+                        <a href="javascript:void(0);" class="text-dark"><i class="feather-more-vertical"></i></a>
                     </div>
                     <div class="pt-4">
                         <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Cold Process</a>
+                            <a href="javascript:void(0);" class="text-dark fs-12 fw-medium text-truncate-1-line">Cold Process</a>
                             <div class="w-100 text-end">
-                                <span class="fs-11 text-white">{{ $total_engine_cold }}%</span>
+                                <span class="fs-11 text-dark">{{ $total_engine_cold }}%</span>
                             </div>
                         </div>
                         <div class="progress mt-2 ht-3">
@@ -232,31 +232,31 @@
 
     <div class="row">
         <div class="col-xxl-6 col-md-6">
-            <div style="background: linear-gradient(to right, rgb(32, 149, 192), rgb(198, 213, 219));" class="card stretch stretch-full text-white">
+            <div style="background: linear-gradient(90deg,#e7c1e8 0%, #efccf0 100%); color:#072018;" class="card stretch stretch-full text-dark">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
                             <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
+                                <a href="{{ url('inquiry/list')}}" target="_blank" class="text-dark">
                                      <i style="" class="">
                                         <img src="{{asset('backend/assets/icon/icon9.jpg')}}" width="30px" height="50%"  class="img-fluid">
                                     </i>
                                 </a>
                             </div>
                             <div>
-                                <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_mitshubisi }}</span></div>
-                                <h3 class="fs-13 fw-semibold text-truncate-1-line text-white">Mitsubishi Total Inquiry</h3>
+                                <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_mitshubisi }}</span></div>
+                                <h3 class="fs-13 fw-semibold text-truncate-1-line text-dark">Mitsubishi Total Inquiry</h3>
                             </div>
                         </div>
-                        <a href="javascript:void(0);" class="text-white">
+                        <a href="javascript:void(0);" class="text-dark">
                             <i class="feather-more-vertical"></i>
                         </a>
                     </div>
                     <div class="pt-4">
                         <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Mitsubishi Process</a>
+                            <a href="javascript:void(0);" class="text-dark fs-12 fw-medium text-truncate-1-line">Mitsubishi Process</a>
                             <div class="w-100 text-end">
-                                <span class="fs-11 text-white">{{ $total_mitshubisi }}%</span>
+                                <span class="fs-11 text-dark">{{ $total_mitshubisi }}%</span>
                             </div>
                         </div>
                         <div class="progress mt-2 ht-3">
@@ -272,31 +272,31 @@
             </div>
         </div>
         <div class="col-xxl-6 col-md-6">
-            <div style="background: linear-gradient(to right,#2323c3,#8d8ec0"  class="card stretch stretch-full text-white">
+            <div style="background: linear-gradient(90deg,#f0a8e4 0%, #ffd9f2 100%); color:#072018;"  class="card stretch stretch-full text-dark">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
                             <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="#" target="_blank" class="text-white">
+                                <a href="#" target="_blank" class="text-dark">
                                     <i style="" class="">
                                         <img src="{{asset('backend/assets/icon/icon7.jpg')}}" width="30px" height="50%"  class="img-fluid">
                                     </i>
                                 </a>
                             </div>
                             <div>
-                                <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_yuchai }}</span></div>
-                                <h3 class="fs-13 fw-semibold text-truncate-1-line text-white">Yuchai Total Inquery</h3>
+                                <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_yuchai }}</span></div>
+                                <h3 class="fs-13 fw-semibold text-truncate-1-line text-dark">Yuchai Total Inquery</h3>
                             </div>
                         </div>
-                        <a href="javascript:void(0);" class="text-white">
+                        <a href="javascript:void(0);" class="text-dark">
                             <i class="feather-more-vertical"></i>
                         </a>
                     </div>
                     <div class="pt-4">
                         <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Yuchai Process</a>
+                            <a href="javascript:void(0);" class="text-dark fs-12 fw-medium text-truncate-1-line">Yuchai Process</a>
                             <div class="w-100 text-end">
-                                <span class="fs-11 text-white">{{ $total_yuchai }}%</span>
+                                <span class="fs-11 text-dark">{{ $total_yuchai }}%</span>
                             </div>
                         </div>
                         <div class="progress mt-2 ht-3">
@@ -317,38 +317,38 @@
     <div class="col-xxl-12">
     <div style="margin-bottom: 25px; text-align: left;">
         <div>
-            <h5 class="text-white"><span style="color:black;">Marine Equipment</span></h5>
+            <h5 class="text-dark"><span style="color:black;">Marine Equipment</span></h5>
         </div>
     </div>
 
     <div class="row">
         <!-- Card 1 -->
         <div class="col-xxl-3 col-md-3">
-            <div  style="background: linear-gradient(to right, #352b75, #a89dec);"  class="card stretch stretch-full bg-secondary  text-white">
+            <div  style="background: linear-gradient(120deg,#aeeed8 0%, #dfffe6 100%); color:#072018;"  class="card stretch stretch-full bg-secondary  text-dark">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
                             <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry/list')}}" target="_blank" class="text-white">
+                                <a href="{{ url('inquiry/list')}}" target="_blank" class="text-dark">
                                     <i style="" class="">
                                         <img src="{{asset('backend/assets/icon/icon13.jpg')}}" width="30px" height="50%"  class="img-fluid">
                                     </i>
                                 </a>
                             </div>
                             <div>
-                                <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_equipment_inquries}}</span></div>
-                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Inquiry</h3>
+                                <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_equipment_inquries}}</span></div>
+                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-dark text-truncate-1-line">Total Inquiry</h3>
                             </div>
                         </div>
-                        <a href="javascript:void(0);" class="text-white">
+                        <a href="javascript:void(0);" class="text-dark">
                             <i class="feather-more-vertical"></i>
                         </a>
                     </div>
                     <div class="pt-4">
                         <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Yuchai Process</a>
+                            <a href="javascript:void(0);" class="text-dark fs-12 fw-medium text-truncate-1-line">Yuchai Process</a>
                             <div class="w-100 text-end">
-                                <span class="fs-11 text-white">{{ $total_equipment_inquries }}%</span>
+                                <span class="fs-11 text-dark">{{ $total_equipment_inquries }}%</span>
                             </div>
                         </div>
                         <div class="progress mt-2 ht-3">
@@ -366,29 +366,29 @@
 
         <!-- Card 2 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(to right, #640923, #e19cb0);"   class="card stretch stretch-full  text-white">
+            <div style="background: linear-gradient(120deg,#ffd98b 0%, #fff6df 100%); color:#072018;"   class="card stretch stretch-full  text-dark">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
                             <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry-hot/list')}}" target="_blank" class="text-white">
+                                <a href="{{ url('inquiry-hot/list')}}" target="_blank" class="text-dark">
                                     <i style="" class=" ">
                                         <img src="{{asset('backend/assets/icon/icon5.jpg')}}" width="30px" height="50%"  class="img-fluid">
                                     </i>
                                 </a>
                             </div>
                             <div>
-                                <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_equipment_hot }}</span></div>
-                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Hot</h3>
+                                <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_equipment_hot }}</span></div>
+                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-dark text-truncate-1-line">Total Hot</h3>
                             </div>
                         </div>
-                        <a href="javascript:void(0);" class="text-white"><i class="feather-more-vertical"></i></a>
+                        <a href="javascript:void(0);" class="text-dark"><i class="feather-more-vertical"></i></a>
                     </div>
                     <div class="pt-4">
                         <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Hot Process</a>
+                            <a href="javascript:void(0);" class="text-dark fs-12 fw-medium text-truncate-1-line">Hot Process</a>
                             <div class="w-100 text-end">
-                                <span class="fs-11 text-white">{{ $total_equipment_hot }}%</span>
+                                <span class="fs-11 text-dark">{{ $total_equipment_hot }}%</span>
                             </div>
                         </div>
                         <div class="progress mt-2 ht-3">
@@ -406,28 +406,28 @@
 
         <!-- Card 3 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(to right, #27391C, #99c67e);" class="card stretch stretch-full text-white">
+            <div style="background: linear-gradient(120deg,#b7ccff 0%, #dbe3ff 100%); color:#072018;" class="card stretch stretch-full text-dark">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
                             <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry-warm/list')}}" target="_blank" class="text-white">
+                                <a href="{{ url('inquiry-warm/list')}}" target="_blank" class="text-dark">
                                         <img src="{{asset('backend/assets/icon/icon10.jpg')}}" width="30px" height="50%"  class="img-fluid">
                                     </i>
                                 </a>
                             </div>
                             <div>
-                                <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_equipment_warm}}</span></div>
-                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Warm</h3>
+                                <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_equipment_warm}}</span></div>
+                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-dark text-truncate-1-line">Total Warm</h3>
                             </div>
                         </div>
-                        <a href="javascript:void(0);" class="text-white"><i class="feather-more-vertical"></i></a>
+                        <a href="javascript:void(0);" class="text-dark"><i class="feather-more-vertical"></i></a>
                     </div>
                     <div class="pt-4">
                         <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Warm Process</a>
+                            <a href="javascript:void(0);" class="text-dark fs-12 fw-medium text-truncate-1-line">Warm Process</a>
                             <div class="w-100 text-end">
-                                <span class="fs-11 text-white">{{ $total_equipment_warm }}%</span>
+                                <span class="fs-11 text-dark">{{ $total_equipment_warm }}%</span>
                             </div>
                         </div>
                         <div class="progress mt-2 ht-3">
@@ -445,29 +445,29 @@
 
         <!-- Card 4 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(to right, #3e5566, #a3cbea);"  class="card stretch stretch-full text-white">
+            <div style="background: linear-gradient(120deg,#bfecc0 0%, #cfe2cf 100%); color:#072018;"  class="card stretch stretch-full text-dark">
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
                             <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry-cold/list')}}" target="_blank" class="text-white">
+                                <a href="{{ url('inquiry-cold/list')}}" target="_blank" class="text-dark">
                                     <i style="" class="">
                                     <img src="{{asset('backend/assets/icon/icon3.jpg')}}" width="30px" height="50%"  class="img-fluid">
                                 </i>
                                 </a>
                             </div>
                             <div>
-                                <div class="fs-4 fw-bold text-white"><span class="counter">{{ $total_equipment_cold }}</span></div>
-                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-white text-truncate-1-line">Total Cold</h3>
+                                <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_equipment_cold }}</span></div>
+                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-dark text-truncate-1-line">Total Cold</h3>
                             </div>
                         </div>
-                        <a href="javascript:void(0);" class="text-white"><i class="feather-more-vertical"></i></a>
+                        <a href="javascript:void(0);" class="text-dark"><i class="feather-more-vertical"></i></a>
                     </div>
                     <div class="pt-4">
                         <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="text-white fs-12 fw-medium text-truncate-1-line">Cold Process</a>
+                            <a href="javascript:void(0);" class="text-dark fs-12 fw-medium text-truncate-1-line">Cold Process</a>
                             <div class="w-100 text-end">
-                                <span class="fs-11 text-white">{{ $total_equipment_cold }}%</span>
+                                <span class="fs-11 text-dark">{{ $total_equipment_cold }}%</span>
                             </div>
                         </div>
                         <div class="progress mt-2 ht-3">
@@ -591,7 +591,7 @@
       datasets: [{
         label: 'Project Stats',
         data: [20, 10],
-        backgroundColor: ['#c0392b', '#2980b9'],
+        backgroundColor: ['#61f2cf', '#3d99e0'],
         borderWidth: 2,
       }]
     },
@@ -724,7 +724,7 @@
         datasets: [{
           label: 'Millions',
           data: [ {{ $total_cold }}, {{ $total_warm }}, {{ $total_hot }} ],
-          backgroundColor: ['#0fbdb2', '#e0ae49','#ec3c45'],  
+          backgroundColor: ['#bfeaf8', '#ffc994','#ffb4a8'],  
           borderWidth: 1
         }]
       },
@@ -781,7 +781,7 @@
         datasets: [{
           label: 'Product Value (Millions)',
           data: [ {{ $total_engine }}, {{ $total_equipment }} ],
-          backgroundColor: ['#44b5eb', '#6262db'],
+          backgroundColor: ['#87dfe1', '#f0a8e4'],
           borderWidth: 1
         }]
       },
@@ -816,7 +816,11 @@
 </script>
 
 <style>
- 
+
+ .btn {
+    text-transform: capitalize;
+}
+
  .chart-wrapper {
   width: 100%;
   max-width: 400px;     

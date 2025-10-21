@@ -4,43 +4,47 @@
 
 <main class="nxl-container">
 <div class="nxl-content">
-        <!-- [ page-header ] start -->
-    <div class="page-header d-flex align-items-center justify-content-between">
-    <div class="page-header-left d-flex align-items-center gap-2">
-
+    <div class="page-header d-flex align-items-center justify-content-between flex-wrap">
+        <div class="page-header-left d-flex align-items-center gap-2 mb-3 mb-md-0">
             <a style="font-size: 12px;" href="#" id="download_excel" class="btn btn-sm btn-success">
-            <i class="bi bi-file-earmark-pdf"></i> Download Excel
-        </a>
+                <i class="bi bi-file-earmark-excel"></i> Download Excel
+            </a>
             <a style="font-size: 12px;" href="#" id="download_pdf" class="btn btn-sm btn-dark">
-            <i class="bi bi-file-earmark-pdf"></i> Download PDF
-        </a>
-    </div>
+                <i class="bi bi-file-earmark-pdf"></i> Download PDF
+            </a>
+        </div>
 
-    <div class="page-header-left d-flex align-items-center gap-2">
-        <div class="page-header-right ms-auto">
-            <form method="get" action="{{ url('visit/list') }}" id="submitForm" class="d-flex align-items-center gap-2">
+        <div class="page-header-right d-flex align-items-center gap-2 ms-auto flex-wrap justify-content-between">
+            <form method="get" action="{{ url('visit/list') }}" id="submitForm" class="d-flex align-items-center gap-2 mb-3 mb-md-0">
                 @csrf
-                <label class="form-label" style="white-space: nowrap;">From Date</label>
-                <div class="input-group input-group-sm" style="max-width: 170px;">
-                    <input type="text" name="from_date" id="from_date"
-                        class="date-class add_from_date form-control"
-                        value="{{ request('from_date') }}" placeholder=" Date Calender">
-                    <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                <div class="d-flex align-items-center gap-2 mb-2 mb-md-0">
+                    <label class="form-label mb-0" style="white-space: nowrap;">From Date</label>
+                    <div class="input-group input-group-sm w-100 w-md-auto" style="max-width: 170px;">
+                        <input type="text" name="from_date" id="from_date"
+                            class="date-class add_from_date form-control"
+                            value="{{ request('from_date') }}" placeholder="Date Calender">
+                        <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                    </div>
                 </div>
-                <label class="form-label" style="white-space: nowrap;">From Date</label>
-                <div class="input-group input-group-sm" style="max-width: 170px;">
-                    <input type="text" name="to_date" id="to_date"
-                        class="date-class add_to_date form-control"
-                        value="{{ request('to_date') }}" placeholder=" Date Calender">
-                    <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+
+                <div class="d-flex align-items-center gap-2 mb-2 mb-md-0">
+                    <label class="form-label mb-0" style="white-space: nowrap;">To Date</label>
+                    <div class="input-group input-group-sm w-100 w-md-auto" style="max-width: 170px;">
+                        <input type="text" name="to_date" id="to_date"
+                            class="date-class add_to_date form-control"
+                            value="{{ request('to_date') }}" placeholder="Date Calender">
+                        <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                    </div>
                 </div>
-                <div class="col-auto">
+
+                <div class="col-auto mb-2 mb-md-0">
                     <button style="font-size: 12px;" class="btn btn-sm btn-primary"><i class="bi bi-search"></i> Search</button>
                 </div>
             </form>
+
         </div>
     </div>
-</div>
+
 
 <div class="main-content">   
     <div class="row">

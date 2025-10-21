@@ -4,47 +4,66 @@
 
 <main class="nxl-container">
 <div class="nxl-content">
-        <!-- [ page-header ] start -->
-    <div class="page-header d-flex align-items-center justify-content-between">
-        <div class="page-header-left d-flex align-items-center gap-2">
+ <!-- [ page-header ] start -->
 
-             <a style="font-size: 12px;" href="#" id="download_excel" class="btn btn-sm btn-success">
-                <i class="bi bi-file-earmark-pdf"></i> Download Excel
-            </a>
-             <a style="font-size: 12px;" href="#" id="download_pdf" class="btn btn-sm btn-dark">
-                <i class="bi bi-file-earmark-pdf"></i> Download PDF
-            </a>
-        </div>
-
-        <div class="page-header-left d-flex align-items-center gap-2">
-            <div class="page-header-right ms-auto">
-                <form method="get" action="{{ url('inquiry/list') }}" id="submitForm" class="d-flex align-items-center gap-2">
-                    @csrf
-                    <label class="form-label" style="white-space: nowrap;">From Date</label>
-                    <div class="input-group input-group-sm" style="max-width: 170px;">
-                        <input type="text" name="from_date" id="from_date"
-                            class="date-class add_from_date form-control"
-                            value="{{ request('from_date') }}" placeholder=" Date Calender">
-                        <span class="input-group-text"><i class="bi bi-calendar"></i></span>
-                    </div>
-                    <label class="form-label" style="white-space: nowrap;">From Date</label>
-                    <div class="input-group input-group-sm" style="max-width: 170px;">
-                        <input type="text" name="to_date" id="to_date"
-                            class="date-class add_to_date form-control"
-                            value="{{ request('to_date') }}" placeholder=" Date Calender">
-                        <span class="input-group-text"><i class="bi bi-calendar"></i></span>
-                    </div>
-                    <div class="col-auto">
-                        <button style="font-size: 12px;" class="btn btn-sm btn-primary"><i class="bi bi-search"></i> Search</button>
-                    </div>
-                </form>
-            </div>
-            <a  style="font-size: 12px;" href="{{ url('inquiry/create') }}" class="btn btn-sm  btn-info">
-                <i class="feather-plus me-2"></i>
-                <span>Add New</span>
-            </a>
-        </div>
+<div  class="page-header d-flex align-items-center justify-content-between flex-wrap">
+    <div  class="page-header-left d-flex align-items-center gap-2 mb-3 mb-md-0">
+        <a style="font-size: 12px;" href="#" id="download_excel" class="btn btn-sm btn-success">
+            <i class="bi bi-file-earmark-excel"></i> Download Excel
+        </a>
+        <a style="font-size: 12px;" href="#" id="download_pdf" class="btn btn-sm btn-dark">
+            <i class="bi bi-file-earmark-pdf"></i> Download PDF
+        </a>
     </div>
+
+    <div  class="page-header-right d-flex align-items-center gap-2 ms-auto flex-wrap justify-content-between">
+        <form method="get" action="{{ url('inquiry/list') }}" id="submitForm" class="d-flex flex-wrap align-items-center gap-2 mb-3 mb-md-0">
+            @csrf
+
+            <!-- From Date  mobile here) -->
+            <div class="d-flex align-items-center gap-1 order-1 order-md-1" style="min-width: 150px; max-width: 300px; justify-content: flex-start;">
+                <label class="form-label mb-0" style="white-space: nowrap; width: 90px;">From Date</label>
+                <div class="input-group input-group-sm" style="max-width: 150px;">
+                    <input type="text" name="from_date" id="from_date"
+                        class="date-class add_from_date form-control"
+                        value="{{ request('from_date') }}" placeholder="Date Calendar">
+                    <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                </div>
+                <!-- Search button mobile) -->
+                <button type="submit" class="btn btn-sm btn-primary ms-2 d-md-none" style="font-size: 12px;">
+                    <i class="bi bi-search"></i> Search
+                </button>
+            </div>
+
+            <!-- To Date + Add New button  -->
+            <div class="d-flex align-items-center gap-1 order-3 order-md-2" style="min-width: 150px; max-width: 300px; justify-content: flex-start;">
+                <label class="form-label mb-0" style="white-space: nowrap; width: 90px;">To Date</label>
+                <div class="input-group input-group-sm" style="max-width: 150px; margin-left:10px;">
+                    <input type="text" name="to_date" id="to_date"
+                        class="date-class add_to_date form-control"
+                        value="{{ request('to_date') }}" placeholder="Date Calendar">
+                    <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                </div>
+                <!-- Add New button (only for mobile) -->
+                <a href="{{ url('inquiry/create') }}" class="btn btn-sm btn-info ms-2 d-md-none" style="font-size: 10px;">
+                    <i class="feather-plus me-2"></i> Add New
+                </a>
+            </div>
+
+            <!-- Desktop buttons -->
+            <div class="d-none d-md-flex gap-2 order-2">
+                <button type="submit" class="btn btn-sm btn-primary" style="font-size: 12px;">
+                    <i class="bi bi-search"></i> Search
+                </button>
+                <a href="{{ url('inquiry/create') }}" class="btn btn-sm btn-info" style="font-size: 12px;">
+                    <i class="feather-plus me-2"></i> Add New
+                </a>
+            </div>
+        </form>
+
+    </div>
+</div>
+
 
 <div class="main-content">   
     <div class="row">
@@ -100,9 +119,9 @@
                 </div>
             </div>
         </div>
+        </div>
+        </div>
     </div>
-    </div>
-</div>
         <!-- [ page-header ] end -->
         <!-- [ Main Content ] start -->
         <!-- dashboardMainContent -->
@@ -193,6 +212,22 @@
     font-size: 1.1rem;
     color: #495057; 
   }
+
+.custom-width-date {
+    width: 150px; /* BAD for responsiveness */
+}
+
+@media (max-width: 576px) {
+    .custom-width-date {
+        width: 10% !important;
+    }
+}
+
+@media (min-width: 577px) {
+    .custom-width-date {
+        width: auto; /* or your preferred width */
+    }
+}
 </style>
 
 <script type="text/javascript">
