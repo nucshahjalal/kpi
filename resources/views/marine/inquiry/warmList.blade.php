@@ -61,6 +61,7 @@
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Product Type</th>
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Engine Type</th>
                                 <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Product Model</th>
+                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Created At</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -75,6 +76,7 @@
                                 <td>{{ $obj->product_type == 0 ? 'Marine' : 'Marine Equipment' }}</td>
                                 <td>{{ $obj->engine_type == 0 ? 'Mitshubishi' : 'Yuchai'}}</td>
                                 <td>{{ $obj->model }}</td>
+                                <td>{{ date('m-d-Y', strtotime($obj->created_at)) }}</td>
                             </tr>
                             @empty
                             <tr>
