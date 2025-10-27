@@ -22,7 +22,7 @@
                     <div class="input-group input-group-sm w-100 w-md-auto" style="max-width: 170px;">
                         <input type="text" name="from_date" id="from_date"
                             class="date-class add_from_date form-control"
-                            value="{{ request('from_date') }}" placeholder="Date Calender">
+                            value="{{ $defaultFrom }}" placeholder="Date Calender">
                         <span class="input-group-text"><i class="bi bi-calendar"></i></span>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                     <div class="input-group input-group-sm w-100 w-md-auto" style="max-width: 170px;">
                         <input type="text" name="to_date" id="to_date"
                             class="date-class add_to_date form-control"
-                            value="{{ request('to_date') }}" placeholder="Date Calender">
+                            value="{{ $defaultTo }}" placeholder="Date Calender">
                         <span class="input-group-text"><i class="bi bi-calendar"></i></span>
                     </div>
                 </div>

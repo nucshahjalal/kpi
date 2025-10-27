@@ -6,12 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\{Inquiry, Visit};
+use Carbon\Carbon;
 
 class InquiryController extends Controller
 {
     public $data = array();
 
     public function index(Request $request){
+
+        $this->data['defaultFrom'] = request('from_date') ?? Carbon::now()->startOfMonth()->format('Y-m-d');
+        $this->data['defaultTo'] = request('to_date') ?? Carbon::now()->format('Y-m-d');
 
         $from_date = $request->from_date;
         $to_date = $request->to_date;
@@ -21,6 +25,9 @@ class InquiryController extends Controller
 
     public function warmList(Request $request){
 
+        $this->data['defaultFrom'] = request('from_date') ?? Carbon::now()->startOfMonth()->format('Y-m-d');
+        $this->data['defaultTo'] = request('to_date') ?? Carbon::now()->format('Y-m-d');
+
         $from_date = $request->from_date;
         $to_date = $request->to_date;
         $this->data['inquiries'] = Inquiry::getWarmList($from_date, $to_date);
@@ -29,6 +36,9 @@ class InquiryController extends Controller
 
     public function coldList(Request $request){
 
+        $this->data['defaultFrom'] = request('from_date') ?? Carbon::now()->startOfMonth()->format('Y-m-d');
+        $this->data['defaultTo'] = request('to_date') ?? Carbon::now()->format('Y-m-d');
+
         $from_date = $request->from_date;
         $to_date = $request->to_date;
         $this->data['inquiries'] = Inquiry::getColdList($from_date, $to_date);
@@ -36,6 +46,9 @@ class InquiryController extends Controller
     }
 
     public function hotList(Request $request){
+
+        $this->data['defaultFrom'] = request('from_date') ?? Carbon::now()->startOfMonth()->format('Y-m-d');
+        $this->data['defaultTo'] = request('to_date') ?? Carbon::now()->format('Y-m-d');
 
         $from_date = $request->from_date;
         $to_date = $request->to_date;
@@ -135,6 +148,9 @@ class InquiryController extends Controller
     } 
 
     public function visitList(Request $request){
+
+        $this->data['defaultFrom'] = request('from_date') ?? Carbon::now()->startOfMonth()->format('Y-m-d');
+        $this->data['defaultTo'] = request('to_date') ?? Carbon::now()->format('Y-m-d');
 
         $from_date = $request->from_date;
         $to_date = $request->to_date;

@@ -21,12 +21,12 @@
             @csrf
 
             <!-- From Date  mobile here) -->
-            <div class="d-flex align-items-center gap-1 order-1 order-md-1" style="min-width: 150px; max-width: 300px; justify-content: flex-start;">
-                <label class="form-label mb-0" style="white-space: nowrap; width: 90px;">From Date</label>
+            <div class="d-flex align-items-center gap-0 order-1 order-md-1" style="min-width: 150px; max-width: 300px; justify-content: flex-start;">
+                <label class="form-label mb-0" style="white-space: nowrap; width: 72px;">From Date</label>
                 <div class="input-group input-group-sm" style="max-width: 150px;">
                     <input type="text" name="from_date" id="from_date"
                         class="date-class add_from_date form-control"
-                        value="{{ request('from_date') }}" placeholder="Date Calendar">
+                        value="{{ $defaultFrom }}" placeholder="Date Calendar">
                     <span class="input-group-text"><i class="bi bi-calendar"></i></span>
                 </div>
                 <!-- Search button mobile) -->
@@ -36,12 +36,12 @@
             </div>
 
             <!-- To Date + Add New button  -->
-            <div class="d-flex align-items-center gap-1 order-3 order-md-2" style="min-width: 150px; max-width: 300px; justify-content: flex-start;">
-                <label class="form-label mb-0" style="white-space: nowrap; width: 90px;">To Date</label>
-                <div class="input-group input-group-sm" style="max-width: 150px; margin-left:10px;">
+            <div class="d-flex align-items-center gap-0 order-3 order-md-2" style="min-width: 150px; max-width: 300px; justify-content: flex-start;">
+                <label class="form-label mb-0" style="white-space: nowrap; width: 50px;">To Date</label>
+                <div class="input-group input-group-sm" style="max-width: 140px; margin-left:10px;">
                     <input type="text" name="to_date" id="to_date"
                         class="date-class add_to_date form-control"
-                        value="{{ request('to_date') }}" placeholder="Date Calendar">
+                        value="{{ $defaultTo }}" placeholder="Date Calendar">
                     <span class="input-group-text"><i class="bi bi-calendar"></i></span>
                 </div>
                 <!-- Add New button (only for mobile) -->
