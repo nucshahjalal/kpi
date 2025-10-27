@@ -27,14 +27,14 @@
                 <div class="page-header-right ms-auto">
                     <form method="get" action="{{ url('/dashboard') }}" id="submitForm" class="d-flex align-items-center gap-2">
                         @csrf
-                        <label class="form-label" style="white-space: nowrap;">From Date</label>
+                    <label class="form-label" style="white-space: nowrap;">From Date</label>
                     <div class="input-group input-group-sm" style="max-width: 170px;">
                         <input type="text" name="from_date" id="from_date"
                             class="date-class add_from_date form-control"
                             value="{{ request('from_date') }}" placeholder=" Date Calender">
                         <span class="input-group-text"><i class="bi bi-calendar"></i></span>
                     </div>
-                    <label class="form-label" style="white-space: nowrap;">From Date</label>
+                    <label class="form-label" style="white-space: nowrap;">To Date</label>
                     <div class="input-group input-group-sm" style="max-width: 170px;">
                         <input type="text" name="to_date" id="to_date"
                             class="date-class add_to_date form-control"
@@ -42,8 +42,8 @@
                         <span class="input-group-text"><i class="bi bi-calendar"></i></span>
                     </div>
                     <div class="col-auto">
-                <button style="font-size: 12px;" class="btn btn-sm btn-primary"><i class="bi bi-search"></i> Search</button>
-            </div>
+                        <button style="font-size: 12px;" class="btn btn-sm btn-primary"><i class="bi bi-search"></i> Search</button>
+                    </div>
                     </form>
                 </div>
             </div> 
@@ -817,7 +817,7 @@
 
 <style>
 
- .btn {
+.btn {
     text-transform: capitalize;
 }
 
@@ -873,7 +873,7 @@
 
 .input-group .form-control {
 border-right: none; 
-
+}
 .input-group-text i {
 font-size: 1.1rem;
 color: #495057; 

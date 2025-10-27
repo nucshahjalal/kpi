@@ -7,9 +7,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Marine\InquiryController;
 use App\Http\Controllers\Marine\ReportController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+ Route::get('/', function () {
+     return view('auth.login');
+ });
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])
     ->middleware(['auth', 'verified'])
