@@ -82,6 +82,7 @@
                 <th>Vessel Name</th>
                 <th>Builder Details</th>
                 <th>Description</th>
+                <th>Created At</th>
             </tr>
         </thead>
         <tbody>
@@ -119,6 +120,7 @@
                 <td>{{ $obj->vessel_name }}</td>
                 <td>{{ $obj->builder_details }}</td>
                 <td>{{ $obj->description }}</td>
+                <td>{{ date('m-d-Y', strtotime($obj->created_at)) }}</td>
             </tr>
             @empty
             <tr>

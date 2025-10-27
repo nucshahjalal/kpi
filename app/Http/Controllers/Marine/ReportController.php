@@ -87,7 +87,7 @@ class ReportController extends Controller
             'Company Name', 'Owner Name','Phone','Price','Project PBT',
             'Product Type','Start Date','Engine Type','Product Model','Purchase Date',
             'Customer Type','Project Status','Inquiry Date','Inquiry Status',
-            'Vessel Name','Builder Details','Description'
+            'Vessel Name','Builder Details','Description','Created At'
         ]);
         
         foreach ($inquiries as $inquiry) {
@@ -114,6 +114,7 @@ class ReportController extends Controller
                 $inquiry->vessel_name,
                 $inquiry->builder_details,
                 $inquiry->description,
+                date('m-d-Y', strtotime($inquiry->created_at)),
             ]);
         }
 
@@ -141,7 +142,7 @@ class ReportController extends Controller
             'Company Name', 'Owner Name','Phone','Price','Project PBT',
             'Product Type','Start Date','Engine Type','Product Model','Purchase Date',
             'Customer Type','Project Status','Inquiry Date','Inquiry Status',
-            'Vessel Name','Builder Details','Description'
+            'Vessel Name','Builder Details','Description','Created At'
         ]);
         
         foreach ($inquiries as $inquiry) {
@@ -168,6 +169,7 @@ class ReportController extends Controller
                 $inquiry->vessel_name,
                 $inquiry->builder_details,
                 $inquiry->description,
+                date('m-d-Y', strtotime($inquiry->created_at)),
             ]);
         }
 
@@ -195,7 +197,7 @@ class ReportController extends Controller
             'Company Name', 'Owner Name','Phone','Price','Project PBT',
             'Product Type','Start Date','Engine Type','Product Model','Purchase Date',
             'Customer Type','Project Status','Inquiry Date','Inquiry Status',
-            'Vessel Name','Builder Details','Description'
+            'Vessel Name','Builder Details','Description','Created At'
         ]);
         
         foreach ($inquiries as $inquiry) {
@@ -222,6 +224,7 @@ class ReportController extends Controller
                 $inquiry->vessel_name,
                 $inquiry->builder_details,
                 $inquiry->description,
+                date('m-d-Y', strtotime($inquiry->created_at)),
             ]);
         }
 
@@ -249,7 +252,7 @@ class ReportController extends Controller
             'Company Name', 'Owner Name','Phone','Price','Project PBT',
             'Product Type','Start Date','Engine Type','Product Model','Purchase Date',
             'Customer Type','Project Status','Inquiry Date','Inquiry Status',
-            'Vessel Name','Builder Details','Description'
+            'Vessel Name','Builder Details','Description','Created At'
         ]);
         
         foreach ($inquiries as $inquiry) {
@@ -276,6 +279,7 @@ class ReportController extends Controller
                 $inquiry->vessel_name,
                 $inquiry->builder_details,
                 $inquiry->description,
+                date('m-d-Y', strtotime($inquiry->created_at)),
             ]);
         }
 
