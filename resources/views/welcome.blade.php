@@ -1,6 +1,3 @@
-<div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_yuchai }}</span></div>
-                                <h3 class="fs-13 fw-semibold text-truncate-1-line text-dark">Yuchai Total Inquery</h3>
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
