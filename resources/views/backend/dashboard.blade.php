@@ -236,13 +236,14 @@
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
-                            <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry/list')}}" target="_blank" class="text-dark">
-                                     <i style="" class="">
-                                        <img src="{{asset('backend/assets/icon/icon9.jpg')}}" width="30px" height="50%"  class="img-fluid">
-                                    </i>
+                            <div style="display: inline-flex; align-items: center; justify-content: center; width: 130px !important; height: 80px !important; border-radius: 6px; box-shadow: 0 0 5px rgba(0,0,0,0.1); background-color: #ffffff; color: #198754;">
+                                <a href="#" target="_blank" style="text-decoration: none; display: inline-block; color: inherit;">
+                                    <img src="{{ asset('backend/assets/icon/icon9.jpg') }}" 
+                                        alt="Inquiry Icon" 
+                                        style="width: 120px; height: 70px; object-fit: contain; display: block;">
                                 </a>
                             </div>
+
                             <div>
                                 <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_mitshubisi }}</span></div>
                                 <h3 class="fs-13 fw-semibold text-truncate-1-line text-dark">Mitsubishi Total Inquiry</h3>
@@ -276,13 +277,14 @@
                 <div class="card-body">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
-                            <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="#" target="_blank" class="text-dark">
-                                    <i style="" class="">
-                                        <img src="{{asset('backend/assets/icon/icon7.jpg')}}" width="30px" height="50%"  class="img-fluid">
-                                    </i>
-                                </a>
-                            </div>
+                                <div style="display: inline-flex; align-items: center; justify-content: center; width: 130px !important; height: 80px !important; border-radius: 6px; box-shadow: 0 0 5px rgba(0,0,0,0.1); background-color: #ffffff; color: #198754;">
+                                    <a href="#" target="_blank" style="text-decoration: none; display: inline-block; color: inherit;">
+                                        <img src="{{ asset('backend/assets/icon/icon7.jpg') }}" 
+                                            alt="Inquiry Icon" 
+                                            style="width: 120px; height: 70px; object-fit: contain; display: block;">
+                                    </a>
+                                </div>
+
                             <div>
                                 <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_yuchai }}</span></div>
                                 <h3 class="fs-13 fw-semibold text-truncate-1-line text-dark">Yuchai Total Inquery</h3>
