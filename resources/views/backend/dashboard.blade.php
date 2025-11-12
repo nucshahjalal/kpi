@@ -230,13 +230,13 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-xxl-6 col-md-6">
+    <div  class="row">
+        <div class="col-xxl-6 col-md-6 ">
             <div style="background: linear-gradient(90deg,#e7c1e8 0%, #efccf0 100%); color:#072018;" class="card stretch stretch-full text-dark">
-                <div class="card-body">
+                <div  class="card-body bg-white">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
-                            <div style="display: inline-flex; align-items: center; justify-content: center; width: 130px !important; height: 80px !important; border-radius: 6px; box-shadow: 0 0 5px rgba(0,0,0,0.1); background-color: #ffffff; color: #198754;">
+                            <div style="display: inline-flex; align-items: center; justify-content: center; width: 130px !important; height: 80px !important; border-radius: 6px; rgba(255, 255, 255, 0.1);  rgba(0,0,0,0.1); background-color: #ffffff; color: #198754;">
                                 <a href="#" target="_blank" style="text-decoration: none; display: inline-block; color: inherit;">
                                     <img src="{{ asset('backend/assets/icon/icon9.jpg') }}" 
                                         alt="Inquiry Icon" 
@@ -274,10 +274,10 @@
         </div>
         <div class="col-xxl-6 col-md-6">
             <div style="background: linear-gradient(90deg,#f0a8e4 0%, #ffd9f2 100%); color:#072018;"  class="card stretch stretch-full text-dark">
-                <div class="card-body">
+                <div class="card-body bg-white">
                     <div class="d-flex align-items-start justify-content-between mb-4">
                         <div class="d-flex gap-4 align-items-center">
-                                <div style="display: inline-flex; align-items: center; justify-content: center; width: 130px !important; height: 80px !important; border-radius: 6px; box-shadow: 0 0 5px rgba(0,0,0,0.1); background-color: #ffffff; color: #198754;">
+                                <div style="display: inline-flex; align-items: center; justify-content: center; width: 130px !important; height: 80px !important; border-radius: 6px; box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); background-color: #ffffff; color: #198754;">
                                     <a href="#" target="_blank" style="text-decoration: none; display: inline-block; color: inherit;">
                                         <img src="{{ asset('backend/assets/icon/icon7.jpg') }}" 
                                             alt="Inquiry Icon" 
