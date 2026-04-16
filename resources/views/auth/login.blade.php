@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="keyword" content="">
     <meta name="author" content="theme_ocean">
-    <title>ACI Marine</title>
+    <title>KPI</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('backend/assets/images/favicon.ico')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('backend/assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('backend/assets/vendors/css/vendors.min.css')}}">
@@ -28,22 +28,22 @@
                         <img src="{{asset('backend/assets/images/logo.jpg')}}" alt="" class="img-fluid">
                     </div>
                     <div class="card-body p-sm-5">
-                        <h2 class="fs-20 fw-bolder mb-4 text-center">ACI Marine</h2>
-                        <form method="POST" action="{{ route('login') }}" class="w-100 mt-4 pt-2">
+                        <h2 class="fs-20 fw-bolder mb-4 text-center">KPI</h2>
+                        <form method="POST" action="{{ route('login') }}" class="w-100 mt-4 pt-0">
                             @csrf   
 
                             <div class="mb-3">
-                                <label class="form-label">Email: </label>
-                                <input type="text" name="email" value="{{ old('email') }}" class="form-control" placeholder="Email"  required>
-                                @error('email')
+                                <label class="form-label">User ID: </label>
+                                <input type="text" name="staff_id" value="{{ old('staff_id') }}" class="form-control" placeholder="User ID"  required>
+                                @error('staff_id')
                                     <div style="color: red">{{ $message }}</div>
                                 @enderror
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">Password: </label>
-                                <input type="password" name="password" class="form-control" placeholder="Password"  required>
-                                @error('password')
+                                <input type="password" name="staff_id" class="form-control" placeholder="Password"  required>
+                                @error('staff_id')
                                     <div style="color: red">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -56,10 +56,18 @@
                                     </div>
                                 </div> 
                             </div>
-                            <div class="mt-5">
-                                <button type="submit" class="btn btn-lg btn-primary w-100">Login</button>
+                            <div class="mt-3">
+                                <button type="submit" class="btn btn-md btn-primary w-100">Login</button>
+                                
                             </div>
+
                         </form>
+                        <div class="text-center mt-3">
+                            <span class="text-muted small">Don't have an account?</span>
+                            <a href="{{ url('employee/register') }}" class="text-primary fw-bold small text-decoration-none ms-1">
+                                <i class="bi bi-person-plus-fill me-1"></i>Create New Employee Account
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -90,13 +98,4 @@
     }
 </style>
 
-<script type="text/javascript"> 
 
-    $(document).ready(function() {
-        $('#tractor_type').select2({
-            placeholder: 'Select a user',
-            width: '100%'
-        });
-    });
-    
-</script>

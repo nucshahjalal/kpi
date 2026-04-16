@@ -1,147 +1,163 @@
 @extends('backend.app')
-@section('page_title','ACI Marine')
+@section('page_title','KPI')
 @section('content')
 
 <main  class="nxl-container">
     <div  class="nxl-content">
         <!-- [ page-header ] start -->
-    <div class="page-header">
-        <div class="page-header-left d-flex align-items-center">
-            <div class="page-header-title">
-                <h5 class="m-b-10">Dashboard</h5>
-            </div>
-            <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}">Home</a></li>
-            </ul>
-        </div>
-        <div class="page-header-right ms-auto">
-            <div class="page-header-right-items">
-        <div class="d-flex d-md-none">
-            <a href="javascript:void(0)" class="page-header-right-close-toggle">
-                <i class="feather-arrow-left me-2"></i>
-                <span>Back</span>
-            </a>
-        </div>
-        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-            <div class="dropdown filter-dropdown">
-                <div class="page-header-right ms-auto">
-                    <form method="get" action="{{ url('/dashboard') }}" id="submitForm" class="d-flex align-items-center gap-2">
-                        @csrf
-                    <label class="form-label" style="white-space: nowrap;">From Date</label>
-                    <div class="input-group input-group-sm" style="max-width: 170px;">
-                        <input type="text" name="from_date" id="from_date"
-                            class="date-class add_from_date form-control"
-                            value="{{ $defaultFrom }}" placeholder=" Date Calender">
-                        <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+   <div class="page-header d-flex align-items-center justify-content-between gap-2 flex-wrap p-3 rounded-3 shadow-sm" style="">
+    
+        <div class="d-flex align-items-center gap-2">
+            <form method="get" action="" class="d-flex align-items-center gap-2 m-0">
+                <div class="d-flex gap-3">
+                    <div class="d-flex align-items-center gap-2">
+                        <label for="month" class="mb-0">Month</label>
+                        <select name="month" class="form-select"> 
+                            @php $months = get_months(); @endphp
+                            @foreach ($months as $key => $value)
+                                <option value="{{ $value }}" {{ request('month', date('F')) == $value ? 'selected' : '' }}>
+                                    {{ $value }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
-                    <label class="form-label" style="white-space: nowrap;">To Date</label>
-                    <div class="input-group input-group-sm" style="max-width: 170px;">
-                        <input type="text" name="to_date" id="to_date"
-                            class="date-class add_to_date form-control"
-                            value="{{ $defaultTo }}" placeholder=" Date Calender">
-                        <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+
+            .        <div class="d-flex align-items-center gap-2">
+                        <label for="year" class="mb-0">Year</label>
+                        <select name="year" class="form-select"> 
+                            @php $years = get_years(); @endphp
+                            @foreach ($years as $key => $value)
+                                <option value="{{ $key }}" {{ request('year', date('Y')) == $value ? 'selected' : '' }}>
+                                    {{ $value }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
-                    <div class="col-auto">
-                        <button style="font-size: 12px;" class="btn btn-sm btn-primary"><i class="bi bi-search"></i> Search</button>
-                    </div>
-                    </form>
                 </div>
-            </div> 
+                <button class="btn btn-sm btn-secondary d-flex align-items-center">
+                   <i class="bi bi-check-circle me-1"></i> Set Data
+                </button>
+            </form>
         </div>
+
+        <div class="d-flex align-items-center gap-2 flex-wrap">
+            
+            <button type="button" class="btn btn-sm btn-success d-flex align-items-center">
+                <i class="bi bi-key me-1"></i> Update Password
+            </button>
+            <a href="{{ url('inquiry/create') }}" class="btn btn-sm btn-info d-flex align-items-center">
+                <i class="feather-plus me-2"></i> Add New
+            </a>
+               
         </div>
-            <div class="d-md-none d-flex align-items-center">
-                <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                    <i class="feather-align-right fs-20"></i>
-                </a>
-            </div>
-        </div>
+
+        
     </div>
 
     <div style="margin-top:0px;" class="main-content">  
         <div class="col-xxl-12">
             <div class="" style="margin-bottom: 25px; text-align: left;">
                 <div class="">
-                    <h5 class=""><span style="color:black;">Marine Engine</span></h5>
+                    <h5 style="font-size:12px;" class=""><span style="color:black;">KPI PERFORMANCE</span></h5>
                 </div>
             </div>
 
     <div class="row">
         <!-- Card 1 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(120deg,#87dfe1 0%, #b6f0ee 100%); color:#072018;" class="card stretch stretch-full text-dark">
-                <div class="card-body">
-                    <div class="d-flex align-items-start justify-content-between mb-4">
-                        <div class="d-flex gap-4 align-items-center">
-                            <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry/list')}}" target="_blank" class="text-dark">
-                                    <i style="">
-                                        <img src="{{asset('backend/assets/icon/icon1.jpg')}}" width="30px" height="50%" class="img-fluid">
-                                    </i>
-                                </a>
+            <div class="card border-0 shadow-sm overflow-hidden" style="border-radius: 8px; background: #ffffff;">
+                <div class="card-body p-3" style="border-left: 3px solid #17a2b8;">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex gap-2 align-items-center">
+                            <div class="avatar-text rounded-circle d-flex align-items-center justify-content-center shadow-sm" 
+                                style="width: 38px; height: 38px;">
+                                A
                             </div>
-                            <div>
-                                <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_inquries }}</span></div>
-                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-dark text-truncate-1-line">Total Inquiry</h3>
+
+                            <div class="text-center w-100">
+                                <h6 class="text-muted fw-bold text-uppercase mb-1" style="font-size: 9px; letter-spacing: 0.3px;">
+                                    Agri Machineries
+                                </h6>
+                                <div class="fs-5 fw-bolder text-dark leading-tight">
+                                    <span class="counter">{{ $total_inquries }}</span>
+                                </div>
                             </div>
                         </div>
-                        <a href="javascript:void(0);" class="text-dark">
-                            <i class="feather-more-vertical"></i>
-                        </a>
+                        
+                        <div class="dropdown">
+                            <a href="javascript:void(0);" class="text-muted" data-bs-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical" style="font-size: 14px;"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="pt-4">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="text-dark fs-12 fw-medium text-truncate-1-line">Inquiry Process</a>
-                            <div class="w-100 text-end">
-                                <span class="fs-11 text-dark">{{ $total_inquries }}%</span>
-                            </div>
+
+                    <div class="mt-2">
+                        <div class="d-flex align-items-center justify-content-between mb-1">
+                            <span class="text-muted" style="font-size: 10px;">Submission</span>
+                            <span class="fw-bold text-info" style="font-size: 10px;">{{ $total_inquries }}%</span>
                         </div>
-                        <div class="progress mt-2 ht-3">
+                        <div class="progress" style="height: 4px; background-color: #f1f5f9; border-radius: 10px;">
                             <div class="progress-bar bg-info" role="progressbar" 
-                                style="width: 15%" 
+                                style="width: {{ $total_inquries }}%; border-radius: 10px;" 
                                 aria-valuenow="{{ $total_inquries }}" 
                                 aria-valuemin="0" 
                                 aria-valuemax="100">
                             </div>
                         </div>
+                        <div class="mt-1 d-flex align-items-center gap-1">
+                            <span class="text-success fw-bold" style="font-size: 9px;"><i class="bi bi-arrow-up-short"></i> 12%</span>
+                            <span class="text-muted" style="font-size: 9px;">vs last month</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
+
         <!-- Card 2 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(120deg,#ffb4a8 0%, #ffd6d1 100%); color:#072018;" class="card stretch stretch-full  text-dark">
-                <div class="card-body">
-                    <div class="d-flex align-items-start justify-content-between mb-4">
-                        <div class="d-flex gap-4 align-items-center">
-                            <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry-hot/list')}}" target="_blank" class="text-dark">
-                                    <i style="">
-                                    <img src="{{asset('backend/assets/icon/icon2.jpg')}}" width="30px" height="100%" class="img-fluid">
-                                    </i>
-                                </a>
+            <div class="card border-0 shadow-sm overflow-hidden" style="border-radius: 8px; background: #ffffff;">
+                <div class="card-body p-3" style="border-left: 3px solid #3fcd5d;">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex gap-2 align-items-center">
+                            <div class="avatar-text rounded-circle d-flex align-items-center justify-content-center shadow-sm" 
+                                style="width: 38px; height: 38px;">
+                                H
                             </div>
-                            <div>
-                                <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_engine_hot }}</span></div>
-                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-dark text-truncate-1-line">Total Hot</h3>
+
+                            <div class="text-center w-100">
+                                <h6 class="text-muted fw-bold text-uppercase mb-1" style="font-size: 10px; letter-spacing: 0.3px;">
+                                   Hamaha
+                                </h6>
+                                <div class="fs-5 fw-bolder text-dark leading-tight">
+                                    <span class="counter">{{ $total_inquries }}</span>
+                                </div>
                             </div>
                         </div>
-                        <a href="javascript:void(0);" class="text-dark"><i class="feather-more-vertical"></i></a>
+                        <!-- Action Menu -->
+                        <div class="dropdown">
+                            <a href="javascript:void(0);" class="text-muted" data-bs-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical" style="font-size: 14px;"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="pt-4">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="text-dark fs-12 fw-medium text-truncate-1-line">Hot Process</a>
-                            <div class="w-100 text-end">
-                                <span class="fs-11 text-dark">{{ $total_engine_hot }}%</span>
-                            </div>
+
+                    <div class="mt-2">
+                        <div class="d-flex align-items-center justify-content-between mb-1">
+                            <span class="text-muted" style="font-size: 10px;">Submission</span>
+                            <span class="fw-bold text-info" style="font-size: 10px;">{{ $total_inquries }}%</span>
                         </div>
-                        <div class="progress mt-2 ht-3">
-                            <div class="progress-bar bg-danger" role="progressbar" 
-                                style="width: 15%" 
-                                aria-valuenow="{{ $total_engine_hot }}" 
+                        <div class="progress" style="height: 4px; background-color: #f1f5f9; border-radius: 10px;">
+                            <div class="progress-bar bg-info" role="progressbar" 
+                                style="width: {{ $total_inquries }}%; border-radius: 10px;" 
+                                aria-valuenow="{{ $total_inquries }}" 
                                 aria-valuemin="0" 
                                 aria-valuemax="100">
                             </div>
+                        </div>
+                        <div class="mt-1 d-flex align-items-center gap-1">
+                            <span class="text-success fw-bold" style="font-size: 9px;"><i class="bi bi-arrow-up-short"></i> 12%</span>
+                            <span class="text-muted" style="font-size: 9px;">vs last month</span>
                         </div>
                     </div>
                 </div>
@@ -149,40 +165,52 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(120deg,#ffc994 0%, #ffe8c9 100%); color:#072018;" class="card stretch stretch-full  text-dark">
-                <div class="card-body">
-                    <div class="d-flex align-items-start justify-content-between mb-4">
-                        <div class="d-flex gap-4 align-items-center">
-                            <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry-warm/list')}}" target="_blank" class="text-dark">
-                                    <i style="" class="">
-                                        <img src="{{asset('backend/assets/icon/icon6.jpg')}}" width="30px" height="50%"  class="img-fluid">
-                                    </i>
-                                </a>
-                                
+       <div class="col-xxl-3 col-md-3">
+            <div class="card border-0 shadow-sm overflow-hidden" style="border-radius: 8px; background: #ffffff;">
+                <div class="card-body p-3" style="border-left: 3px solid #820e8b;">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex gap-2 align-items-center">
+                            <div class="avatar-text rounded-circle d-flex align-items-center justify-content-center shadow-sm" 
+                                style="width: 38px; height: 38px; ">
+                                F
                             </div>
-                            <div>
-                                <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_engine_warm }}</span></div>
-                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-dark text-truncate-1-line">Total Warm</h3>
+
+                            <div class="text-center w-100">
+                                 <h6 class="text-muted fw-bold text-uppercase mb-1" 
+                                    style="font-size: 9px; letter-spacing: 0.3px; width: 100%; display: block; text-align: center;">
+                                    Foton
+                                </h6>
+                                <div class="fs-5 fw-bolder text-dark leading-tight">
+                                    <span class="counter">{{ $total_inquries }}</span>
+                                </div>
                             </div>
                         </div>
-                        <a href="javascript:void(0);" class="text-dark"><i class="feather-more-vertical"></i></a>
+                        <!-- Action Menu -->
+                        <div class="dropdown">
+                            <a href="javascript:void(0);" class="text-muted" data-bs-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical" style="font-size: 14px;"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="pt-4">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="text-dark fs-12 fw-medium text-truncate-1-line">Warm Process</a>
-                            <div class="w-100 text-end">
-                                <span class="fs-11 text-dark">{{ $total_engine_warm }}%</span>
-                            </div>
+
+                    <!-- KPI Indicator Section: Tightened margins -->
+                    <div class="mt-2">
+                        <div class="d-flex align-items-center justify-content-between mb-1">
+                            <span class="text-muted" style="font-size: 10px;">Submission</span>
+                            <span class="fw-bold text-info" style="font-size: 10px;">{{ $total_inquries }}%</span>
                         </div>
-                        <div class="progress mt-2 ht-3">
-                            <div class="progress-bar bg-dark" role="progressbar" 
-                                style="width: 15%" 
-                                aria-valuenow="{{ $total_engine_warm }}" 
+                        <!-- Ultra Slim Progress Bar -->
+                        <div class="progress" style="height: 4px; background-color: #f1f5f9; border-radius: 10px;">
+                            <div class="progress-bar bg-info" role="progressbar" 
+                                style="width: {{ $total_inquries }}%; border-radius: 10px;" 
+                                aria-valuenow="{{ $total_inquries }}" 
                                 aria-valuemin="0" 
                                 aria-valuemax="100">
                             </div>
+                        </div>
+                        <div class="mt-1 d-flex align-items-center gap-1">
+                            <span class="text-success fw-bold" style="font-size: 9px;"><i class="bi bi-arrow-up-short"></i> 12%</span>
+                            <span class="text-muted" style="font-size: 9px;">vs last month</span>
                         </div>
                     </div>
                 </div>
@@ -191,123 +219,49 @@
 
         <!-- Card 4 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(120deg,#bfeaf8 0%, #c2deec 100%); color:#072018;" class="card stretch stretch-full bg-info text-dark">
-                <div class="card-body">
-                    <div class="d-flex align-items-start justify-content-between mb-4">
-                        <div class="d-flex gap-4 align-items-center">
-                            <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry-cold/list')}}" target="_blank" class="text-dark">
-                                        <i style="" class="">
-                                        <img src="{{asset('backend/assets/icon/icon12.jpg')}}" width="30px" height="50%"  class="img-fluid">
-                                    </i>
-                                </a>
-                            </div>
-                            <div>
-                                <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_engine_cold}}</span></div>
-                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-dark text-truncate-1-line">Total Cold</h3>
-                            </div>
-                        </div>
-                        <a href="javascript:void(0);" class="text-dark"><i class="feather-more-vertical"></i></a>
-                    </div>
-                    <div class="pt-4">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="text-dark fs-12 fw-medium text-truncate-1-line">Cold Process</a>
-                            <div class="w-100 text-end">
-                                <span class="fs-11 text-dark">{{ $total_engine_cold }}%</span>
-                            </div>
-                        </div>
-                        <div class="progress mt-2 ht-3">
-                            <div class="progress-bar bg-success" role="progressbar" 
-                                style="width: 15%" 
-                                aria-valuenow="{{ $total_engine_cold }}" 
-                                aria-valuemin="0" 
-                                aria-valuemax="100">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div  class="row">
-        <div class="col-xxl-6 col-md-6 ">
-            <div style="background: linear-gradient(90deg,#e7c1e8 0%, #efccf0 100%); color:#072018;" class="card stretch stretch-full text-dark">
-                <div  class="card-body bg-white">
-                    <div class="d-flex align-items-start justify-content-between mb-4">
-                        <div class="d-flex gap-4 align-items-center">
-                            <div style="display: inline-flex; align-items: center; justify-content: center; width: 130px !important; height: 80px !important; border-radius: 6px; rgba(255, 255, 255, 0.1);  rgba(0,0,0,0.1); background-color: #ffffff; color: #198754;">
-                                <a href="#" target="_blank" style="text-decoration: none; display: inline-block; color: inherit;">
-                                    <img src="{{ asset('backend/assets/icon/icon9.jpg') }}" 
-                                        alt="Inquiry Icon" 
-                                        style="width: 120px; height: 70px; object-fit: contain; display: block;">
-                                </a>
+            <div class="card border-0 shadow-sm overflow-hidden" style="border-radius: 8px; background: #ffffff;">
+                <div class="card-body p-3" style="border-left: 3px solid #cd4848;">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex gap-2 align-items-center">
+                            <div class="avatar-text rounded-circle d-flex align-items-center justify-content-center shadow-sm" 
+                                style="width: 38px; height: 38px; ">
+                                P
                             </div>
 
-                            <div>
-                                <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_mitshubisi }}</span></div>
-                                <h3 class="fs-13 fw-semibold text-truncate-1-line text-dark">Mitsubishi Total Inquiry</h3>
-                            </div>
-                        </div>
-                        <a href="javascript:void(0);" class="text-dark">
-                            <i class="feather-more-vertical"></i>
-                        </a>
-                    </div>
-                    <div class="pt-4">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="text-dark fs-12 fw-medium text-truncate-1-line">Mitsubishi Process</a>
-                            <div class="w-100 text-end">
-                                <span class="fs-11 text-dark">{{ $total_mitshubisi }}%</span>
-                            </div>
-                        </div>
-                        <div class="progress mt-2 ht-3">
-                            <div class="progress-bar bg-warning" role="progressbar" 
-                                style="width: 15%" 
-                                aria-valuenow="{{ $total_mitshubisi }}" 
-                                aria-valuemin="0" 
-                                aria-valuemax="100">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xxl-6 col-md-6">
-            <div style="background: linear-gradient(90deg,#f0a8e4 0%, #ffd9f2 100%); color:#072018;"  class="card stretch stretch-full text-dark">
-                <div class="card-body bg-white">
-                    <div class="d-flex align-items-start justify-content-between mb-4">
-                        <div class="d-flex gap-4 align-items-center">
-                                <div style="display: inline-flex; align-items: center; justify-content: center; width: 130px !important; height: 80px !important; border-radius: 6px; box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); background-color: #ffffff; color: #198754;">
-                                    <a href="#" target="_blank" style="text-decoration: none; display: inline-block; color: inherit;">
-                                        <img src="{{ asset('backend/assets/icon/icon7.jpg') }}" 
-                                            alt="Inquiry Icon" 
-                                            style="width: 120px; height: 70px; object-fit: contain; display: block;">
-                                    </a>
+                            <div class="text-center w-100">
+                                <h6 class="text-muted fw-bold text-uppercase mb-1" style="font-size: 9px; letter-spacing: 0.3px;">
+                                   PTDE,Traning,WP,ME
+                                </h6>
+                                <div class="fs-5 fw-bolder text-dark leading-tight">
+                                    <span class="counter">{{ $total_inquries }}</span>
                                 </div>
-
-                            <div>
-                                <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_yuchai }}</span></div>
-                                <h3 class="fs-13 fw-semibold text-truncate-1-line text-dark">Yuchai Total Inquery</h3>
                             </div>
                         </div>
-                        <a href="javascript:void(0);" class="text-dark">
-                            <i class="feather-more-vertical"></i>
-                        </a>
+                        <!-- Action Menu -->
+                        <div class="dropdown">
+                            <a href="javascript:void(0);" class="text-muted" data-bs-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical" style="font-size: 14px;"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="pt-4">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="text-dark fs-12 fw-medium text-truncate-1-line">Yuchai Process</a>
-                            <div class="w-100 text-end">
-                                <span class="fs-11 text-dark">{{ $total_yuchai }}%</span>
-                            </div>
+
+                    <div class="mt-2">
+                        <div class="d-flex align-items-center justify-content-between mb-1">
+                            <span class="text-muted" style="font-size: 10px;">Submission</span>
+                            <span class="fw-bold text-info" style="font-size: 10px;">{{ $total_inquries }}%</span>
                         </div>
-                        <div class="progress mt-2 ht-3">
+                      
+                        <div class="progress" style="height: 4px; background-color: #f1f5f9; border-radius: 10px;">
                             <div class="progress-bar bg-info" role="progressbar" 
-                                style="width: 5%" 
-                                aria-valuenow="{{ $total_yuchai }}" 
+                                style="width: {{ $total_inquries }}%; border-radius: 10px;" 
+                                aria-valuenow="{{ $total_inquries }}" 
                                 aria-valuemin="0" 
                                 aria-valuemax="100">
                             </div>
+                        </div>
+                        <div class="mt-1 d-flex align-items-center gap-1">
+                            <span class="text-success fw-bold" style="font-size: 9px;"><i class="bi bi-arrow-up-short"></i> 12%</span>
+                            <span class="text-muted" style="font-size: 9px;">vs last month</span>
                         </div>
                     </div>
                 </div>
@@ -315,91 +269,107 @@
         </div>
     </div>
 
+            
 
     <div class="col-xxl-12">
-    <div style="margin-bottom: 25px; text-align: left;">
-        <div>
-            <h5 class="text-dark"><span style="color:black;">Marine Equipment</span></h5>
-        </div>
-    </div>
 
-    <div class="row">
-        <!-- Card 1 -->
+        {{-- second card --}}
+        <div class="row">
+            <!-- Card 1 -->
         <div class="col-xxl-3 col-md-3">
-            <div  style="background: linear-gradient(120deg,#aeeed8 0%, #dfffe6 100%); color:#072018;"  class="card stretch stretch-full bg-secondary  text-dark">
-                <div class="card-body">
-                    <div class="d-flex align-items-start justify-content-between mb-4">
-                        <div class="d-flex gap-4 align-items-center">
-                            <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry/list')}}" target="_blank" class="text-dark">
-                                    <i style="" class="">
-                                        <img src="{{asset('backend/assets/icon/icon13.jpg')}}" width="30px" height="50%"  class="img-fluid">
-                                    </i>
-                                </a>
+            <div class="card border-0 shadow-sm overflow-hidden" style="border-radius: 8px; background: #ffffff;">
+                <div class="card-body p-3" style="border-left: 3px solid #f47348;">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex gap-2 align-items-center">
+                            <div class="avatar-text rounded-circle d-flex align-items-center justify-content-center shadow-sm" 
+                                style="width: 38px; height: 38px;">
+                                S
                             </div>
-                            <div>
-                                <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_equipment_inquries}}</span></div>
-                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-dark text-truncate-1-line">Total Inquiry</h3>
+
+                            <div class="text-center w-100">
+                                <h6 class="text-muted fw-bold text-uppercase mb-1" style="font-size: 9px; letter-spacing: 0.3px;">
+                                  SCM
+                                </h6>
+                                <div class="fs-5 fw-bolder text-dark leading-tight">
+                                    <span class="counter">{{ $total_inquries }}</span>
+                                </div>
                             </div>
                         </div>
-                        <a href="javascript:void(0);" class="text-dark">
-                            <i class="feather-more-vertical"></i>
-                        </a>
+                        <!-- Action Menu -->
+                        <div class="dropdown">
+                            <a href="javascript:void(0);" class="text-muted" data-bs-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical" style="font-size: 14px;"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="pt-4">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="text-dark fs-12 fw-medium text-truncate-1-line">Yuchai Process</a>
-                            <div class="w-100 text-end">
-                                <span class="fs-11 text-dark">{{ $total_equipment_inquries }}%</span>
-                            </div>
+
+                    <div class="mt-2">
+                        <div class="d-flex align-items-center justify-content-between mb-1">
+                            <span class="text-muted" style="font-size: 10px;">Submission</span>
+                            <span class="fw-bold text-info" style="font-size: 10px;">{{ $total_inquries }}%</span>
                         </div>
-                        <div class="progress mt-2 ht-3">
-                            <div class="progress-bar bg-success" role="progressbar" 
-                                style="width: 5%" 
-                                aria-valuenow="{{ $total_equipment_inquries }}" 
+                        <div class="progress" style="height: 4px; background-color: #f1f5f9; border-radius: 10px;">
+                            <div class="progress-bar bg-info" role="progressbar" 
+                                style="width: {{ $total_inquries }}%; border-radius: 10px;" 
+                                aria-valuenow="{{ $total_inquries }}" 
                                 aria-valuemin="0" 
                                 aria-valuemax="100">
                             </div>
+                        </div>
+                        <div class="mt-1 d-flex align-items-center gap-1">
+                            <span class="text-success fw-bold" style="font-size: 9px;"><i class="bi bi-arrow-up-short"></i> 12%</span>
+                            <span class="text-muted" style="font-size: 9px;">vs last month</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Card 2 -->
+            <!-- Card 2 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(120deg,#ffd98b 0%, #fff6df 100%); color:#072018;"   class="card stretch stretch-full  text-dark">
-                <div class="card-body">
-                    <div class="d-flex align-items-start justify-content-between mb-4">
-                        <div class="d-flex gap-4 align-items-center">
-                            <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry-hot/list')}}" target="_blank" class="text-dark">
-                                    <i style="" class=" ">
-                                        <img src="{{asset('backend/assets/icon/icon5.jpg')}}" width="30px" height="50%"  class="img-fluid">
-                                    </i>
-                                </a>
+            <div class="card border-0 shadow-sm overflow-hidden" style="border-radius: 8px; background: #ffffff;">
+                <div class="card-body p-3" style="border-left: 3px solid #3fcd5d;">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex gap-2 align-items-center">
+                            <div class="avatar-text rounded-circle d-flex align-items-center justify-content-center shadow-sm" 
+                                style="width: 38px; height: 38px;">
+                                C
                             </div>
-                            <div>
-                                <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_equipment_hot }}</span></div>
-                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-dark text-truncate-1-line">Total Hot</h3>
+
+                            <div class="text-center w-100">
+                               <h6 class="text-muted fw-bold text-uppercase mb-1" 
+                                    style="font-size: 9px; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; display: block; width: 100%;">
+                                    Construction Equipment
+                                </h6>
+                                <div class="fs-5 fw-bolder text-dark leading-tight">
+                                    <span class="counter">{{ $total_inquries }}</span>
+                                </div>
                             </div>
                         </div>
-                        <a href="javascript:void(0);" class="text-dark"><i class="feather-more-vertical"></i></a>
+                        <!-- Action Menu -->
+                        <div class="dropdown">
+                            <a href="javascript:void(0);" class="text-muted" data-bs-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical" style="font-size: 14px;"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="pt-4">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="text-dark fs-12 fw-medium text-truncate-1-line">Hot Process</a>
-                            <div class="w-100 text-end">
-                                <span class="fs-11 text-dark">{{ $total_equipment_hot }}%</span>
-                            </div>
+
+                    <div class="mt-2">
+                        <div class="d-flex align-items-center justify-content-between mb-1">
+                            <span class="text-muted" style="font-size: 10px;">Submission</span>
+                            <span class="fw-bold text-info" style="font-size: 10px;">{{ $total_inquries }}%</span>
                         </div>
-                        <div class="progress mt-2 ht-3">
-                            <div class="progress-bar bg-danger" role="progressbar" 
-                                style="width: 5%" 
-                                aria-valuenow="{{ $total_equipment_hot }}" 
+                        <div class="progress" style="height: 4px; background-color: #f1f5f9; border-radius: 10px;">
+                            <div class="progress-bar bg-info" role="progressbar" 
+                                style="width: {{ $total_inquries }}%; border-radius: 10px;" 
+                                aria-valuenow="{{ $total_inquries }}" 
                                 aria-valuemin="0" 
                                 aria-valuemax="100">
                             </div>
+                        </div>
+                        <div class="mt-1 d-flex align-items-center gap-1">
+                            <span class="text-success fw-bold" style="font-size: 9px;"><i class="bi bi-arrow-up-short"></i> 12%</span>
+                            <span class="text-muted" style="font-size: 9px;">vs last month</span>
                         </div>
                     </div>
                 </div>
@@ -407,38 +377,49 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(120deg,#b7ccff 0%, #dbe3ff 100%); color:#072018;" class="card stretch stretch-full text-dark">
-                <div class="card-body">
-                    <div class="d-flex align-items-start justify-content-between mb-4">
-                        <div class="d-flex gap-4 align-items-center">
-                            <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry-warm/list')}}" target="_blank" class="text-dark">
-                                        <img src="{{asset('backend/assets/icon/icon10.jpg')}}" width="30px" height="50%"  class="img-fluid">
-                                    </i>
-                                </a>
+       <div class="col-xxl-3 col-md-3">
+            <div class="card border-0 shadow-sm overflow-hidden" style="border-radius: 8px; background: #ffffff;">
+                <div class="card-body p-3" style="border-left: 3px solid #eb9c57;">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex gap-2 align-items-center">
+                            <div class="avatar-text rounded-circle d-flex align-items-center justify-content-center shadow-sm" 
+                                style="width: 38px; height: 38px;">
+                                N
                             </div>
-                            <div>
-                                <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_equipment_warm}}</span></div>
-                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-dark text-truncate-1-line">Total Warm</h3>
+
+                            <div class="text-center w-100">
+                                <h6 class="text-muted fw-bold text-uppercase mb-1" style="font-size: 9px; letter-spacing: 0.3px;">
+                                   New Machineries
+                                </h6>
+                                <div class="fs-5 fw-bolder text-dark leading-tight">
+                                    <span class="counter">{{ $total_inquries }}</span>
+                                </div>
                             </div>
                         </div>
-                        <a href="javascript:void(0);" class="text-dark"><i class="feather-more-vertical"></i></a>
+                        <!-- Action Menu -->
+                        <div class="dropdown">
+                            <a href="javascript:void(0);" class="text-muted" data-bs-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical" style="font-size: 14px;"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="pt-4">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="text-dark fs-12 fw-medium text-truncate-1-line">Warm Process</a>
-                            <div class="w-100 text-end">
-                                <span class="fs-11 text-dark">{{ $total_equipment_warm }}%</span>
-                            </div>
+
+                    <div class="mt-2">
+                        <div class="d-flex align-items-center justify-content-between mb-1">
+                            <span class="text-muted" style="font-size: 10px;">Submission</span>
+                            <span class="fw-bold text-info" style="font-size: 10px;">{{ $total_inquries }}%</span>
                         </div>
-                        <div class="progress mt-2 ht-3">
-                            <div class="progress-bar bg-dark" role="progressbar" 
-                                style="width: 5%" 
-                                aria-valuenow="{{ $total_equipment_warm }}" 
+                        <div class="progress" style="height: 4px; background-color: #f1f5f9; border-radius: 10px;">
+                            <div class="progress-bar bg-info" role="progressbar" 
+                                style="width: {{ $total_inquries }}%; border-radius: 10px;" 
+                                aria-valuenow="{{ $total_inquries }}" 
                                 aria-valuemin="0" 
                                 aria-valuemax="100">
                             </div>
+                        </div>
+                        <div class="mt-1 d-flex align-items-center gap-1">
+                            <span class="text-success fw-bold" style="font-size: 9px;"><i class="bi bi-arrow-up-short"></i> 12%</span>
+                            <span class="text-muted" style="font-size: 9px;">vs last month</span>
                         </div>
                     </div>
                 </div>
@@ -447,97 +428,267 @@
 
         <!-- Card 4 -->
         <div class="col-xxl-3 col-md-3">
-            <div style="background: linear-gradient(120deg,#bfecc0 0%, #cfe2cf 100%); color:#072018;"  class="card stretch stretch-full text-dark">
-                <div class="card-body">
-                    <div class="d-flex align-items-start justify-content-between mb-4">
-                        <div class="d-flex gap-4 align-items-center">
-                            <div class="avatar-text avatar-lg bg-white text-success">
-                                <a href="{{ url('inquiry-cold/list')}}" target="_blank" class="text-dark">
-                                    <i style="" class="">
-                                    <img src="{{asset('backend/assets/icon/icon3.jpg')}}" width="30px" height="50%"  class="img-fluid">
-                                </i>
-                                </a>
+            <div class="card border-0 shadow-sm overflow-hidden" style="border-radius: 8px; background: #ffffff;">
+                <div class="card-body p-3" style="border-left: 3px solid #c59ce7;">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex gap-2 align-items-center">
+                            <div class="avatar-text rounded-circle d-flex align-items-center justify-content-center shadow-sm" 
+                                style="width: 38px; height: 38px;">
+                                P
                             </div>
-                            <div>
-                                <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $total_equipment_cold }}</span></div>
-                                <h3 style="font-size: 12px;" class="fs-13 fw-semibold text-dark text-truncate-1-line">Total Cold</h3>
+
+                            <div class="text-center w-100">
+                                <h6 class="text-muted fw-bold text-uppercase mb-1" style="font-size: 9px; letter-spacing: 0.3px;">
+                                  Power Solution
+                                </h6>
+                                <div class="fs-5 fw-bolder text-dark leading-tight">
+                                    <span class="counter">{{ $total_inquries }}</span>
+                                </div>
                             </div>
                         </div>
-                        <a href="javascript:void(0);" class="text-dark"><i class="feather-more-vertical"></i></a>
+                        <!-- Action Menu -->
+                        <div class="dropdown">
+                            <a href="javascript:void(0);" class="text-muted" data-bs-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical" style="font-size: 14px;"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="pt-4">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <a href="javascript:void(0);" class="text-dark fs-12 fw-medium text-truncate-1-line">Cold Process</a>
-                            <div class="w-100 text-end">
-                                <span class="fs-11 text-dark">{{ $total_equipment_cold }}%</span>
-                            </div>
+
+                    <div class="mt-2">
+                        <div class="d-flex align-items-center justify-content-between mb-1">
+                            <span class="text-muted" style="font-size: 10px;">Submission</span>
+                            <span class="fw-bold text-info" style="font-size: 10px;">{{ $total_inquries }}%</span>
                         </div>
-                        <div class="progress mt-2 ht-3">
-                            <div class="progress-bar bg-success" role="progressbar" 
-                                style="width: 5%" 
-                                aria-valuenow="{{ $total_equipment_cold }}" 
+                        <div class="progress" style="height: 4px; background-color: #f1f5f9; border-radius: 10px;">
+                            <div class="progress-bar bg-info" role="progressbar" 
+                                style="width: {{ $total_inquries }}%; border-radius: 10px;" 
+                                aria-valuenow="{{ $total_inquries }}" 
                                 aria-valuemin="0" 
                                 aria-valuemax="100">
                             </div>
                         </div>
+                        <div class="mt-1 d-flex align-items-center gap-1">
+                            <span class="text-success fw-bold" style="font-size: 9px;"><i class="bi bi-arrow-up-short"></i> 12%</span>
+                            <span class="text-muted" style="font-size: 9px;">vs last month</span>
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
+        </div>
+
+            {{-- Third row card --}}
+        <div class="row">
+
+            <!-- Card 1 -->
+        <div class="col-xxl-3 col-md-3">
+            <div class="card border-0 shadow-sm overflow-hidden" style="border-radius: 8px; background: #ffffff;">
+                <div class="card-body p-3" style="border-left: 3px solid #2370ae;">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex gap-2 align-items-center">
+                            <div class="avatar-text rounded-circle d-flex align-items-center justify-content-center shadow-sm" 
+                                style="width: 38px; height: 38px;">
+                                A
+                            </div>
+
+                            <div class="text-center w-100">
+                               <h6 class="text-muted fw-bold text-uppercase mb-1" 
+                                    style="font-size: 9px; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; display: block; width: 100%;">
+                                   ACI Marine
+                                </h6>
+                                <div class="fs-5 fw-bolder text-dark leading-tight">
+                                    <span class="counter">{{ $total_inquries }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Action Menu -->
+                        <div class="dropdown">
+                            <a href="javascript:void(0);" class="text-muted" data-bs-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical" style="font-size: 14px;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mt-2">
+                        <div class="d-flex align-items-center justify-content-between mb-1">
+                            <span class="text-muted" style="font-size: 10px;">Submission</span>
+                            <span class="fw-bold text-info" style="font-size: 10px;">{{ $total_inquries }}%</span>
+                        </div>
+                        <div class="progress" style="height: 4px; background-color: #f1f5f9; border-radius: 10px;">
+                            <div class="progress-bar bg-info" role="progressbar" 
+                                style="width: {{ $total_inquries }}%; border-radius: 10px;" 
+                                aria-valuenow="{{ $total_inquries }}" 
+                                aria-valuemin="0" 
+                                aria-valuemax="100">
+                            </div>
+                        </div>
+                        <div class="mt-1 d-flex align-items-center gap-1">
+                            <span class="text-success fw-bold" style="font-size: 9px;"><i class="bi bi-arrow-up-short"></i> 12%</span>
+                            <span class="text-muted" style="font-size: 9px;">vs last month</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-xxl-3 col-md-3">
+            <div class="card border-0 shadow-sm overflow-hidden" style="border-radius: 8px; background: #ffffff;">
+                <div class="card-body p-3" style="border-left: 3px solid #a5db2e;">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex gap-2 align-items-center">
+                            <div class="avatar-text rounded-circle d-flex align-items-center justify-content-center shadow-sm" 
+                                style="width: 38px; height: 38px;">
+                               T
+                            </div>
+
+                            <div class="text-center w-100">
+                               <h6 class="text-muted fw-bold text-uppercase mb-1" 
+                                    style="font-size: 9px; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; display: block; width: 100%;">
+                                  Tire
+                                </h6>
+                                <div class="fs-5 fw-bolder text-dark leading-tight">
+                                    <span class="counter">{{ $total_inquries }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Action Menu -->
+                        <div class="dropdown">
+                            <a href="javascript:void(0);" class="text-muted" data-bs-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical" style="font-size: 14px;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mt-2">
+                        <div class="d-flex align-items-center justify-content-between mb-1">
+                            <span class="text-muted" style="font-size: 10px;">Submission</span>
+                            <span class="fw-bold text-info" style="font-size: 10px;">{{ $total_inquries }}%</span>
+                        </div>
+                        <div class="progress" style="height: 4px; background-color: #f1f5f9; border-radius: 10px;">
+                            <div class="progress-bar bg-info" role="progressbar" 
+                                style="width: {{ $total_inquries }}%; border-radius: 10px;" 
+                                aria-valuenow="{{ $total_inquries }}" 
+                                aria-valuemin="0" 
+                                aria-valuemax="100">
+                            </div>
+                        </div>
+                        <div class="mt-1 d-flex align-items-center gap-1">
+                            <span class="text-success fw-bold" style="font-size: 9px;"><i class="bi bi-arrow-up-short"></i> 12%</span>
+                            <span class="text-muted" style="font-size: 9px;">vs last month</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-xxl-3 col-md-3">
+            <div class="card border-0 shadow-sm overflow-hidden" style="border-radius: 8px; background: #ffffff;">
+                <div class="card-body p-3" style="border-left: 3px solid #714389;">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex gap-2 align-items-center">
+                            <div class="avatar-text rounded-circle d-flex align-items-center justify-content-center shadow-sm" 
+                                style="width: 38px; height: 38px;">
+                               C
+                            </div>
+
+                            <div class="text-center w-100">
+                               <h6 class="text-muted fw-bold text-uppercase mb-1" 
+                                    style="font-size: 9px; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; display: block; width: 100%;">
+                                  Call Center
+                                </h6>
+                                <div class="fs-5 fw-bolder text-dark leading-tight">
+                                    <span class="counter">{{ $total_inquries }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Action Menu -->
+                        <div class="dropdown">
+                            <a href="javascript:void(0);" class="text-muted" data-bs-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical" style="font-size: 14px;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mt-2">
+                        <div class="d-flex align-items-center justify-content-between mb-1">
+                            <span class="text-muted" style="font-size: 10px;">Submission</span>
+                            <span class="fw-bold text-info" style="font-size: 10px;">{{ $total_inquries }}%</span>
+                        </div>
+                        <div class="progress" style="height: 4px; background-color: #f1f5f9; border-radius: 10px;">
+                            <div class="progress-bar bg-info" role="progressbar" 
+                                style="width: {{ $total_inquries }}%; border-radius: 10px;" 
+                                aria-valuenow="{{ $total_inquries }}" 
+                                aria-valuemin="0" 
+                                aria-valuemax="100">
+                            </div>
+                        </div>
+                        <div class="mt-1 d-flex align-items-center gap-1">
+                            <span class="text-success fw-bold" style="font-size: 9px;"><i class="bi bi-arrow-up-short"></i> 12%</span>
+                            <span class="text-muted" style="font-size: 9px;">vs last month</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col-xxl-3 col-md-3">
+            <div class="card border-0 shadow-sm overflow-hidden" style="border-radius: 8px; background: #ffffff;">
+                <div class="card-body p-3" style="border-left: 3px solid #340404;">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex gap-2 align-items-center">
+                            <div class="avatar-text rounded-circle d-flex align-items-center justify-content-center shadow-sm" 
+                                style="width: 38px; height: 38px;">
+                                Y
+                            </div>
+
+                            <div class="text-center w-100">
+                               <h6 class="text-muted fw-bold text-uppercase mb-1" 
+                                    style="font-size: 9px; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; display: block; width: 100%;">
+                                  Yamaha Factory
+                                </h6>
+                                <div class="fs-5 fw-bolder text-dark leading-tight">
+                                    <span class="counter">{{ $total_inquries }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Action Menu -->
+                        <div class="dropdown">
+                            <a href="javascript:void(0);" class="text-muted" data-bs-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical" style="font-size: 14px;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mt-2">
+                        <div class="d-flex align-items-center justify-content-between mb-1">
+                            <span class="text-muted" style="font-size: 10px;">Submission</span>
+                            <span class="fw-bold text-info" style="font-size: 10px;">{{ $total_inquries }}%</span>
+                        </div>
+                        <div class="progress" style="height: 4px; background-color: #f1f5f9; border-radius: 10px;">
+                            <div class="progress-bar bg-info" role="progressbar" 
+                                style="width: {{ $total_inquries }}%; border-radius: 10px;" 
+                                aria-valuenow="{{ $total_inquries }}" 
+                                aria-valuemin="0" 
+                                aria-valuemax="100">
+                            </div>
+                        </div>
+                        <div class="mt-1 d-flex align-items-center gap-1">
+                            <span class="text-success fw-bold" style="font-size: 9px;"><i class="bi bi-arrow-up-short"></i> 12%</span>
+                            <span class="text-muted" style="font-size: 9px;">vs last month</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
     </div>
 
-    </div>
-
         <div class="row">
-                <!-- Chart 1 -->
-            <div class="col-xxl-6 col-md-6">
-                <div class="card stretch stretch-full p-3">
-                    <div class="card-body">
-                        <div class="chart-wrapper">
-                            <canvas id="projectInqury"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Chart 2 -->
-            <div class="col-xxl-6 col-md-6">
-                <div  class="card stretch stretch-full p-3">
-                    <div  class="card-body">
-                        <div  class="chart-wrapper">
-                            <canvas  id="projectDiscontinuation"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-xxl-6 col-md-6 col-12">
-                <div class="card stretch stretch-full p-3">
-                    <div class="card-body custom-card-action">
-                        <div class="chart-wrapper">
-                            <canvas id="inquiryChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xxl-6 col-md-6 col-12">
-                <div class="card stretch stretch-full p-3">
-                    <div class="card-body custom-card-action">
-                        <div class="chart-wrapper">
-                            <canvas id="productChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            
-            
 
         </div>
 

@@ -4,12 +4,18 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Kpi\EmployeeRegisterController;
+use App\Http\Controllers\Kpi\EmployeeController;
 use App\Http\Controllers\Marine\InquiryController;
 use App\Http\Controllers\Marine\ReportController;
 
  Route::get('/', function () {
      return view('auth.login');
  });
+
+ 
+Route::get('/employee/register', [EmployeeRegisterController::class, 'kpiRegister'])->name('employee/register');
+Route::post('/criteria-store', [EmployeeRegisterController::class, 'CriteriaStore'])->name('criteria.store');
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])
     ->middleware(['auth', 'verified'])
@@ -27,6 +33,10 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 require __DIR__.'/auth.php';
+
+// kpi
+Route::get('/kpi/approved', [EmployeeController::class, 'approvedList'])->name('kpi.approved');
+Route::get('/kpi/rejected', [EmployeeController::class, 'rejectedList'])->name('kpi.rejected');
 
 // inquiry
 Route::get('/inquiry/list', [InquiryController::class, 'index'])->name('inquiry.list');

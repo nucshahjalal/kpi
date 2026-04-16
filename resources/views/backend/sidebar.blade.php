@@ -22,45 +22,26 @@
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
                             <span class="nxl-micon">
-                                <i class="">
+                                {{-- <i class="">
                                     <img src="{{asset('backend/assets/icon/icon11.jpg')}}" width="18px" height="50%" class="img-fluid">
-                                </i>
+                                </i> --}}
+                                <i class="bi bi-person"></i>
                             </span>
-                            <span class="nxl-mtext">Inquiry</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                            <span class="nxl-mtext">Employee</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
                         <ul class="nxl-submenu">
-                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry.create')}}">Add Inquiry</a></li>
+                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry.create')}}">Add Employee</a></li>
                         </ul>
                         <ul class="nxl-submenu">
-                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry.list')}}"> Inquiry List</a></li>
+                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry.list')}}"> Employee List</a></li>
                         </ul>
                         <ul class="nxl-submenu">
-                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry-hot.list')}}">HOT Inquiry</a></li>
+                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('kpi.approved')}}"> Approved KPI</a></li>
                         </ul>
                         <ul class="nxl-submenu">
-                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry-cold.list')}}">COLD Inquiry</a></li>
-                        </ul>
-                        <ul class="nxl-submenu">
-                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry-warm.list')}}">WARM Inquiry</a></li>
-                        </ul>
-                        
-                    </li>
-
-                    <li class="nxl-item nxl-hasmenu">
-                        <a href="javascript:void(0);" class="nxl-link">
-                            <span class="nxl-micon">
-                                <i class="">
-                                    <img src="{{asset('backend/assets/icon/icon12.jpg')}}" width="18px" height="50%" class="img-fluid">
-                                </i>
-                            </span>
-                            <span class="nxl-mtext">Check-In</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                        </a>
-                        <ul class="nxl-submenu">
-                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('visit.list')}}"> Check-In List</a></li>
+                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('kpi.rejected')}}"> Rejected KPI</a></li>
                         </ul>
                     </li>
-                    
-                  
 
                     <li class="nxl-item nxl-hasmenu">
                         <li class="nxl-item"><a class="nxl-link" href="{{url('logout')}}"><span class="nxl-micon"><i class="feather-power"></i> </span><strong>Log Out</strong></a></li>

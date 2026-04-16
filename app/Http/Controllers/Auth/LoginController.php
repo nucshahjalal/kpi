@@ -6,38 +6,38 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Models\User;
+use App\Models\Employee;
 
 class LoginController extends Controller
 {
     public function index()
     {
-        $users = User::all();
-        return view('auth.login',compact('users'));
+        $employees = Employee::all();
+        return view('auth.login',compact('employees'));
     }
 
     public function login(Request $request)
     {
         $request->validate([
-        'email' => 'required',
-        'password' => 'required',
+            'staff_id' => 'required',
         ], [
-            'email.required' => 'Email is required',
-            'password.required' => 'Password is required',
+            'staff_id.required' => 'User ID is required',
         ]);
 
-        $user = User::where('email', $request->email)->first();
+        $employee = Employee::where('staff_id', $request->staff_id)->first();
 
-        if ($user && Hash::check($request->password, $user->password)) {
-            Auth::login($user);
+        if ($employee) {
+           
+            Auth::login($employee);
 
             return redirect()->intended('/dashboard');
         }
 
         return back()->withErrors([
-            'password' => 'Invalid Email Or Password',
+            'staff_id' => 'Invalid User ID Or Password',
         ]);
     }
+
 
     public function logout()
     {

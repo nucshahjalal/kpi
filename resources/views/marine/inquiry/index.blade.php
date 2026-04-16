@@ -1,5 +1,5 @@
 @extends('backend.app')
-@section('page_title','Inquiry List')
+@section('page_title','Employee List')
 @section('content')
 
 <main class="nxl-container">
@@ -50,7 +50,7 @@
                 </a>
             </div>
 
-            <!-- Desktop buttons -->
+            
             <div class="d-none d-md-flex gap-2 order-2">
                 <button type="submit" class="btn btn-sm btn-primary" style="font-size: 12px;">
                     <i class="bi bi-search"></i> Search
@@ -64,7 +64,6 @@
     </div>
 </div>
 
-
 <div class="main-content">   
     <div class="row">
         <div class="col-xl-12">
@@ -73,43 +72,122 @@
             <div class="card-body custom-card-action p-0">
                 <div class="table-responsive">
                     <table  class="table table-hover mb-0">
-                        <thead>
-                            <tr class="border-b">
-                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col" >SL No</th>
-                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Company Name</th>
-                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Owner Name</th>
-                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col"> Phone</th>
-                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Price</th>
-                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Project PBT</th>
-                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Product Type</th>
-                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Engine Type</th>
-                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Product Model</th>
-                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Created At</th>
-                                <th style="font-size:14px; width:5%; white-space: nowrap; text-transform: capitalize;" scope="col">Action</th>
-                            </tr>
-                        </thead>
                         <tbody>
                             @forelse ($inquiries as $obj)
-                            <tr>
-                                <td>{{ $loop->index + $inquiries->firstItem() }}</td>
-                                <td>{{ $obj->company_name }}</td>
-                                <td>{{ $obj->name }}</td>
-                                <td>{{ $obj->phone }}</td>
-                                <td>{{ $obj->price }}</td>
-                                <td>{{ $obj->pbt }}</td>
-                                <td>{{ $obj->product_type == 0 ? 'Marine' : 'Marine Equipment' }}</td>
-                                <td>{{ $obj->engine_type == 0 ? 'Mitshubishi' : 'Yuchai'}}</td>
-                                <td>{{ $obj->model }}</td>
-                                <td>{{ date('m-d-Y', strtotime($obj->created_at)) }}</td>
-                                <td>
-                                    {{-- <input type="hidden" name="inquiry_id" id="inquiry_id" value="{{$obj->id}}"> --}}
-                                    <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#myModal" 
-                                     onclick="visitModal({{ $obj->id }})"><i class="bi bi-check-circle"></i> Check-In </button>
-                                    <a class="btn btn-sm btn-primary" href="{{ url('inquiry/view', $obj->id) }}"> <i class="bi bi-eye"></i> View</a>
-                                    <a class="btn btn-sm btn-info" href="{{ url('inquiry/edit', $obj->id) }}"><i class="bi bi-pencil-square"></i> Edit</a>
-                                    <a class="btn btn-sm btn-danger" href="{{ url('inquiry/delete', $obj->id) }}" onclick="javascript: return confirm('are you sure delete?')"><i class="bi bi-trash"></i> Delete</a>
-                                </td>
-                            </tr>
+                            <div class="card mb-3 shadow-sm" style="border: 1px solid #e0e0e0; border-radius: 8px;">
+                                <div class="card-body">
+
+                                <div class="row align-items-center mb-3 pb-2 border-bottom g-0" style="background: #fdfdfd; padding: 10px 15px; border-radius: 8px;">
+    
+                                    <div class="col-md-1 text-start">
+                                        <div class="rounded border d-flex align-items-center justify-content-center bg-light" style="width: 50px; height: 50px;">
+                                            <i class="bi bi-image text-muted" style="font-size: 1.5rem;"></i>
+                                            <!-- <img src="{{ asset('path/to/img.png') }}" class="rounded" style="width: 100%; height: 100%; object-fit: cover;"> -->
+                                        </div>
+                                    </div>
+
+                                   
+                                    <div class="col-md-6 ps-3">
+                                        <h5 class="text-primary font-weight-bold mb-1">
+                                            {{ $obj->name }} <span class="text-muted fw-normal" style="font-size: 0.8rem;">({{ $obj->model }})</span>
+                                        </h5>
+                                        <p class="text-muted mb-1 small text-truncate">{{ $obj->description }}</p>
+                                        <p class="text-muted mb-0 fw-bold small">
+                                            Supervisor: {{ $obj->company_name }} ({{ $obj->phone }})
+                                        </p>
+                                    </div>
+
+                                    <div class="col-md-5">
+                                        <div class="d-flex justify-content-end text-center gap-3">
+                                            <div>
+                                                <div class="mini-progress-circle bg-secondary text-white">1</div>
+                                                <div class="x-small-text">Target Set</div>
+                                            </div>
+                                            <div>
+                                                <div class="mini-progress-circle bg-secondary text-white">2</div>
+                                                <div class="x-small-text">Target Approved</div>
+                                            </div>
+                                            <div>
+                                                <div class="mini-progress-circle bg-secondary text-white">3</div>
+                                                <div class="x-small-text">Actual Set</div>
+                                            </div>
+                                            <div>
+                                                <div class="mini-progress-circle bg-secondary text-white">4</div>
+                                                <div class="x-small-text">Actual Approved</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <!-- Action Buttons Block -->
+                                <div class="action-block bg-white border p-3 rounded shadow-sm">
+                                   
+                                    <div class="row g-2 mb-2">
+                                        <div class="col-3">
+                                            <button type="button" class="btn btn-sm btn-outline-success w-100 d-inline-flex align-items-center justify-content-center px-1" data-bs-toggle="modal" data-bs-target="#multiRowModal" onclick="visitModal({{ $obj->id }})">
+                                                <i class="bi bi-check-circle me-1"></i> <span class="fw-bold" style="font-size: 12px;">Monthly Target</span>
+                                            </button>
+                                        </div>
+                                        <div class="col-3">
+                                            <a class="btn btn-sm btn-outline-primary w-100 d-inline-flex align-items-center justify-content-center px-1" href="{{ url('inquiry/view', $obj->id) }}">
+                                                <i class="bi bi-eye me-1"></i> <span class="fw-bold" style="font-size: 12px;">Monthly Actual</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-3">
+                                            <a class="btn btn-sm btn-outline-danger w-100 d-inline-flex align-items-center justify-content-center px-1" href="{{ url('inquiry/edit', $obj->id) }}">
+                                                <i class="bi bi-pencil-square me-1"></i> <span class="fw-bold" style="font-size: 12px;">Update File</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-3">
+                                            <a class="btn btn-sm btn-outline-info w-100 d-inline-flex align-items-center justify-content-center px-1" href="{{ url('inquiry/delete', $obj->id) }}" onclick="javascript: return confirm('are you sure delete?')">
+                                                <i class="bi bi-check-circle me-1"></i> <span class="fw-bold" style="font-size: 12px;">View Result</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-2 mb-2">
+                                        <div class="col-3">
+                                            <a class="btn btn-sm btn-outline-warning w-100 d-inline-flex align-items-center justify-content-center px-1" href="#">
+                                                <i class="bi bi-pencil-square me-1"></i> <span class="fw-bold" style="font-size: 12px;">Edit Profile</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-3">
+                                            <a class="btn btn-sm btn-outline-secondary w-100 d-inline-flex align-items-center justify-content-center px-1" href="#">
+                                                <i class="bi bi-pencil-square me-1"></i> <span class="fw-bold" style="font-size: 12px;">Update Target</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-3">
+                                            <a class="btn btn-sm btn-outline-dark w-100 d-inline-flex align-items-center justify-content-center px-1" style="border-color: #6f42c1; color: #6f42c1;" href="#">
+                                                <i class="bi bi-pencil-square me-1"></i> <span class="fw-bold" style="font-size: 12px;">Update Actual</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-3">
+                                            <a class="btn btn-sm btn-outline-dark w-100 d-inline-flex align-items-center justify-content-center px-1" style="border-color: #fd7e14; color: #fd7e14;" href="#">
+                                                <i class="bi bi-pencil-square me-1"></i> <span class="fw-bold" style="font-size: 12px;">Update Result</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-2">
+                                        <div class="col-6">
+                                            <a class="btn btn-sm btn-outline-success w-100 d-inline-flex align-items-center justify-content-center px-1 rounded-pill" href="{{ url('inquiry/approve', $obj->id) }}">
+                                                <i class="bi bi-check-circle-fill me-1"></i> <span class="fw-bold" style="font-size: 11px; text-transform: uppercase;">Approve</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a class="btn btn-sm btn-outline-danger w-100 d-inline-flex align-items-center justify-content-center px-1 rounded-pill" href="{{ url('inquiry/reject', $obj->id) }}">
+                                                <i class="bi bi-slash-circle-fill me-1"></i> <span class="fw-bold" style="font-size: 11px; text-transform: uppercase;">Reject</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                                </div>
+                            </div>
+
                             @empty
                             <tr>
                                 <td colspan="8" class="text-center">There are no data found.</td>
@@ -136,29 +214,53 @@
 </main>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <form method="POST" action="{{ route('visit.save') }}">
-      @csrf
+<div class="modal fade" id="multiRowModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Multiple Criteria</h5>
+            </div>
+            <form action="{{ route('visit.save') }}" method="POST">
+                @csrf
+                <div class="modal-body">
+                    <!-- Single Label Field -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Label Name</label>
+                        <input type="text" name="label_name" class="form-control" placeholder="Enter Label" required>
+                    </div>
 
-     <input type="hidden" name="inquiry_id" id="modal_inquiry_id">
-      <div class="modal-content">
-        {{-- <div class="modal-header">
-          <h5 class="modal-title" id="modalTitle">Visit Information</h5>
-        </div> --}}
-        <div class="modal-body">
-          <div class="mb-1">
-            <label for="inputData" class="form-label">Check-In Details</label>
-            <textarea rows="3" type="text" name="details" class="form-control" id="details" placeholder="Check-In Details"></textarea>
-          </div>
+                    {{-- <hr> --}}
+
+                    <!-- Dynamic Rows Container -->
+                    <div id="criteria-wrapper">
+                        <div class="row mb-2 align-items-end criteria-row">
+                            <div class="col-md-5">
+                                <label class="form-label">Criteria Name</label>
+                                <input type="text" name="criteria[]" class="form-control" placeholder="Criteria Name">
+                            </div>
+                            <div class="col-md-5">
+                                <label class="form-label">Weight</label>
+                                <input type="text" name="value[]" class="form-control" placeholder="Weight" required>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-danger w-100 remove-row">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-sm btn-info mt-2" id="add-more-row">
+                        <i class="bi bi-plus-circle"></i> Add More Criteria
+                    </button>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
         </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-sm btn-success">Save</button>
-          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </form>
-  </div>
+    </div>
 </div>
 
 
@@ -193,6 +295,84 @@
 </script>
 
 <style>
+    .mini-progress-circle {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: bold;
+        color: white;
+        margin: 0 auto;
+        border: 2px solid #ddd; /* গ্রে ডিফল্ট বর্ডার */
+    }
+    /* ছোট টেক্সটের জন্য */
+    .x-small-text {
+        font-size: 9px;
+        font-weight: bold;
+        color: #666;
+        margin-top: 4px;
+        white-space: nowrap;
+    }
+    /* সাইজ বাড়িয়ে ১৫০px করা হয়েছে এবং পূর্ণ গোলাকার করা হয়েছে */
+.progress-circle {
+    width: 50px;
+    height: 50px;
+    background: #e9ecef; /* ডিফল্ট গ্রে ব্যাকগ্রাউন্ড (Bootstrap light gray) */
+    border-radius: 50% !important;
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+/* প্রগ্রেস বার পজিশন */
+.progress-circle .progress-left, 
+.progress-circle .progress-right {
+    width: 10%;
+    height: 30%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+.progress-circle .progress-left { left: 0; }
+.progress-circle .progress-right { right: 0; }
+
+.progress-circle .progress-bar {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border-width: 10px; /* প্রগ্রেস বারের পুরুত্ব বাড়ানো হয়েছে */
+    border-style: solid;
+    position: absolute;
+    top: 0;
+    border-radius: 0; /* ক্লিপিং ঠিক রাখার জন্য */
+}
+
+/* ডান পাশের অংশ (০-৫০%) */
+.progress-circle .progress-right .progress-bar {
+    left: -100%;
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 80px;
+    border-right: 0;
+    transform-origin: center right;
+    border-color: #28a745; /* ডিফল্ট সবুজ রঙ */
+}
+
+/* বাম পাশের অংশ (৫১-১০০%) */
+.progress-circle .progress-left .progress-bar {
+    left: 100%;
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+    border-left: 0;
+    transform-origin: center left;
+    border-color: #28a745;
+}
+
    .btn {
         text-transform: capitalize;
     }
@@ -230,6 +410,8 @@
         width: auto; /* or your preferred width */
     }
 }
+
+
 </style>
 
 <script type="text/javascript">
@@ -262,5 +444,40 @@
 
 
 </script>
+
+
+<script src="https://jquery.com"></script>
+<script>
+    $(document).ready(function() {
+        
+        $("#add-more-row").click(function() {
+            let newRow = `
+                <div class="row mb-2 align-items-end criteria-row">
+                    <div class="col-md-5">
+                        <input type="text" name="criteria[]" class="form-control" placeholder="Criteria Name">
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" name="value[]" class="form-control" placeholder="Weight" required>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-danger w-100 remove-row">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                </div>`;
+            $("#criteria-wrapper").append(newRow);
+        });
+
+        //last row not delete
+        $(document).on('click', '.remove-row', function() {
+            if($(".criteria-row").length > 1) {
+                $(this).closest('.criteria-row').remove();
+            } else {
+                alert("You must keep at least one row.");
+            }
+        });
+    });
+</script>
+
 
 @endsection
