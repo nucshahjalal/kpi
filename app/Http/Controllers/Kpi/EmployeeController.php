@@ -16,6 +16,17 @@ class EmployeeController extends Controller
 {
     public $data = array();
 
+    public function employeeList(Request $request){
+
+        $this->data['defaultFrom'] = request('from_date') ?? Carbon::now()->startOfMonth()->format('Y-m-d');
+        $this->data['defaultTo'] = request('to_date') ?? Carbon::now()->format('Y-m-d');
+
+        $from_date = $request->from_date;
+        $to_date = $request->to_date;
+        $this->data['employees'] = Employee::all();
+        return view('kpi.employee.index', $this->data);
+    }
+
     public function approvedList(Request $request){
 
         $this->data['defaultFrom'] = request('from_date') ?? Carbon::now()->startOfMonth()->format('Y-m-d');

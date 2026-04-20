@@ -7,7 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Kpi\EmployeeRegisterController;
 use App\Http\Controllers\Kpi\EmployeeController;
 use App\Http\Controllers\Marine\InquiryController;
-use App\Http\Controllers\Marine\ReportController;
+use App\Http\Controllers\Kpi\ReportController;
 
  Route::get('/', function () {
      return view('auth.login');
@@ -37,6 +37,10 @@ require __DIR__.'/auth.php';
 // kpi
 Route::get('/kpi/approved', [EmployeeController::class, 'approvedList'])->name('kpi.approved');
 Route::get('/kpi/rejected', [EmployeeController::class, 'rejectedList'])->name('kpi.rejected');
+Route::get('/kpi/employee/list', [EmployeeController::class, 'employeeList'])->name('kpi.employee.list');
+Route::get('/kpi/employee-download-pdf', [ReportController::class, 'employeeDownloadPdf'])->name('kpi.employee.download-pdf');
+
+
 
 // inquiry
 Route::get('/inquiry/list', [InquiryController::class, 'index'])->name('inquiry.list');
@@ -47,15 +51,6 @@ Route::get('/inquiry/view/{id}', [InquiryController::class, 'view'])->name('inqu
 Route::post('/inquiry/update', [InquiryController::class, 'update'])->name('inquiry.update');
 Route::get('/inquiry/delete/{id}', [InquiryController::class, 'destroy'])->name('inquiry.destroy');
 
-// visit 
-Route::get('/inquiry-hot/list', [InquiryController::class, 'hotList'])->name('inquiry-hot.list');
-Route::post('/inquiry-hot/list', [InquiryController::class, 'hotList'])->name('inquiry-hot.list');
-Route::get('/inquiry-cold/list', [InquiryController::class, 'coldList'])->name('inquiry-cold.list');
-Route::post('/inquiry-cold/list', [InquiryController::class, 'coldList'])->name('inquiry-cold.list');
-Route::get('/inquiry-warm/list', [InquiryController::class, 'warmList'])->name('inquiry-warm.list');
-Route::post('/inquiry-warm/list', [InquiryController::class, 'warmList'])->name('inquiry-warm.list');
-Route::get('/visit/list', [InquiryController::class, 'visitList'])->name('visit.list');
-Route::post('/visit/save', [InquiryController::class, 'insertVisitData'])->name('visit.save');
 
 //pdf and excel report
 Route::get('/inquiry/download-pdf', [ReportController::class, 'inquiryDownloadPdf'])->name('inquiry.download-pdf');

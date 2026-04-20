@@ -139,7 +139,7 @@
                 </div> 
 
                 <!-- Quantitative and Qualitative Button -->
-                <div class="d-flex flex-column align-items-center gap-2 mb-4">
+                {{-- <div class="d-flex flex-column align-items-center gap-2 mb-4">
                     <button type="button" id="quantitativeInput" class="btn btn-outline-primary btn-lg px-4 rounded-pill shadow-sm" 
                             onclick="setKpiType(0)" data-bs-toggle="modal" data-bs-target="#multiRowModal">
                         <i class="fas fa-plus-circle me-2"></i> Add Quantitative Criteria
@@ -149,25 +149,65 @@
                             onclick="setKpiType(1)" data-bs-toggle="modal" data-bs-target="#multiRowModal">
                         <i class="fas fa-plus-circle me-2"></i> Add Qualitative Criteria
                     </button>
-                </div>
+                </div> --}}
 
 
-                <div class="row">
-                    <!-- Quantitative and Qualitative Section -->
-                    <div class="col-md-6 border-end">
-                        <h4 class="text-primary border-bottom pb-2">📊 Quantitative Criteria</h4>
-                        <div id="quantitative-display">
-                            <!-- Quantitative tables will appear here -->
+                <div class="container-fluid py-4">
+                <!-- Header Section: Title in center -->
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div style="width: 200px;"></div> 
+
+                        <h4 class="text-primary border-bottom pb-2 mb-0 text-center flex-grow-1">
+                            📊 Quantitative Criteria
+                        </h4>
+                        <div class="w-auto ms-auto"> 
+                            <button type="button" id="quantitativeInput" 
+                                    class="btn btn-outline-primary btn-lg px-4 rounded-pill shadow-sm text-nowrap custom-hover-btn" 
+                                    onclick="setKpiType(0)" data-bs-toggle="modal" data-bs-target="#multiRowModal">
+                                <i class="fas fa-plus-circle me-2"></i> Add Quantitative Criteria
+                            </button>
                         </div>
                     </div>
 
-                    <div class="col-md-6">
-                        <h4 class="text-success border-bottom pb-2">📋 Qualitative Criteria</h4>
-                        <div id="qualitative-display">
-                            <!-- Qualitative tables will appear here -->
+                    <!-- Data Display Section: Full Width -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div id="quantitative-display">
+                                <!-- Quantitative tables will appear here full page -->
+                            </div>
                         </div>
                     </div>
                 </div>
+
+
+                <div class="container-fluid py-4">
+                    <!-- Header Section: Title centered, Button on the right -->
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <!-- Spacer to balance the layout for centering the title -->
+                        <div style="width: 200px;"></div> 
+
+                        <h4 class="text-success border-bottom pb-2 mb-0 text-center flex-grow-1">
+                            📋 Qualitative Criteria
+                        </h4>
+
+                        <div class="text-end" style="flex: 1;">
+                            <button type="button" id="qualitativeInput" 
+                                    class="btn btn-outline-info btn-lg px-4 rounded-pill shadow-sm text-nowrap" 
+                                    onclick="setKpiType(1)" data-bs-toggle="modal" data-bs-target="#multiRowModal">
+                                <i class="fas fa-plus-circle me-2"></i> Add Qualitative Criteria
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div id="qualitative-display">
+                                <!-- Qualitative tables will appear here full page -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Hidden Input for Database -->
                 <input type="hidden" name="kpi_data" id="kpi_data">
                 
@@ -261,7 +301,7 @@
                     <table class="table table-sm table-bordered align-middle">
                         <thead class="table-dark small">
                             <tr>
-                                <th>Criteria</th>
+                                <th style="width: 80px;">Criteria</th>
                                 <th style="width: 60px;">Weight</th>
                                 <th style="width: 60px;">Target</th>
                                 <th style="width: 60px;">Actual</th>
@@ -356,10 +396,13 @@
         } else {
             event.preventDefault(); 
             Swal.fire({
-                title: "KPI Information Empty!",
-                text: "Please add at least one Quantitative and one Qualitative KPI criteria.",
-                confirmButtonColor: "#D3B270"
-            });
+            title: "KPI Information Empty!",
+            html: '<p style="white-space: nowrap; font-size: 14px; margin: 0;">Please add at least one Quantitative and one Qualitative KPI criteria.</p>',
+           // confirmButtonColor: "#D3B270", 
+            confirmButtonText: "OK",
+            width: 'auto' 
+        });
+
         }
     });
 

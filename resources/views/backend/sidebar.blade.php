@@ -33,7 +33,7 @@
                             <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry.create')}}">Add Employee</a></li>
                         </ul>
                         <ul class="nxl-submenu">
-                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('inquiry.list')}}"> Employee List</a></li>
+                            <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('kpi.employee.list')}}"> Employee List</a></li>
                         </ul>
                         <ul class="nxl-submenu">
                             <li style="margin-left: 10px;" class=""><a class="nxl-link" href="{{route('kpi.approved')}}"> Approved KPI</a></li>
