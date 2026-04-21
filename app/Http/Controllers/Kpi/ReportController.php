@@ -16,13 +16,28 @@ class ReportController extends Controller
 {
     public $data = array();
 
-   public function employeeDownloadPdf(Request $request)
+
+    public function employeeDownloadPdf(Request $request)
     {
-       // dd('hi');
+      
         $from_date = $request->input('from_date');
         $to_date = $request->input('to_date');
 
-       // $employees = Employee::getEmployeeList($from_date, $to_date);
+        $emp_id = $request->input('emp_id');
+       
+        $employee  = Employee::getSingleEmployee($emp_id)->first();
+        $employees = Employee::getEmployeeList($employee->id);
+        $pdf = Pdf::loadView('report.employeeReport', compact('employee','employees'))->setPaper('a4', 'landscape');
+        $fileName = $from_date ? 'employee-' . $from_date . '-to-' . $to_date . '.pdf' : 'employee-result-view.pdf';
+        return $pdf->download($fileName);
+    }
+    
+   public function employeeDownloadPdf22(Request $request)
+    {
+      
+        $from_date = $request->input('from_date');
+        $to_date = $request->input('to_date');
+
         $employee = Employee::latest()->first();
         $employees = Employee::getEmployeeList();
         $pdf = Pdf::loadView('report.employeeReport', compact('employee','employees'))->setPaper('a4', 'landscape');

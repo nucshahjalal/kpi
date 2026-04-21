@@ -139,9 +139,15 @@
                                             </a>
                                         </div>
                                         <div class="col-3">
-                                            <a id="download_pdf"  class="btn btn-sm btn-outline-info w-100 d-inline-flex align-items-center justify-content-center px-1" href="">
-                                                <i class="bi bi-check-circle me-1"></i> <span class="fw-bold" style="font-size: 12px;">View Result</span>
-                                            </a>
+                                            <form action="{{ url('kpi/employee-download-pdf') }}" method="GET">
+                                                <input type="hidden" name="emp_id" value="{{ $obj->id }}">
+                                                <button type="submit"
+                                                    class="btn btn-sm btn-outline-info w-100"
+                                                    onclick="setDates({{ $obj->id }})">
+                                                    <i class="bi bi-check-circle me-1"></i>
+                                                    <span class="fw-bold" style="font-size: 12px;">View Result</span>
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
 
@@ -422,17 +428,17 @@
 
 <script type="text/javascript">
 
-    document.getElementById('download_pdf').addEventListener('click', function(e) {
-        // alert('dd');
-        e.preventDefault();
-        var fromDate = document.getElementById('from_date').value;  
-        var toDate = document.getElementById('to_date').value;
+   function setDates(id)  {
+    var fromDate = document.getElementById('from_date').value;
+    var toDate = document.getElementById('to_date').value;
 
-        var url = "{{ url('kpi/employee-download-pdf') }}";
-       // var url = "{{ url('kpi/employee-download-pdf') }}" + "?from_date=" + encodeURIComponent(fromDate) + "&to_date=" + encodeURIComponent(toDate);
+    var url = "{{ url('kpi/employee-download-pdf') }}"
+        + "?emp_id=" + emp_id;
+       // + "&from_date=" + encodeURIComponent(fromDate)
+       // + "&to_date=" + encodeURIComponent(toDate);
 
-        window.location.href = url;
-    });
+    window.location.href = url;
+}
     
     document.getElementById('download_excel').addEventListener('click', function(e) {
         e.preventDefault();
