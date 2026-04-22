@@ -163,7 +163,7 @@
         <table>
             <thead>
                 <tr>
-                    <th style="width: 35%; text-align: left;">Criteria</th>
+                    <th style="width: 35%; text-align: center;">Criteria</th>
                     <th style="width: 15%; text-align: center;">Target</th>
                     <th style="width: 15%; text-align: center;">Actual</th>
                     <th style="width: 15%; text-align: center;">Weight</th>
@@ -173,7 +173,7 @@
             <tbody>
                 @foreach ($group as $obj)
                     <tr>
-                        <td style="text-align: left;">{{ $obj->criteria }}</td>
+                        <td style="text-align: center;">{{ $obj->criteria }}</td>
                         <td style="text-align: center;">{{ $obj->target ?? '0' }}</td>
                         <td style="text-align: center;">{{ $obj->actual ?? '0' }}</td>
                         <td style="text-align: center;">{{ $obj->weight ?? '0' }}</td>
@@ -218,8 +218,7 @@
     </table>
 @endif
 
-
-<div style="margin-top: 80px; width: 100%;">
+<div style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: white; padding-bottom: 20px;">
     <table style="width: 100%; border: none; text-align: center; table-layout: fixed;">
         <tr>
             <td style="border: none;">

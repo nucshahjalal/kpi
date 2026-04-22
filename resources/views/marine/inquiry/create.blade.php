@@ -186,7 +186,7 @@
             <div class="modal-header">
                 <h5 class="modal-title">Add Multiple Criteria</h5>
             </div>
-            <form action="{{ route('visit.save') }}" method="POST">
+            <form action="{{ route('criteria.store') }}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <!-- Single Label Field -->
