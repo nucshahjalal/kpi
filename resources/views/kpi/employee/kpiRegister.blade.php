@@ -286,65 +286,93 @@
         currentType = type;
     }
 
-    document.getElementById('save-kpi').onclick = function () {
-        let label = document.getElementById('label_name').value;
-        let rows = document.querySelectorAll('.criteria-row');
+   document.getElementById('save-kpi').onclick = function () {
 
-        if(!label) { alert("Label is required"); return; }
+    let label = document.getElementById('label_name').value;
+    let rows = document.querySelectorAll('.criteria-row');
 
-        let html = `
-            <div class="kpi-group mb-4 p-2 border rounded bg-white shadow-sm">
-                <div class="text-center mb-2">
-                    <h6 class="fw-bold text-uppercase border-bottom d-inline-block pb-1">${label}</h6>
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-sm table-bordered align-middle">
-                        <thead class="table-dark small">
-                            <tr>
-                                <th style="width: 80px;">Criteria</th>
-                                <th style="width: 60px;">Weight</th>
-                                <th style="width: 60px;">Target</th>
-                                <th style="width: 60px;">Actual</th>
-                                <th style="width: 60px;">Score</th>
-                            </tr>
-                        </thead>
-                <tbody class="small">`;
+    if (!label) {
+        alert("Label is required");
+        return;
+    }
 
-        let rowAdded = false;
-        rows.forEach((row) => {
-            let criteria = row.querySelector('.criteria').value;
-            let weight = row.querySelector('.weight').value;
+    let items = [];
+    let html = `
+        <div class="kpi-group mb-4 p-2 border rounded bg-white shadow-sm">
+        <div class="text-center mb-2">
+            <h6 class="fw-bold text-uppercase border-bottom d-inline-block pb-1">${label}</h6>
+        </div>
+        <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Criteria</th>
+                <th>Weight</th>
+                <th>Target</th>
+                <th>Actual</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+    `;
 
-            if(criteria && weight){
-                rowAdded = true;
-                allKpiData.push({
-                    type: currentType,
-                    label: label,
-                    criteria: criteria,
-                    weight: '',
-                    target: 0,
-                    actual: 0,
-                    score: 0
-                });
+    let valid = false;
 
-                html += `<tr><td>${criteria}</td><td class="text-center">${weight}</td><td class="text-center">0</td><td class="text-center">0</td><td class="text-center">0</td></tr>`;
-            }
-        });
+    rows.forEach((row) => {
+        let criteria = row.querySelector('.criteria').value;
+        let weight = row.querySelector('.weight').value;
 
-        if(!rowAdded) { alert("Criteria and Weight are required"); return; }
+        if (criteria && weight) {
+            valid = true;
 
-        html += `</tbody></table></div></div>`;
-        
-        if(currentType === 0) {
-            document.getElementById('quantitative-display').insertAdjacentHTML('beforeend', html);
-        } else {
-            document.getElementById('qualitative-display').insertAdjacentHTML('beforeend', html);
+            items.push({
+                criteria: criteria,
+                weight: weight,
+                target: 0,
+                actual: 0,
+                score: 0
+            });
+
+            html += `
+                <tr>
+                    <td>${criteria}</td>
+                    <td>${weight}</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            `;
         }
+    });
 
-        document.getElementById('kpi_data').value = JSON.stringify(allKpiData);
-        bootstrap.Modal.getInstance(document.getElementById('multiRowModal')).hide();
-        resetModal();
-    };
+    if (!valid) {
+        alert("Criteria and Weight required");
+        return;
+    }
+
+    html += `</tbody></table></div>`;
+
+    // ✅ GROUP STRUCTURE
+    allKpiData.push({
+        type: currentType,
+        label_name: label,
+        items: items
+    });
+
+    // ✅ Display
+    if (currentType === 0) {
+        document.getElementById('quantitative-display').insertAdjacentHTML('beforeend', html);
+    } else {
+        document.getElementById('qualitative-display').insertAdjacentHTML('beforeend', html);
+    }
+
+    // ✅ FINAL JSON FORMAT
+    document.getElementById('kpi_data').value = JSON.stringify({
+        kpi: allKpiData
+    });
+
+    bootstrap.Modal.getInstance(document.getElementById('multiRowModal')).hide();
+    resetModal();
+};
 
     document.getElementById('registerBtn').addEventListener('click', function(event) {
         const hasQuantitative = allKpiData.some(item => item.type === 0);

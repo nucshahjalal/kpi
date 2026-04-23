@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>KPI - Employee Registration</title>
+    <title>Employee Registration</title>
 
     <link rel="stylesheet" href="{{asset('backend/assets/css/bootstrap.min.css')}}">
 
@@ -47,108 +47,175 @@
 
 <body>
 
-<div class="wrapper">
-    <div class="col-md-8">
-            
-    <div class="card position-relative mt-5 shadow-sm border-0">
-    <!-- Standard Logo Setup -->
-    <div class="position-absolute translate-middle top-0 start-50 shadow-lg bg-white rounded-circle d-flex align-items-center justify-content-center" 
-        style="width: 70px; height: 70px; border: 4px solid #fff; z-index: 10;">
-        <img src="{{asset('backend/assets/images/logo.jpg')}}"  alt="Logo"
-        style="width: 90%; height: 90%; object-fit: contain; border-radius: 50%;">
-    </div>
-
-    <div class="card-body pt-2"> 
-        <h3 class="text-center fw-bold mt-3 mb-4">Employee Registration</h3>
-
-        <form method="POST" class="p-4 border shadow-sm bg-white" style="border: 1px solid #dee2e6 !important; border-radius: 8px; mt-4: 30px; position: relative;">
-            @csrf
-
-            <div class="row g-3">
-                <div class="col-md-6">
-                    <label class="form-label fw-bold">Portfolio</label>
-                    <select class="form-select" name="portfolio_status">
-                        @foreach(get_portfolio_status() as $key => $value)
-                            <option value="{{ $key }}">{{ $value }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="col-md-6">
-                    <label class="form-label fw-bold">Team Marketing</label>
-                    <select class="form-select" name="team_status">
-                        @foreach(get_team_status() as $key => $value)
-                            <option value="{{ $key }}">{{ $value }}</option>
-                        @endforeach
-                    </select>
-                </div>
+    <div class="wrapper">
+        <div class="col-md-8">
+                
+        <div class="card position-relative mt-5 shadow-sm border-0">
+        
+            <div class="position-absolute translate-middle top-0 start-50 shadow-lg bg-white rounded-circle d-flex align-items-center justify-content-center" 
+                style="width: 70px; height: 70px; border: 4px solid #fff; z-index: 10;">
+                <img src="{{asset('backend/assets/images/logo.jpg')}}"  alt="Logo"
+                style="width: 90%; height: 90%; object-fit: contain; border-radius: 50%;">
             </div>
 
-            <!-- Staff ID & Name -->
-            <div class="row g-3 mt-2">
-                <div class="col-md-6">
-                    <label class="form-label fw-bold">Staff ID</label>
-                    <input type="text" name="staff_id" class="form-control" placeholder="Enter Staff ID">
+            <div class="card-body pt-2"> 
+                <h3 class="text-center fw-bold mt-3 mb-4">Employee Registration</h3>
+
+                <form id="employeeForm" action="{{ route('criteria.store') }}" method="POST" class="p-4 border shadow-sm bg-white" style="border: 1px solid #dee2e6 !important; border-radius: 8px; mt-4: 30px; position: relative;">
+                    @csrf
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Portfolio</label>
+                            <select class="form-select" name="portfolio_status">
+                                @foreach(get_portfolio_status() as $key => $value)
+                                    <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Team</label>
+                            <select class="form-select" name="team">
+                                @foreach(get_team_status() as $key => $value)
+                                    <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mt-2">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Staff ID <span class="text-danger">*</span></label>
+                            <input type="text" name="staff_id" class="form-control" placeholder="Staff ID" required>
+                            @error('staff_id')
+                                <div style="color: red">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Full Name</label>
+                            <input type="text" name="full_name" class="form-control" placeholder="Full Name">
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mt-2">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Designation</label>
+                            <input type="text" name="designation" class="form-control" placeholder="Designation">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Supervisor Name</label>
+                            <input type="text" name="supervisor_name" class="form-control" placeholder="Supervisor Name">
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mt-2">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Supervisor ID</label>
+                            <input type="text" name="supervisor_id" class="form-control" placeholder="Supervisor ID">
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button type="submit" id="registerBtn" class="btn fw-bold text-white px-5 py-2 shadow" 
+                            style="background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%); 
+                                border: none; 
+                                border-radius: 30px; 
+                                transition: 0.3s ease-in-out;">
+                            <i class="fas fa-save me-2"></i> Register Employee
+                        </button>
+                    </div>
+
+                    </div>
+                {{-- </form> --}}
+
+                <br>
+
+                <div class="text-center mb-4">
+                    <h2 style="background: #70add3; display: inline-block; padding: 5px 20px; border-radius: 5px;" 
+                        class="fw-bold text-white">
+                        KPI Criteria Information
+                    </h2>
+                </div> 
+
+                <!-- Quantitative and Qualitative Button -->
+                {{-- <div class="d-flex flex-column align-items-center gap-2 mb-4">
+                    <button type="button" id="quantitativeInput" class="btn btn-outline-primary btn-lg px-4 rounded-pill shadow-sm" 
+                            onclick="setKpiType(0)" data-bs-toggle="modal" data-bs-target="#multiRowModal">
+                        <i class="fas fa-plus-circle me-2"></i> Add Quantitative Criteria
+                    </button>
+
+                    <button type="button" id="qualitativeInput" class="btn btn-outline-success btn-lg px-4 rounded-pill shadow-sm" 
+                            onclick="setKpiType(1)" data-bs-toggle="modal" data-bs-target="#multiRowModal">
+                        <i class="fas fa-plus-circle me-2"></i> Add Qualitative Criteria
+                    </button>
+                </div> --}}
+
+
+                <div class="container-fluid py-4">
+                <!-- Header Section: Title in center -->
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div style="width: 200px;"></div> 
+
+                        <h4 class="text-primary border-bottom pb-2 mb-0 text-center flex-grow-1">
+                            📊 Quantitative Criteria
+                        </h4>
+                        <div class="w-auto ms-auto"> 
+                            <button type="button" id="quantitativeInput" 
+                                    class="btn btn-outline-primary btn-lg px-4 rounded-pill shadow-sm text-nowrap custom-hover-btn" 
+                                    onclick="setKpiType(0)" data-bs-toggle="modal" data-bs-target="#multiRowModal">
+                                <i class="fas fa-plus-circle me-2"></i> Add Quantitative Criteria
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Data Display Section: Full Width -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div id="quantitative-display">
+                                <!-- Quantitative tables will appear here full page -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <label class="form-label fw-bold">Full Name</label>
-                    <input type="text" name="full_name" class="form-control" placeholder="Enter Full Name">
+
+
+                <div class="container-fluid py-4">
+                    <!-- Header Section: Title centered, Button on the right -->
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <!-- Spacer to balance the layout for centering the title -->
+                        <div style="width: 200px;"></div> 
+
+                        <h4 class="text-success border-bottom pb-2 mb-0 text-center flex-grow-1">
+                            📋 Qualitative Criteria
+                        </h4>
+
+                        <div class="text-end" style="flex: 1;">
+                            <button type="button" id="qualitativeInput" 
+                                    class="btn btn-outline-info btn-lg px-4 rounded-pill shadow-sm text-nowrap" 
+                                    onclick="setKpiType(1)" data-bs-toggle="modal" data-bs-target="#multiRowModal">
+                                <i class="fas fa-plus-circle me-2"></i> Add Qualitative Criteria
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div id="qualitative-display">
+                                <!-- Qualitative tables will appear here full page -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Hidden Input for Database -->
+                <input type="hidden" name="kpi_data" id="kpi_data">
+                
             </div>
-
-            <!-- Job Info -->
-            <div class="row g-3 mt-2">
-                <div class="col-md-6">
-                    <label class="form-label fw-bold">Designation</label>
-                    <input type="text" name="designation" class="form-control" placeholder="Enter Designation">
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label fw-bold">Supervisor Name</label>
-                    <input type="text" name="supervisor_name" class="form-control" placeholder="Enter Supervisor Name">
-                </div>
-            </div>
-
-            <!-- Supervisor ID -->
-            <div class="row g-3 mt-2">
-                <div class="col-md-6">
-                    <label class="form-label fw-bold">Supervisor ID</label>
-                    <input type="text" name="supervisor_id" class="form-control" placeholder="Enter Supervisor ID">
-                </div>
-            </div>
-
-            <div class="text-center mt-4">
-                <button type="submit" class="btn btn-success py-2 px-4 fw-bold shadow-sm text-white" 
-                    style="display: inline-block; width: auto;  border: none;">
-                Register Employee
-            </button>
-
-            </div>
-        </form>
-
-        <br>
-
-        <div class="text-center mb-4">
-            <h2 style="background: #D3B270; display: inline-block; padding: 5px 20px; border-radius: 5px;" 
-                class="fw-bold text-white">
-                KPI Criteria Information
-            </h2>
-        </div> 
-        <!-- KPI Button -->
-            <div class="kpi-box text-center p-3 border-dashed rounded cursor-pointer mb-3" 
-                style="border: 2px dashed #0d6efd; color: #0d6efd; cursor: pointer; transition: 0.3s;"
-                onmouseover="this.style.backgroundColor='#f0f7ff'" 
-                onmouseout="this.style.backgroundColor='transparent'"
-                data-bs-toggle="modal" data-bs-target="#multiRowModal">
-                <i class="fas fa-plus-circle me-2"></i>+ Add Quantitative Criteria
-            </div>
-
-            <!-- KPI List Show -->
-            <div id="kpi-display" class="kpi-list"></div>
-            <input type="hidden" name="kpi_data" id="kpi_data">
         </div>
     </div>
-</div>
 
+    </form>
     <!-- Modal -->
     <div class="modal fade" id="multiRowModal">
         <div class="modal-dialog modal-dialog-centered">
@@ -181,250 +248,191 @@
                 </div>
 
             </div>
+        </div>
     </div>
-</div>
 
 <script src="{{asset('backend/assets/vendors/js/vendors.min.js')}}"></script>
 
 <script>
 
-// Add Row
-document.getElementById('add-more-row').onclick = function () {
-    let row = `
-    <div class="row mb-2 criteria-row">
-        <div class="col-6">
-            <input type="text" class="form-control criteria" placeholder="Criteria">
-        </div>
-        <div class="col-4">
-            <input type="text" class="form-control weight" placeholder="Weight">
-        </div>
-        <div class="col-2">
-            <button class="btn btn-danger remove-row">X</button>
-        </div>
-    </div>`;
-    document.getElementById('criteria-wrapper').insertAdjacentHTML('beforeend', row);
-};
+    // Add Row
+    document.getElementById('add-more-row').onclick = function () {
+        let row = `
+        <div class="row mb-2 criteria-row">
+            <div class="col-6">
+                <input type="text" class="form-control criteria" placeholder="Criteria">
+            </div>
+            <div class="col-4">
+                <input type="text" class="form-control weight" placeholder="Weight">
+            </div>
+            <div class="col-2">
+                <button class="btn btn-danger remove-row">X</button>
+            </div>
+        </div>`;
+        document.getElementById('criteria-wrapper').insertAdjacentHTML('beforeend', row);
+    };
 
-// Remove Row
-document.addEventListener('click', function(e){
-    if(e.target.classList.contains('remove-row')){
-        e.target.closest('.criteria-row').remove();
-    }
-});
-
-// Save KPI
-document.getElementById('save-kpi').onclick = function (e) {
-    e.preventDefault(); 
-
-    let labelInput = document.getElementById('label_name');
-    let label = labelInput.value.trim();
-    let rows = document.querySelectorAll('.criteria-row');
-    let data = [];
-
-    rows.forEach(row => {
-        let criteriaInput = row.querySelector('.criteria');
-        let weightInput = row.querySelector('.weight');
-
-        if (criteriaInput && weightInput) {
-            let criteria = criteriaInput.value.trim();
-            let weight = weightInput.value.trim();
-
-            if (criteria !== "" && weight !== "") {
-                data.push({
-                    criteria: criteria,
-                    weight: parseFloat(weight),
-                    target: 0,
-                    actual: 0,
-                    score: 0
-                });
-            }
+    // Remove Row
+    document.addEventListener('click', function(e){
+        if(e.target.classList.contains('remove-row')){
+            e.target.closest('.criteria-row').remove();
         }
     });
 
-    if (!label || data.length === 0) {
-        alert("Please enter a label and at least one criteria with weight.");
+    let allKpiData = [];
+    let currentType = 0;
+
+    function setKpiType(type) {
+        currentType = type;
+    }
+
+   document.getElementById('save-kpi').onclick = function () {
+
+    let label = document.getElementById('label_name').value;
+    let rows = document.querySelectorAll('.criteria-row');
+
+    if (!label) {
+        alert("Label is required");
         return;
     }
 
-    const saveBtn = e.target;
-    saveBtn.disabled = true;
-    saveBtn.innerText = "Saving...";
+    let items = [];
+    let html = `
+        <div class="kpi-group mb-4 p-2 border rounded bg-white shadow-sm">
+        <div class="text-center mb-2">
+            <h6 class="fw-bold text-uppercase border-bottom d-inline-block pb-1">${label}</h6>
+        </div>
+        <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Criteria</th>
+                <th>Weight</th>
+                <th>Target</th>
+                <th>Actual</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+    `;
 
-    fetch("{{ route('criteria.store') }}", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-            "X-CSRF-TOKEN": "{{ csrf_token() }}" 
-        },
-        body: JSON.stringify({
-            label: label,
-            items: data
-        })
-    })
-    .then(async response => {
-        const isJson = response.headers.get('content-type')?.includes('application/json');
-        const res = isJson ? await response.json() : null;
+    let valid = false;
 
-        if (!response.ok) {
-            if (response.status === 422) {
-                throw new Error("Validation failed. Check your inputs.");
-            }
-            throw new Error(res?.message || 'Server error: ' + response.status);
-        }
+    rows.forEach((row) => {
+        let criteria = row.querySelector('.criteria').value;
+        let weight = row.querySelector('.weight').value;
 
-        if (!res) throw new Error("Empty or invalid response from server.");
-        return res;
-    })
-    .then(res => {
-        if (res.success) {
-            // টেবিল রেন্ডার করা (আগের ডাটা মুছবে না)
-            renderKpiTable(label, data);
-            
-            // মোডাল ক্লোজ করা
-            let modalEl = document.getElementById('multiRowModal');
-            let modal = bootstrap.Modal.getInstance(modalEl);
-            if (modal) modal.hide();
+        if (criteria && weight) {
+            valid = true;
 
-            // ইনপুট ক্লিয়ার করা
-            labelInput.value = '';
-            rows.forEach(row => {
-                row.querySelector('.criteria').value = '';
-                row.querySelector('.weight').value = '';
+            items.push({
+                criteria: criteria,
+                weight: weight,
+                target: 0,
+                actual: 0,
+                score: 0
             });
 
-            alert("Data saved successfully!");
-        } else {
-            alert("Error: " + (res.message || "Failed to save data"));
+            html += `
+                <tr>
+                    <td>${criteria}</td>
+                    <td>${weight}</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            `;
         }
-    })
-    .catch(error => {
-        console.error('Fetch Error:', error);
-        alert(error.message); 
-    })
-    .finally(() => {
-        saveBtn.disabled = false;
-        saveBtn.innerText = "Save";
     });
+
+    if (!valid) {
+        alert("Criteria and Weight required");
+        return;
+    }
+
+    html += `</tbody></table></div>`;
+
+    // ✅ GROUP STRUCTURE
+    allKpiData.push({
+        type: currentType,
+        label_name: label,
+        items: items
+    });
+
+    // ✅ Display
+    if (currentType === 0) {
+        document.getElementById('quantitative-display').insertAdjacentHTML('beforeend', html);
+    } else {
+        document.getElementById('qualitative-display').insertAdjacentHTML('beforeend', html);
+    }
+
+    // ✅ FINAL JSON FORMAT
+    document.getElementById('kpi_data').value = JSON.stringify({
+        kpi: allKpiData
+    });
+
+    bootstrap.Modal.getInstance(document.getElementById('multiRowModal')).hide();
+    resetModal();
 };
 
-function renderKpiTable(label, items) {
-    // একটি নতুন সেকশন হিসেবে ডাটা যোগ করার জন্য wrap করা হলো
-    let html = `
-        <div class="kpi-group mb-5">
-            <div class="text-center mb-3">
-                <h5 class="fw-bold text-uppercase border-bottom d-inline-block pb-1">${label}</h5>
-            </div>
-            <div class="table-responsive">
-                <table class="table table-hover table-bordered align-middle shadow-sm">
-                    <thead class="table-dark text-center">
-                        <tr>
-                            <th class="text-start ps-3">Criteria</th>
-                            <th style="width: 15%">Weight</th>
-                            <th style="width: 15%">Target</th>
-                            <th style="width: 15%">Actual</th>
-                            <th style="width: 15%">Score</th>
-                        </tr>
-                    </thead>
-                    <tbody>`;
+    document.getElementById('registerBtn').addEventListener('click', function(event) {
+        const hasQuantitative = allKpiData.some(item => item.type === 0);
+        
+        const hasQualitative = allKpiData.some(item => item.type === 1);
 
-    items.forEach(item => {
-        html += `
-            <tr>
-                <td class="ps-3">${item.criteria}</td>
-                <td class="text-center fw-bold">${item.weight}</td>
-                <td class="text-center">0</td>
-                <td class="text-center">0</td>
-                <td class="text-center">0</td>
-            </tr>`;
+        if (hasQuantitative && hasQualitative) {
+            console.log("data is found for both types.form will submit");
+        } else {
+            event.preventDefault(); 
+            //alert("Please add at least one Quantitative and one Qualitative KPI criteria");
+        }
     });
 
-    html += `</tbody></table></div></div>`;
+    function resetModal() {
+        document.getElementById('label_name').value = '';
+        document.getElementById('criteria-wrapper').innerHTML = `
+            <div class="row mb-2 criteria-row">
+                <div class="col-6">
+                    <input type="text" class="form-control criteria" placeholder="Criteria">
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control weight" placeholder="Weight">
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-danger remove-row">X</button>
+                </div>
+            </div>`;
+    }
 
-    // .innerHTML = html এর পরিবর্তে insertAdjacentHTML ব্যবহার করলে আগের ডাটা মুছবে না
-    document.getElementById('kpi-display').insertAdjacentHTML('beforeend', html);
-}
+</script>
 
+<script>
+    document.getElementById('registerBtn').addEventListener('click', function(event) {
+    const hasQuantitative = allKpiData.some(item => item.type === 0);
+    const hasQualitative = allKpiData.some(item => item.type === 1);
 
+    if (hasQuantitative && hasQualitative) {
+        Swal.fire({
+            title: "Success!",
+            text: "Employee Registered with Quantitative & Qualitative Data.",
+            //icon: "success",
+            confirmButtonColor: "#198754"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // document.getElementById('employeeForm').submit(); 
+                }
+            });
+        } else {
+            event.preventDefault(); 
+            Swal.fire({
+            title: "KPI Information Empty!",
+            html: '<p style="white-space: nowrap; font-size: 14px; margin: 0;">Please add at least one Quantitative and one Qualitative KPI criteria.</p>',
+           // confirmButtonColor: "#D3B270", 
+            confirmButtonText: "OK",
+            width: 'auto' 
+        });
 
-// document.getElementById('save-kpi').onclick = function () {
-
-//     let label = document.getElementById('label_name').value;
-//     let rows = document.querySelectorAll('.criteria-row');
-
-//     let data = [];
-
-//     // টেবিলের স্ট্রাকচার জেনারেট করা হচ্ছে
-//     let html = `
-//         <div class="text-center mb-3">
-//             <h5 class="fw-bold text-uppercase border-bottom d-inline-block pb-1">${label}</h5>
-//         </div>
-//         <div class="table-responsive">
-//             <table class="table table-hover table-striped table-bordered align-middle shadow-sm" id="kpi-final-table">
-//                 <thead class="table-dark">
-//                     <tr>
-//                         <th class="py-2">Criteria</th>
-//                         <th class="py-2 text-center">Weight (%)</th>
-//                         <th class="py-2 text-center">Target</th>
-//                         <th class="py-2 text-center">Actual</th>
-//                         <th class="py-2 text-center">Score</th>
-//                     </tr>
-//                 </thead>
-//                 <tbody>
-//     `;
-
-//     rows.forEach(row => {
-//         let criteria = row.querySelector('.criteria').value;
-//         let weight = row.querySelector('.weight').value;
-
-//         if(criteria && weight){
-//             // ডাটাবেজে ইনসার্ট করার জন্য অবজেক্ট তৈরি
-//             data.push({
-//                 criteria: criteria,
-//                 weight: weight,
-//                 target: 0, // ডিফল্ট ভ্যালু
-//                 actual: 0,
-//                 score: 0
-//             });
-
-//             // ভিউ টেবিল রো যোগ করা
-//             html += `
-//                 <tr>
-//                     <td class="ps-3">${criteria}</td>
-//                     <td class="text-center fw-bold">${weight}%</td>
-//                     <td class="text-center">-</td>
-//                     <td class="text-center">-</td>
-//                     <td class="text-center">-</td>
-//                 </tr>
-//             `;
-//         }
-//     });
-
-//     html += `</tbody></table></div>`;
-
-//     // ১. আপনার পেজের নির্দিষ্ট ডিভ-এ টেবিলটি ইনসার্ট করা
-//     document.getElementById('kpi-display').innerHTML = html;
-
-//     // ২. ডাটাবেজে পাঠানোর জন্য JSON ডেটা ইনপুট ফিল্ডে ইনসার্ট করা
-//     // নিশ্চিত করুন আপনার ফর্মে <input type="hidden" name="kpi_data" id="kpi_data"> এই আইডিটি আছে
-//     document.getElementById('kpi_data').value = JSON.stringify({
-//         label: label,
-//         items: data
-//     });
-
-    
-//     // ৩. মোডাল ক্লোজ করা
-//     let modalElement = document.getElementById('multiRowModal');
-//     let modal = bootstrap.Modal.getInstance(modalElement);
-//     if(modal) {
-//         modal.hide();
-//     }
-
-//     // ৪. ফর্মটি ক্লিয়ার করা (ঐচ্ছিক)
-//     document.getElementById('label_name').value = '';
-//     // প্রথম রো বাদে বাকিগুলো রিমুভ করতে চাইলে এখানে কোড যোগ করা যায়
-// };
-
+        }
+    });
 
 </script>
 

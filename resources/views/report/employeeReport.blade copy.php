@@ -2,227 +2,258 @@
 <html>
 <head>
     <title>KPI Employee Report</title>
-
     <style>
-        @page {
-            margin: 8px;
-        }
+    body {
+        font-family: DejaVu Sans, sans-serif;
+        font-size: 9px; 
+        margin: 0;
+        padding: 0;
+        line-height: 1.1; 
+    }
 
-        body {
-            font-family: DejaVu Sans, sans-serif;
-            font-size: 9px; /* ছোট করলে এক পেজে ফিট হবে */
-            margin: 0;
-            padding: 0;
-        }
+    
+    .header {
+        text-align: center;
+        margin-bottom: 5px; /* 🔴 reduced */
+    }
 
-        h2 {
-            text-align: center;
-            margin: 5px 0;
-        }
+    .header img {
+        max-height: 50px; 
+    }
 
-        .header {
-            text-align: center;
-            margin-bottom: 5px;
-        }
+    h2 {
+        margin: 3px 0;
+        font-size: 12px;
+    }
 
-        .header img {
-            height: 50px;
-        }
+    .info-section {
+        width: 100%;
+        border-bottom: 1px solid #000;
+        padding-bottom: 3px;
+        margin-bottom: 5px; 
+    }
 
-        /* INFO SECTION (float বাদ) */
-        .info-table {
-            width: 100%;
-            margin-bottom: 8px;
-            border-bottom: 1px solid #000;
-        }
+    .left-info {
+        float: left;
+        width: 60%;
+    }
 
-        .info-table td {
-            border: none;
-            padding: 3px;
-            font-size: 9px;
-        }
+    .right-info {
+        float: right;
+        width: 40%;
+        text-align: right;
+    }
 
-        .type-header {
-            background-color: #f2f2f2;
-            text-align: center;
-            font-weight: bold;
-            padding: 4px;
-            border: 1px solid #ddd;
-            margin-top: 3px;
-        }
+    .clear {
+        clear: both;
+    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 5px;
-        }
+    .type-header {
+        background-color: #f2f2f2;
+        padding: 3px; /* 🔴 smaller */
+        font-size: 10px;
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        margin: 0;
 
-        thead {
-            display: table-header-group;
-        }
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 4px;
-        }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 3px; /* 🔴 tighter gap */
+        page-break-inside: avoid;
+    }
 
-        th {
-            background-color: #fafafa;
-            font-size: 9px;
-        }
+    thead {
+        display: table-header-group;
+    }
 
-        td {
-            font-size: 9px;
-        }
+    tr {
+        page-break-inside: avoid;
+    }
 
-        tr {
-            page-break-inside: auto;
-        }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 2px 3px;   /* 🔴 VERY IMPORTANT (tight rows) */
+        font-size: 8.5px;   /* 🔴 compact text */
+        line-height: 1.05;  /* 🔴 tightest spacing */
+        vertical-align: middle;
+        text-align: center;
+    }
 
-        .summary-table th,
-        .summary-table td {
-            padding: 6px;
-            font-size: 9px;
-        }
+    th {
+        background-color: #fafafa;
+        padding: 2px;
+        font-size: 8.5px;
+    }
 
-        .signature {
-            margin-top: 30px;
-        }
+    td:first-child {
+        text-align: left;
+    }
 
-        .signature td {
-            border: none;
-            text-align: center;
-            font-size: 9px;
-        }
+    .summary-table {
+        margin-top: 5px;
+        page-break-inside: avoid;
+    }
 
-        .sign-box {
-            border-top: 1px solid #000;
-            width: 80%;
-            margin: 0 auto;
-            padding-top: 3px;
-        }
+    .signature {
+        margin-top: 25px; /* 🔴 reduced */
+        page-break-inside: avoid;
+    }
 
-    </style>
+    table, tr, td, th {
+        page-break-inside: avoid !important;
+    }
+
+    @page {
+    size: A4;
+    margin: 20px; /* tighter page margins */
+}
+</style>
 </head>
 
 <body>
+    <div class="header" style="margin: 0; padding: 0;">
+        <img 
+            src="data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('backend/assets/images/logo.jpg'))) }}" 
+            style="height: 45px; margin: 0; display: block;"
+        >
+        <h2 style="margin: 2px 0 3px 0; font-size: 12px;">
+            Monthly Key Performance Indicator
+        </h2>
+    </div>
 
-<div class="header">
-    <img src="data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('backend/assets/images/logo.jpg'))) }}">
-    <h2>Monthly Key Performance Indicator</h2>
-</div>
-
-<!-- INFO -->
-<table class="info-table">
-    <tr>
-        <td width="60%">
+    <div class="info-section" style="margin: 0 0 5px 0; padding-bottom: 3px;">
+        <div style="font-size:10px; line-height:1.2;" class="left-info">
             <strong>Name:</strong> {{ $employee->full_name }} ({{ $employee->staff_id }})<br>
             <strong>Supervisor:</strong> {{ $employee->supervisor_name }} ({{ $employee->supervisor_id }})
-        </td>
-        <td width="40%" style="text-align:right;">
+        </div>
+        <div style="font-size:10px; line-height:1.2;" class="right-info">
             <strong>Position:</strong> {{ $employee->designation }}<br>
             <strong>Month:</strong> {{ now()->format('F Y') }}
-        </td>
-    </tr>
-</table>
-
-@php 
-$grandTotalScore = 0; 
-$grandTotalFScore = 0; 
-$grandBaseAmount = 0;
-$grandEligible = 0;
-$grandObtained = 0;
-$grandBonus = 0;
-$grandTotalAmount = 0;
+        </div>
+        <div class="clear"></div>
+    </div>
+    <br>
+    @php 
+    // গ্র্যান্ড টোটাল হিসাবের জন্য ভ্যারিয়েবল ইনিশিয়ালাইজেশন
+    $grandTotalScore = 0; 
+    $grandTotalFScore = 0; 
+    $grandBaseAmount = 0;
+    $grandEligible = 0;
+    $grandObtained = 0;
+    $grandBonus = 0;
+    $grandTotalAmount = 0;
 @endphp
 
-@foreach ($employees as $type => $group)
+    @forelse ($employees as $type => $labelsCollection)
+    <div class="type-header">
+        {{ $type == 0 ? 'Quantitative Criteria' : 'Qualitative Criteria' }}
+    </div>
 
-<div class="type-header">
-    {{ $type == 0 ? 'Quantitative Criteria' : ($type == 1 ? 'Qualitative Criteria' : $type) }}
+    @foreach ($labelsCollection as $labelName => $group)
+        <div style="text-align: center; font-weight: bold; border: 1px solid #ddd; border-top: none; border-bottom: none; padding: 5px; background-color: #fff;">
+            {{ $labelName ?? 'General' }}
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 35%; text-align: center;">Criteria</th>
+                    <th style="width: 15%; text-align: center;">Target</th>
+                    <th style="width: 15%; text-align: center;">Actual</th>
+                    <th style="width: 15%; text-align: center;">Weight</th>
+                    <th style="width: 20%; text-align: right;">Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($group as $obj)
+                    <tr>
+                        <td style="text-align: center;">{{ $obj->criteria }}</td>
+                        <td style="text-align: center;">{{ $obj->target ?? '0' }}</td>
+                        <td style="text-align: center;">{{ $obj->actual ?? '0' }}</td>
+                        <td style="text-align: center;">{{ $obj->weight ?? '0' }}</td>
+                        <td style="text-align: right;">{{ number_format($obj->score, 2) }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    @endforeach
+@empty
+    <p style="text-align: center; padding: 20px; border: 1px solid #ddd;">No data found.</p>
+@endforelse
+
+
+<!-- পেজের একদম নিচে গ্র্যান্ড সামারি টেবিল -->
+@if($employees->count() > 0)
+    <table style="width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 10px; table-layout: fixed;">
+        <thead>
+            <tr style="background-color: #f2f2f2;">
+                <th style="border: 1px solid #ddd; padding: 5px;">Total Score</th>
+                <th style="border: 1px solid #ddd; padding: 5px;">Total F.Score</th>
+                <th style="border: 1px solid #ddd; padding: 5px;">Base Amount</th>
+                <th style="border: 1px solid #ddd; padding: 5px;">Eligible</th>
+                <th style="border: 1px solid #ddd; padding: 8px;">Obtained</th>
+                <th style="border: 1px solid #ddd; padding: 5px;">Obtained Bonus</th>
+                <th style="border: 1px solid #ddd; padding: 5px; background-color: #e9e9e9;">Total Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">{{ number_format($grandTotalScore, 2) }}</td>
+                <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">{{ number_format($grandTotalFScore, 2) }}</td>
+                <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">{{ number_format($grandBaseAmount, 2) }}</td>
+                <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">{{ number_format($grandEligible, 2) }}</td>
+                <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">{{ number_format($grandObtained, 2) }}</td>
+                <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">{{ number_format($grandBonus, 2) }}</td>
+                <td style="border: 1px solid #ddd; padding: 10px; text-align: center; font-weight: bold; background-color: #fafafa;">
+                    {{ number_format($grandTotalAmount, 2) }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+@endif
+
+<div style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: white; padding-bottom: 20px;">
+    <table style="width: 100%; border: none; text-align: center; table-layout: fixed;">
+        <tr>
+            <td style="border: none;">
+                <div style="width: 80%; margin: 0 auto; border-top: 1px solid #000; padding-top: 5px;">
+                    <strong>Prepared By</strong><br>
+                    (Signature)
+                </div>
+            </td>
+            
+            <td style="border: none;">
+                <div style="width: 80%; margin: 0 auto; border-top: 1px solid #000; padding-top: 5px;">
+                    <strong>Checked By</strong><br>
+                    (Signature)
+                </div>
+            </td>
+            
+            <td style="border: none;">
+                <div style="width: 80%; margin: 0 auto; border-top: 1px solid #000; padding-top: 5px;">
+                    <strong>Recommended By</strong><br>
+                    (Signature)
+                </div>
+            </td>
+            
+            <td style="border: none;">
+                <div style="width: 80%; margin: 0 auto; border-top: 1px solid #000; padding-top: 5px;">
+                    <strong>Approved By</strong><br>
+                    (Signature)
+                </div>
+            </td>
+        </tr>
+    </table>
 </div>
 
-<div style="text-align:center; font-weight:bold; border:1px solid #ddd; border-top:none; padding:3px;">
-    {{ $group->first()->label_name ?? 'General' }}
-</div>
-
-<table>
-    <thead>
-        <tr>
-            <th width="30%" style="text-align:left;">Criteria</th>
-            <th>Target</th>
-            <th>Actual</th>
-            <th>Weight</th>
-            <th>Score</th>
-            <th>F.Score</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($group as $obj)
-        @php 
-            $grandTotalScore += $obj->score ?? 0;
-            $grandTotalFScore += $obj->score ?? 0; 
-        @endphp
-        <tr>
-            <td style="text-align:left;">{{ $obj->criteria }}</td>
-            <td>{{ $obj->target ?? '0' }}</td>
-            <td>{{ $obj->actual ?? '0' }}</td>
-            <td>{{ $obj->weight ?? '0' }}</td>
-            <td>{{ number_format($obj->score, 2) }}</td>
-            <td>{{ number_format($obj->score, 2) }}</td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
-
-@php
-$first = $group->first();
-$grandBaseAmount += $first->base_amount ?? 0;
-$grandEligible += $first->eligible_amount ?? 0;
-$grandObtained += $first->obtained_amount ?? 0;
-$grandBonus += $first->bonus ?? 0;
-$grandTotalAmount += $first->total_amount ?? 0;
-@endphp
-
-@endforeach
-
-
-<!-- SUMMARY -->
-<table class="summary-table">
-    <thead>
-        <tr>
-            <th>Total Score</th>
-            <th>Total F.Score</th>
-            <th>Base</th>
-            <th>Eligible</th>
-            <th>Obtained</th>
-            <th>Bonus</th>
-            <th>Total</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>{{ number_format($grandTotalScore, 2) }}</td>
-            <td>{{ number_format($grandTotalFScore, 2) }}</td>
-            <td>{{ number_format($grandBaseAmount, 2) }}</td>
-            <td>{{ number_format($grandEligible, 2) }}</td>
-            <td>{{ number_format($grandObtained, 2) }}</td>
-            <td>{{ number_format($grandBonus, 2) }}</td>
-            <td><strong>{{ number_format($grandTotalAmount, 2) }}</strong></td>
-        </tr>
-    </tbody>
-</table>
-
-
-<!-- SIGNATURE -->
-<table class="signature">
-    <tr>
-        <td><div class="sign-box">Prepared By</div></td>
-        <td><div class="sign-box">Checked By</div></td>
-        <td><div class="sign-box">Recommended By</div></td>
-        <td><div class="sign-box">Approved By</div></td>
-    </tr>
-</table>
-
+    
 </body>
+
 </html>
+

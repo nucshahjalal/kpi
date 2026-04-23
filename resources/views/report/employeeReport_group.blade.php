@@ -150,50 +150,25 @@
     $grandTotalAmount = 0;
 @endphp
 
-  @php 
-    $grandTotalScore = 0; 
-    // এভাবে অন্য ভেরিয়েবলগুলোও ডিক্লেয়ার করতে পারেন
-@endphp
-@php $grandTotalScore = 0; @endphp
-
-@foreach ($employees as $type => $labels)
-    <div class="type-header" style="background: #f4f4f4; padding: 10px; font-weight: bold; border: 1px solid #ddd; text-align: center;">
-        {{ $type == 0 ? 'Quantitative' : 'Qualitative' }}
-    </div>
+    @foreach ($employees as $type => $labels)
+    <div class="type-header">{{ $type == 0 ? 'Quantitative' : 'Qualitative' }}</div>
 
     @foreach ($labels as $labelName => $groups)
-        <div class="label-header" style="text-align: center; font-weight: bold; padding: 8px; border: 1px solid #ddd; border-top: none; background: #fff;">
-            {{ $labelName }}
-        </div>
+        <div class="label-header">{{ $labelName }}</div>
 
-        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; table-layout: fixed;">
-            <thead>
-                <tr style="background-color: #f9f9f9;">
-                    <th style="border: 1px solid #ddd; padding: 8px; text-align: center; width: 40%;">Criteria</th>
-                    <th style="border: 1px solid #ddd; padding: 8px; text-align: center;">Target</th>
-                    <th style="border: 1px solid #ddd; padding: 8px; text-align: center;">Actual</th>
-                    <th style="border: 1px solid #ddd; padding: 8px; text-align: center;">Weight</th>
-                    <th style="border: 1px solid #ddd; padding: 8px; text-align: center;">Score</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($groups as $group)
-                    @foreach ($group['all_items'] as $item)
-                        @php $grandTotalScore += $item['score'] ?? 0; @endphp
-                        <tr>
-                            <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ $item['criteria'] }}</td>
-                            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">{{ $item['target'] }}</td>
-                            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">{{ $item['actual'] }}</td>
-                            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">{{ $item['weight'] }}</td>
-                            <td style="border: 1px solid #ddd; padding: 8px; text-align: right;">{{ $item['score'] }}</td>
-                        </tr>
-                    @endforeach
+        @foreach ($groups as $group) {{-- এখানে প্রতিটি $group এ একটি 'all_items' অ্যারে আছে --}}
+            <table>
+                @foreach ($group['all_items'] as $item)
+                    <tr>
+                        <td>{{ $item['criteria'] }}</td>
+                        <td>{{ $item['weight'] }}</td>
+                        <td>{{ $item['score'] }}</td>
+                    </tr>
                 @endforeach
-            </tbody>
-        </table>
+            </table>
+        @endforeach
     @endforeach
 @endforeach
-
 
 
 

@@ -23,7 +23,7 @@ class EmployeeController extends Controller
 
         $from_date = $request->from_date;
         $to_date = $request->to_date;
-        $this->data['employees'] = Employee::all();
+        $this->data['employees'] = Employee::orderBy('id', 'desc')->get();
         return view('kpi.employee.index', $this->data);
     }
 
